@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Watterson on Chipmunk Bay</title>
-    <link>http://kaigon.github.io/kaigon.github.io/characters/watterson/</link>
+    <link>http://kaigon.github.io/characters/watterson/</link>
     <description>Recent comics in Watterson on Chipmunk Bay</description>
     
       <language>en-us</language>
@@ -14,7 +14,7 @@
     
       <lastBuildDate>Mon, 23 May 2016 13:51:37 -0500</lastBuildDate>
     
-    <atom:link href="http://kaigon.github.io/kaigon.github.io/characters/watterson/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://kaigon.github.io/characters/watterson/index.xml" rel="self" type="application/rss+xml" />
     
   </channel>
 </rss>

@@ -1,7 +1,7 @@
 contentdir = "content"
 layoutdir = "layouts"
 publishdir = "public"
-baseurl = "http://kaigon.github.io/kaigon.github.io/"
+baseurl = "http://kaigon.github.io/"
 languageCode = "en-us"
 title = "Chipmunk Bay"
 canonifyurls = true
@@ -28,7 +28,7 @@ paginatePath = "post"
 [Author]
   	name = "Justin Parks"
   	email = "justin@chipmunkbay.com"
-  	facebook = ""
+  	facebook = "https://www.facebook.com/pages/Chipmunk-Bay/226443949074"
   	twitter = ""
     patreon = ""
 

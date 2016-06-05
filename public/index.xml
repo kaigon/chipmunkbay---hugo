@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Chipmunk Bay</title>
-    <link>http://kaigon.github.io/kaigon.github.io/</link>
+    <link>http://kaigon.github.io/</link>
     <description>Recent comics on Chipmunk Bay</description>
     
       <language>en-us</language>
@@ -14,7 +14,7 @@
     
       <lastBuildDate>Wed, 25 May 2016 13:51:37 -0500</lastBuildDate>
     
-    <atom:link href="http://kaigon.github.io/kaigon.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://kaigon.github.io/index.xml" rel="self" type="application/rss+xml" />
     
   </channel>
 </rss>
