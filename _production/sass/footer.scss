@@ -1,0 +1,19 @@
+@import 'colors',
+'include-media';
+img.city-bg-footer {
+    width: 100%;
+    height: auto;
+    max-width: 2000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footer {
+    background: $dark;
+    color: white;
+    .container {
+        padding-top: 4px;
+        padding-bottom: 2px;
+        text-align: center;
+    }
+}

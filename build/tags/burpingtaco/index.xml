@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Burpingtaco on Chipmunk Bay</title>
+    <link>http://kaigon.github.io/chipmunkbay/tags/burpingtaco/</link>
+    <description>Recent comics in Burpingtaco on Chipmunk Bay</description>
+    
+      <language>en-us</language>
+    
+    <author>
+    justin@chipmunkbay.com (Justin Parks)
+    </author>
+    
+    
+      <lastBuildDate>Wed, 25 May 2016 13:51:37 -0500</lastBuildDate>
+    
+    <atom:link href="http://kaigon.github.io/chipmunkbay/tags/burpingtaco/index.xml" rel="self" type="application/rss+xml" />
+    
+  </channel>
+</rss>

@@ -1,0 +1,20 @@
+[Chipmunkbay]
+	name = "Chipmunk Bay"
+	description = "In the tiny lake-side town of Chipmunk Bay we follow the humorous adventures of five close friends as they react to whatever situation life throws at them. Except then one of them dies in an ironically divine meteor incident, so now it’s just four close friends reacting to whatever adventures life throws at them. Well, ok, now the police have found and returned a long lost and forgotten son to them, so it’s actually now four friends and a kid having adventures. Also there’s a talking monkey. Adventure!"
+	folder = "cb"
+[Ninjamonkey]
+	name = "Ninja Monkey"
+	description = "I made a comic for Ninja Monkey in the ‘traditional’ comic book format. It’s very terrible. You should read it!"
+	folder = "nm"
+[Mousehouse]
+	name = "Mouse House"
+	description = "Before Chipmunk Bay, there was Mouse House. Pretty much the same characters, and similar jokes. And the art is super bad. Enjoy!"
+	folder = "mh"
+[Teamn3]
+	name = "Team N3"
+	description = "These comics feature the gang and their adventures from the now defunct Neener Neener website. Some of the characters will be familiar to Chipmunk Bay fans."
+	folder = "n3"
+[Guest]
+	name = "Guest Comic"
+	description = "Comics that I’ve made for other sites that I can no longer find on their sites. So I'm archiving them here!"
+	folder = "guest"

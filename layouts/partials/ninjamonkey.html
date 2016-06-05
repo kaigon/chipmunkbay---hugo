@@ -1,0 +1,31 @@
+<!-- begin post -->
+<main class="comic">
+    <div class="container comic--wrapper">
+        <!-- begin navigation -->
+        <nav class="comic--nav">
+            <ul class="pager main-pager">
+                <!-- Previous Post -->
+                {{ if .PrevInSection }}
+                <li class="previous">
+                    <a href="{{ .PrevInSection.Permalink }}" data-toggle="tooltip" data-placement="top" title="{{ .PrevInSection.Title }}">&laquo; Previous Post</a>
+                </li>
+                {{ end }}
+                <!-- next post -->
+                {{ if .NextInSection }}
+                <li class="next">
+                    <a href="{{ .NextInSection.Permalink }}" data-toggle="tooltip" data-placement="top" title="{{ .NextInSection.Title }}">Next Post &raquo;</a>
+                </li>
+                {{ end }}
+            </ul>
+        </nav>
+        <!-- begin comic -->
+        <figure class="comic--comic">
+            <div class="icon-comic-bg comic--comic_bg">
+                <div class="comic--comic_padding">
+                    <img src="{{ .Site.BaseURL }}{{ .Params.comic }}" alt="{{ .Params.alt }}" class="animated comic--comic_img" style="max-height:200px;">
+                </div>
+            </div>
+        </figure>
+    </div>
+</main>
+<!-- end post -->

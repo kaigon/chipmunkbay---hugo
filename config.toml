@@ -1,0 +1,40 @@
+contentdir = "content"
+layoutdir = "layouts"
+publishdir = "public"
+baseurl = "http://kaigon.github.io/kaigon.github.io/"
+languageCode = "en-us"
+title = "Chipmunk Bay"
+canonifyurls = true
+
+
+
+[params]
+	Description = "a comic by Justin Parks"
+
+googleAnalytics = "UA-8550146-1"
+pluralizelisttitles = false
+
+# Pagination
+paginate = 5
+paginatePath = "post"
+
+[permalinks]
+    chipmunkbay = "/:year/:month/:day/:slug/"
+    teamn3 = "/team-n3/:year/:month/:day/:slug/"
+    guest = "/guest/:year/:month/:day/:slug/"
+    mousehouse = "/mousehouse/:year/:month/:day/:slug/"
+    ninjamonkey = "/ninja-monkey/:slug/"
+
+[Author]
+  	name = "Justin Parks"
+  	email = "justin@chipmunkbay.com"
+  	facebook = ""
+  	twitter = ""
+    patreon = ""
+
+[taxonomies]
+  tags = "tags"
+  storyline = "storyline"
+  characters = "characters"
+
+

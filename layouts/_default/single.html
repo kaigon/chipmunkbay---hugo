@@ -1,0 +1,32 @@
+{{ partial "head.html" . }}
+
+
+      {{ if eq .Type "post" }}
+        {{ partial "post.html" . }}
+
+      {{ else if eq .Type "chipmunkbay" }}
+        {{ partial "comic.html" . }}
+
+      {{ else if eq .Type "ninjamonkey" }}
+        {{ partial "ninjamonkey.html" . }}
+
+      {{ else if eq .Type "teamn3" }}
+        {{ partial "comic.html" . }}
+
+      {{ else if eq .Type "guest" }}
+        {{ partial "comic.html" . }}
+
+      {{ else if eq .Type "mousehouse" }}
+        {{ partial "comic.html" . }}  
+
+      {{ else if eq .Type "page" }}
+        {{ partial "page.html" . }}
+
+      {{ else }}
+        NO MATCHING PARTIAL
+      {{ end }}
+
+
+{{ partial "footer.html" . }}
+
+  

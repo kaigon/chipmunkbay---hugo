@@ -1,0 +1,103 @@
+@import 'colors',
+'include-media';
+.nav-menu {
+    cursor: pointer;
+    user-select: none;
+    position: absolute;
+    right: 15px;
+    top:18px;
+    align-items:center;
+    display: flex;
+    z-index: 1000;
+    text-align: right;
+    opacity: 0.4;
+    transition: all 400ms ease;
+    color: $lightbg;
+    font-size:1rem;
+    span {
+        color: inherit;
+        padding-left: 6px;
+    }
+    .icon-menu {
+        width: 20px;
+        height: 20px;
+        background-position: center;
+        background-size: contain;
+        display: block;
+    }
+    .close-button {
+        top: inherit;
+    }
+    &:hover {
+        opacity: 1;
+    }
+    @include media('>sm') {
+        .icon-menu {
+            width:30px;
+            height:30px;
+        }
+    }
+}
+
+.nav-content {
+    position: relative;
+    transition: all 400ms ease;
+    color: $lightbg;
+    text-align: center;
+    li {
+        transition: inherit;
+        margin: 0 auto;
+        font-size: 0;
+        line-height: 2.4em;
+        transform: translateX(-100%);
+    }
+    a {
+        color: inherit;
+    }
+}
+
+.icon-patreon {
+  width: 0.8em;
+  height: 0.9em;
+  display: inline-block;
+  background-size: contain;
+  vertical-align: middle;
+}
+
+#menuToggle {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+    &:checked {
+        ~ .nav-content {
+            li {
+                font-size: inherit;
+                &:last-of-type {
+                    padding-bottom: 2em;
+                }
+                &:first-of-type {
+                    padding-top: 1em;
+                }
+                transform: translateX(0%);
+                &:nth-child(1) {
+                    transition: line-height 400ms ease, padding 400ms ease, font-size 400ms ease, transform 400ms ease 200ms;
+                }
+                &:nth-child(2) {
+                    transition: line-height 400ms ease, padding 400ms ease, font-size 400ms ease, transform 400ms ease 300ms;
+                }
+                &:nth-child(3) {
+                    transition: line-height 400ms ease, padding 400ms ease, font-size 400ms ease, transform 400ms ease 400ms;
+                }
+                &:nth-child(4) {
+                    transition: line-height 400ms ease, padding 400ms ease, font-size 400ms ease, transform 400ms ease 500ms;
+                }
+                &:nth-child(5) {
+                    transition: line-height 400ms ease, padding 400ms ease, font-size 400ms ease, transform 400ms ease 600ms;
+                }
+                &:nth-child(6) {
+                    transition: line-height 400ms ease, padding 400ms ease, font-size 400ms ease, transform 400ms ease 700ms;
+                }
+            }
+        }
+    }
+}

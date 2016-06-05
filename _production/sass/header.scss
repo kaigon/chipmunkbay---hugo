@@ -1,0 +1,42 @@
+@import 'colors',
+'include-media';
+.header {
+    overflow: visible;
+    z-index: 3;
+    background-repeat: repeat-x;
+    background-position: center bottom;
+    padding: 0;
+    display: block;
+    background-size: 110%;
+    margin:0;
+    position:relative;
+    padding-bottom:15px;
+    .container {
+        background-color: $dark;
+        padding-top:10px;
+    }
+    h2 {
+        margin: 0 auto;
+        font-size: 0;
+    }
+    @include media('>sm'){
+        background-color:$darkbg;
+    	.container {
+    		text-align: center;
+    	}
+    }
+}
+
+.icon-logo {
+    width: 100%;
+    max-width: 140px;
+    height: 40px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    display: inline-block;
+    background-size:contain;
+    @include media('>sm'){
+        max-width: 180px;
+    height: 50px;
+    }
+}

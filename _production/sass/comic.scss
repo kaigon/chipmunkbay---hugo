@@ -1,0 +1,54 @@
+@import 'colors',
+'include-media';
+.comic {
+    padding:0;
+}
+.comic--comic {
+    padding: 10px;
+    margin: 0 auto;
+    overflow: hidden;
+    overflow-x: scroll;
+    width: 100%;
+    figure {
+        margin:0;
+        position:relative;
+    }
+    img {
+        width: auto;
+        height: auto;
+        max-width: 960px;
+        margin: 0 15px 0 0;
+        display: inline-block;
+    }
+    @include media('>sm') {
+        padding: 20px 0 0;
+        overflow: hidden;
+        background-color: $darkbg;
+        background-position: center bottom;
+        background-size: contain;
+        img {
+            max-width: 100%;
+            height:auto;
+            width: auto;
+            max-height: none;
+            margin:0 auto;
+        }
+    }
+}
+.comic--weiner {
+    position: absolute;
+    z-index: 10;
+    opacity: 0;
+    width:100%;
+    top:0;
+    left:0;
+    background-color:rgba(white,0.9);
+    &:hover {
+
+    opacity:1;
+
+    }
+}
+
+    
+

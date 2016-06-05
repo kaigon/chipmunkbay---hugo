@@ -1,0 +1,57 @@
+@import 'colors',
+'include-media';
+
+/* comic blog */
+
+.comic--article {
+    margin: 0 auto;
+    padding: 0;
+    max-width: 560px;
+    header {
+        margin-bottom:1rem;
+        margin-top:1rem;
+        small {
+            display: block;
+            font-size: 10px;
+            letter-spacing: 1.4px;
+            font-weight: 700;
+            color:$dark;
+            opacity:0.5;
+        }
+    }
+    h1 {
+        color:$dark;
+    }
+    aside {
+        text-align: center;
+        line-height: 1.4;
+        margin-top:1.6rem;
+        margin-bottom:3.4rem;
+    }
+    footer {
+        font-size:12px;
+        text-align: center;
+        color:$gray;
+        li {
+            display: inline-block;
+
+        }
+        span {
+            text-indent: -1000em;
+            display: inline-block;
+            background-size:cover;
+        }
+        svg {
+            
+        }
+    }
+
+    @include media('>sm'){
+        header {
+            text-align: center;
+            small {
+                font-size: 12px;
+            }
+        }
+    }
+}
