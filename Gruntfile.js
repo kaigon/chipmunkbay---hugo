@@ -155,7 +155,7 @@ module.exports = function(grunt) {
                     command: '.\\hugo server'
                 },
                 dev: {
-                    command: '.\\hugo --baseUrl=http://localhost:8080/chipmunkbay/dev --destination=dev' //--source=site --destination=../dev
+                    command: '.\\hugo --baseUrl=http://localhost:8080/master_chipmunkbay/dev --destination=dev' //--source=site --destination=../dev
                 },
                 build: {
                     command: '.\\hugo -d public/'
@@ -170,10 +170,10 @@ module.exports = function(grunt) {
 
         open: {
             devserver: {
-                path: 'http://localhost:8080/chipmunkbay/dev'
+                path: 'http://localhost:8080/master_chipmunkbay/dev'
             },
             live: {
-                path: 'http://kaigon.github.io/chipmunkbay/'
+                path: 'http://kaigon.github.io/'
             }
         },
 

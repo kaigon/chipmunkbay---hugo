@@ -9,8 +9,9 @@
     overflow: hidden;
     overflow-x: scroll;
     width: 100%;
+    text-align: center;
     figure {
-        margin:0;
+        margin:0 auto;
         position:relative;
     }
     img {
@@ -21,7 +22,7 @@
         display: inline-block;
     }
     @include media('>sm') {
-        padding: 20px 0 0;
+        padding: 20px 10px 0;
         overflow: hidden;
         background-color: $darkbg;
         background-position: center bottom;
@@ -34,6 +35,10 @@
             margin:0 auto;
         }
     }
+    @include media('>md'){
+        padding-right:50px;
+        padding-left:50px;
+    }
 }
 .comic--weiner {
     position: absolute;
@@ -42,6 +47,7 @@
     width:100%;
     top:0;
     left:0;
+    right:0;
     background-color:rgba(white,0.9);
     &:hover {
 

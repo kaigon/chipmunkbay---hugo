@@ -24,7 +24,7 @@
                     <!-- Previous Post -->
                     {{ range first 1 (after 1 (where .Data.Pages "Type" "chipmunkbay")) }}
                       
-                            <a href="{{ .Permalink }}" class="icon-button" title="{{ .Title }}">
+                            <a href="{{ .Permalink }}" class="icon-button prev" title="{{ .Title }}">
                                 <i class="icon-arrow"></i>
                                 <span>&lsaquo; Prev</span>
                             </a>
@@ -35,7 +35,7 @@
                     <!-- previous button -->
                     {{ if .PrevInSection }}
                         
-                            <a href="{{ .PrevInSection.Permalink }}" class="icon-button" data-toggle="tooltip" data-placement="top" title="{{ .PrevInSection.Title }}">
+                            <a href="{{ .PrevInSection.Permalink }}" class="prev icon-button" data-toggle="tooltip" data-placement="top" title="{{ .PrevInSection.Title }}">
                                 <i class="icon-arrow"></i>
                                 <span>&laquo; Prev</span>
                             </a>
@@ -44,7 +44,7 @@
                     <!-- show weiner button -->
                     {{ if isset .Params "weiner" }}
                     
-                        <a href="#" data-target=".comic--weiner" class="icon-button">
+                        <a href="#" data-target=".comic--weiner" class="icon-button weiner-toggle">
                             <span>bonus panel</span>
                         </a>
                     
@@ -52,7 +52,7 @@
                     <!-- next -->
                     {{ if .NextInSection }}
                        
-                            <a href="{{ .NextInSection.Permalink }}" class="icon-button" data-toggle="tooltip" data-placement="top" title="{{ .NextInSection.Title }}">
+                            <a href="{{ .NextInSection.Permalink }}" class="next icon-button" data-toggle="tooltip" data-placement="top" title="{{ .NextInSection.Title }}">
                                 <i class="icon-arrow-next"></i>
                                 <span>Next &raquo;</span>
                             </a>
@@ -114,10 +114,11 @@
             <footer>
                 <p>Share this comic:</p>
                 <ul class="ul">
-                    <li><a href=""><span class="icon-facebook">facebook</span><i class="icon-tag tag" data-grunticon-embed></i></a></li>
+                    <li><a href="" title="Share on Facebook"><span class="icon-facebook">facebook</span><i class="icon-tag tag" data-grunticon-embed></i></a></li>
                     <li><a href=""><span class="icon-twitter">twitter</span><i class="icon-tag tag" data-grunticon-embed></i></a></li>
                     <li><a href=""><span class="icon-gplus">google plus</span><i class="icon-tag tag" data-grunticon-embed></i></a></li>
                 </ul>
+                <a href="{{ .Site.BaseURL }}chipmunkbay" title="Browse the archives"><span>browse archives</span><i class="icon-button" data-grunticon-embed></i></a>
                 
             </footer>
             </div>
