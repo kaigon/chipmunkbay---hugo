@@ -1,16 +1,56 @@
 <section class="city">
-	<img src="{{ .Site.BaseURL }}_files/img/city.png" alt="Cityscape of Chipmunk Bay">
+    <img src="{{ .Site.BaseURL }}_files/img/city.png" alt="Cityscape of Chipmunk Bay">
 </section>
 <footer class="footer">
-    <footer class="container">
-        <p>
-            <small>
-                    {{ .Site.Title }} &copy; copyright 2004-today {{ .Site.Author.name }}. all rights reserved.
-                </small>
-        </p>
+    <header class="container">
+    	<i class="icon-logo">Chipmunk Bay</i>
+    </header>
+    <main class="container{{ if and (isset .Site.Author "patreon") (eq .Site.Author.patreon "") }} two-col {{ end }}">
+        <div class="col">
+            <h3>a comic by {{ .Site.Author.name }}</h3>
+            <p>The humorous adventures of five four close friends (and a kid) in the tiny lake-side town of Chipmunk Bay. </p>
+            <p>Also, there's a talking monkey.</p>
+        </div>
+        <div class="col">
+            <h3>Follow the comic!</h3>
+            <p>Need to be notified everytime there's a new comic posted? Here are some options:</p>
+            <ul>
+                <li><a href="{{ .Site.Author.facebook }}" title="Follow via Facebook"><span class="icon-facebook">via facebook</span><i class="icon-tag tag" data-grunticon-embed></i></a></li>
+                <li><a href="{{ .Site.Author.twitter }}" title="Follow via Twitter"><span class="icon-twitter">via twitter</span><i class="icon-tag tag" data-grunticon-embed></i></a></li>
+                <li><a href="{{ .Site.Author.rss }}" title="Follow via RSS"><span class="icon-rss">via rss</span><i class="icon-tag tag" data-grunticon-embed></i></a></li>
+                <li><a href="{{ .Site.Author.rss_email }}" title="Get notified via email"><span class="icon-email">via email</span><i class="icon-tag tag" data-grunticon-embed></i></a></li>
+            </ul>
+        </div>
+        {{ if and (isset .Site.Author "patreon") (not (eq .Site.Author.patreon "")) }}
+	    <div class="col">
+            <h3>Support the comic!</h3>
+            <p>Become a Chipmunk Bay patron and receive lots of happy karma thoughts, straight from my brain waves directly to you!</p>
+            <a href="{{ .Site.Author.patreon }}" title="Visit my patreon account for details"><i class="icon-patreon_full"></i></a>
+        </div>
+	    {{ end }}
+        
+    </main>
+    <footer>
+        <div class="container">
+            <div class="col">
+                <p>
+                    Copyright &copy; 2004-<span data-updateme-year>today</span> {{ .Site.Author.name }}. All rights reserved.
+                </p>
+            </div>
+            <div class="col">
+            	<button>
+            		<i class="icon-email"></i>
+            		<span>Contact me</span>
+            	</button>
+            </div>
+        </div>
+        <i class="icon-comic-bg" data-grunticon-embed></i>
     </footer>
+    <i class="icon-comic-bg" data-grunticon-embed></i>
 </footer>
+<script src="{{ .Site.BaseURL }}_files/js/vendor/custom-modernizr.js"></script>
 <script src="{{ .Site.BaseURL }}_files/js/scripts.js"></script>
 {{ template "_internal/google_analytics.html" . }}
 </body>
+
 </html>

@@ -29,7 +29,9 @@ paginatePath = "post"
   	name = "Justin Parks"
   	email = "justin@chipmunkbay.com"
   	facebook = "https://www.facebook.com/pages/Chipmunk-Bay/226443949074"
-  	twitter = ""
+  	twitter = "http://twitter.com/chipmunkbay"
+    rss = "http://www.chipmunkbay.com/feed/"
+    rss_email = "http://feedburner.google.com/fb/a/mailverify?uri=ChipmunkBay&loc=en_US"
     patreon = ""
 
 [taxonomies]

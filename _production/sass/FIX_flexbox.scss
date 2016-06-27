@@ -1,0 +1,47 @@
+@import 'colors',
+'include-media';
+.has-no-flexbox {
+    .footer {
+        @include media('>sm', '<md') {
+        	main {
+        		.col:first-of-type{
+        			display:block;
+        			clear:both;
+
+        		}
+        		&.two-col {
+        			.col:first-of-type{
+        				display: table-cell;
+        				clear:none;
+        				width:50%;
+        				padding-right:1em;
+        			}
+        		}
+        		.col:nth-of-type(2),
+        		.col:nth-of-type(3){
+        			display:table-cell;
+					width:50%;
+        		}
+        		.col:nth-of-type(2){
+        			padding-right: 1em;
+        		}
+        	}
+        }
+        @include media('>md') {
+            main {
+                display: table;
+                .col {
+                    display: table-cell;
+                    vertical-align: top;
+                    padding-right: 1em;
+                    width:33.333%;
+                }
+                &.two-col {
+                	.col {
+                		width:50%;
+                	}
+                }
+            }
+        }
+    }
+}
