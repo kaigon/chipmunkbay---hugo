@@ -1,0 +1,17 @@
+---
+title: Worth a Thousand Words
+author: Justin Parks
+layout: post
+date: 2005-10-28T02:17:07+00:00
+url: /2005/10/27/worth-a-thousand-words/
+categories:
+  - Chipmunk Bay
+tags:
+  - bryce
+  - jacob
+  - kaigon
+  - karen
+  - monkey
+  - ninja
+
+---

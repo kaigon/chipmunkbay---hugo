@@ -8,12 +8,30 @@
                     {{ $t := title .Type }}
                     {{ $s := index $.Site.Data.metadata $t }}
 
-                    {{ if isset .Params "weiner" }}
                     
-                        <img src="{{ .Site.BaseURL }}_files/comics/{{ $s.folder }}/weiner/{{ .Params.weiner }}" alt="bonus panel" class="animated comic--weiner">
-                    
+                    {{ if (isset .Params "weiner") }}
+                        {{ if and (not (eq .Params.weiner "")) (not (eq .Params.weiner nil)) }}
+                        <img src="{{ .Site.BaseURL }}_files/comics/{{ $s.folder }}/weiner/{{ .Date.Format "20060102" }}.png" alt="bonus panel" class="animated comic--weiner">
+                        {{ end }}
                     {{ end }}
-                    <img src="{{ .Site.BaseURL }}_files/comics/{{ $s.folder }}/{{ .Params.comic }}" alt="Comic: {{ .Title }} {{ .Date.Format "January 2, 2006" }} by {{ .Site.Author.name }}" {{if isset .Params "alt"}}title="{{ .Params.alt }}"{{else}}title="{{ .Title }}: {{ .Date.Format "January 2, 2006" }} by {{ .Site.Author.name }}"{{end}} class="animated comic--comic_img">
+
+
+                    <!-- 
+                    decided not to make this dynamic for the sake of the header and rss feed. Too many files NEED to know what the comic is. Just specify it in the post and be done.
+
+                    Plus, eventually will probably want to SEO the file names as well.
+
+                    but this would have worked:
+                    {{ if or (not (isset .Params "comic")) (or (not (eq .Params.comic "")) (not (eq .Params.comic nil))) }}
+                        ** (dynamic comic file based on date).png **
+                    {{ else }}
+                        ** specified comic file (in case of jpg, for example) **
+                    {{ end }}
+                    -->
+
+                    {{ if (isset .Params "comic") }}
+                        <img src="{{ .Site.BaseURL }}_files/comics/{{ $s.folder }}/{{ .Params.comic }}" alt="Comic: {{ .Title }} {{ .Date.Format "January 2, 2006" }} by {{ .Site.Author.name }}" {{if isset .Params "alt"}}title="{{ .Params.alt }}"{{else}}title="{{ .Title }}: {{ .Date.Format "January 2, 2006" }} by {{ .Site.Author.name }}"{{end}} class="animated comic--comic_img">
+                    {{ end }}
             </figure>      
            
         </section>
