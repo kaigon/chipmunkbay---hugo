@@ -8,5 +8,11 @@ hovertext:
   - Nope.
 categories:
   - Chipmunk Bay
-
+characters:
+  - ninja monkey
+  - shawn
+storyline:
+  - Shawn's first date
+comic: 200100222.png 
 ---
+Nope.

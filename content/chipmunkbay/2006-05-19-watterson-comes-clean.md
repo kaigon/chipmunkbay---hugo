@@ -6,12 +6,13 @@ date: 2006-05-20T03:10:38+00:00
 url: /2006/05/19/watterson-comes-clean/
 categories:
   - Chipmunk Bay
-tags:
+characters:
   - jacob
   - karen
-  - monkey
-  - ninja
+  - ninja monkey
   - shawn
   - watterson
-
+tags:
+  - rent
+comic: 20060520.png  
 ---

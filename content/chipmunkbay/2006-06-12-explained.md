@@ -6,9 +6,10 @@ date: 2006-06-13T03:15:54+00:00
 url: /2006/06/12/explained/
 categories:
   - Chipmunk Bay
-tags:
+characters:
   - jacob
-  - monkey
-  - ninja
-
+  - ninja monkey
+tags:
+  - sprinkles
+comic: 20060613.png  
 ---

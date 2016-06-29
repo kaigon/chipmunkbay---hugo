@@ -6,8 +6,9 @@ date: 2005-05-09T18:11:15+00:00
 url: /2005/05/09/smart-school-2/
 categories:
   - Chipmunk Bay
-tags:
+characters:
   - bryce
   - jacob
-
+storyline:
+comic: 20050509.png
 ---

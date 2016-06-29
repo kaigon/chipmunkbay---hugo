@@ -10,7 +10,7 @@ tags:
   - bryce
   - jacob
   - kaigon
-  - monkey
-  - ninja
-
+  - ninja monkey
+storyline:
+comic: 20050513.png
 ---

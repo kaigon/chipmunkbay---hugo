@@ -6,10 +6,11 @@ date: 2006-01-07T02:44:33+00:00
 url: /2006/01/06/shawns-theory/
 categories:
   - Chipmunk Bay
-tags:
+characters:
   - cloney
-  - monkey
-  - ninja
+  - ninja monkey
   - shawn
-
+comic: 20060107.png 
+storyline:
+  - What happened to the dinosaurs
 ---

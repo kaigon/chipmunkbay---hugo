@@ -8,5 +8,16 @@ hovertext:
   - What luck that you know TWO of the dumbest idiots on earth!
 categories:
   - Chipmunk Bay
-
+characters:
+  - larson
+  - watterson
+  - shawn
+  - kaigon
+tags:
+  - d&d  
+comic: 200100402.png 
+storyline:
+  - Watterson buys a game
 ---
+### Bonus panel idea:
+What luck you know TWO of the dumbest idiots alive!

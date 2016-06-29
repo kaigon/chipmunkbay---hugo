@@ -6,8 +6,10 @@ date: 2005-10-20T02:14:09+00:00
 url: /2005/10/19/cleaning-bryces-room/
 categories:
   - Chipmunk Bay
-tags:
+characters:
   - jacob
   - kaigon
-
+comic: 20051020.png
+storyline:
+  - bryce is boring
 ---

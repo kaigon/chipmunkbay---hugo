@@ -6,9 +6,11 @@ date: 2005-06-02T01:10:04+00:00
 url: /2005/06/01/ninja-monkey-wants-to-be-a-ninja/
 categories:
   - Chipmunk Bay
-tags:
+characters:
   - kaigon
-  - monkey
-  - ninja
-
+  - ninja monkey
+tags:
+  - kaigon's workplace
+storyline:
+comic: 20050602.png
 ---

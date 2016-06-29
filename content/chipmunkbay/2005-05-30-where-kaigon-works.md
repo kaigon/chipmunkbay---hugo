@@ -6,12 +6,11 @@ date: 2005-05-31T01:09:07+00:00
 url: /2005/05/30/where-kaigon-works/
 categories:
   - Chipmunk Bay
-tags:
+characters:
   - kaigon
-  - monkey
-  - ninja
-
+  - ninja monkey
+storyline:
+tags:
+  - kaigon's workplace
+comic: 20050531.png
 ---
-![Comic: Where Kaigon works][1]
-
- [1]: http://www.chipmunkbay.com/wp-content/uploads/2009/04/0024.png

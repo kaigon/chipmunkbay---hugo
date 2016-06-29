@@ -8,5 +8,12 @@ hovertext:
   - "Let's pretend Karen is sleeping and can't hear Jacob obsessing over Crystal."
 categories:
   - Chipmunk Bay
-
+characters:
+  - shawn
+  - jacob
+  - kaigon
+storyline:
+  - Shawn's first date
+comic: 200100219.png 
 ---
+Let's pretend Karen is sleeping and can't hear Jacob obsessing over Crystal.

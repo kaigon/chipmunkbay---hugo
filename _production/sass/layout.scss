@@ -2,7 +2,9 @@
 'include-media';
 html {
     box-sizing: border-box;
-    background:$dark;
+    background: $dark;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 *,
@@ -15,20 +17,24 @@ body {
     overflow-x: hidden;
     overflow-y: visible;
     transition: overflow-y 0ms ease 2000ms;
-    background:$lightbg;
+    background: $lightbg;
 }
-
+/*
 body > header,
 body > main,
-body > footer {
-
+body > footer,
+body > section,
+body > div {
+    overflow-x: hidden;
 }
+*/
+
 .container {
-	max-width:1480px;
-	margin-right: auto;
-	margin-left: auto;
-	padding-left:15px;
-	padding-right:15px;
+    max-width: 1480px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 .browsehappy {

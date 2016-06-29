@@ -6,10 +6,11 @@ date: 2006-10-12T03:16:23+00:00
 url: /2006/10/11/its-so-tiny/
 categories:
   - Chipmunk Bay
-tags:
+characters:
   - jacob
   - karen
-  - monkey
-  - ninja
-
+  - ninja monkey
+tags:
+  - jacob's penis
+comic: 20061012.png  
 ---

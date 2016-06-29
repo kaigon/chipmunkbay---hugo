@@ -8,5 +8,10 @@ hovertext:
   - Splash
 categories:
   - Chipmunk Bay
-
+characters:
+  - shawn
+  - crystal
+storyline:
+  - Shawn's first date
+comic: 200100210.png 
 ---

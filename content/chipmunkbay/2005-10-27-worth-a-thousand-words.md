@@ -6,12 +6,15 @@ date: 2005-10-28T02:17:07+00:00
 url: /2005/10/27/worth-a-thousand-words/
 categories:
   - Chipmunk Bay
-tags:
+characters:
   - bryce
   - jacob
   - kaigon
   - karen
-  - monkey
-  - ninja
-
+  - ninja monkey
+comic: 20051028.png
+tags:
+  - bryce's dead body
+storyline:
+  - bryce is boring
 ---

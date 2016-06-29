@@ -8,6 +8,22 @@ hovertext:
   - "'I love her personality. Both of them.'"
 categories:
   - Chipmunk Bay
-
+characters:
+  - shawn
+  - kaigon
+  - angela
+  - wolf
+  - ford
+  - kwip
+  - mac
+comic: 200100416.png 
+storyline:
+  - New friends
+tags:
+  - beta station
+  - clerk
+  - new character  
+  - boobs
+  - d&d
 ---
 I&#8217;m not sure how happy I am with today&#8217;s joke. It&#8217;s a little obvious, and has probably been used a bajillion times already. Meh.

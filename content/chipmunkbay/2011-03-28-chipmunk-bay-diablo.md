@@ -6,7 +6,19 @@ date: 2011-03-28T08:01:18+00:00
 url: /2011/03/28/chipmunk-bay-diablo/
 categories:
   - Chipmunk Bay
-
+characters:
+  - kwip
+  - amber
+  - kaigon
+  - angela
+comic: 20110328.png
+weiner:
+tags:
+  - beta station
+  - boobs
+  - diablo
+storyline:
+  - Chipmunk Bay plays Diablo 2
 ---
 You know, I really like the alt-graphics, but some of these are pretty much a comic in and of themselves. Granted, I don&#8217;t think the jokes are strong enough to warrant their own comic, but still.
 

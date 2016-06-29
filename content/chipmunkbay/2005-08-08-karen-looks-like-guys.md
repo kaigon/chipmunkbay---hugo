@@ -10,8 +10,13 @@ tags:
   - checkerboard
   - chex
   - gabe
-  - jacob
-  - karen
   - tycho
-
+characters:
+  - karen
+  - jacob
+tags:
+  - angry karen
+storyline:
+  - Karen is pretty
+comic: 20050809.png   
 ---

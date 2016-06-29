@@ -7,9 +7,12 @@ url: /2005/12/07/what-is-your-cat-doing/
 categories:
   - Chipmunk Bay
 tags:
-  - cat
+  - shawn's cat
+characters:  
   - kaigon
   - karen
   - shawn
-
+comic: 20051208.png
+storyline:
+  - new roommate
 ---

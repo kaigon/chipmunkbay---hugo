@@ -2,21 +2,26 @@
 <main class="comic">
    
         <!-- begin comic -->
+        {{ if (isset .Params "comic") }}
         <section class="comic--comic icon-comic-bg">
             <figure>
-        
-                    {{ $t := title .Type }}
-                    {{ $s := index $.Site.Data.metadata $t }}
+                <!-- define title -->
+                {{ $t := title .Type }}
+                <!-- define metadata -->
+                {{ $s := index $.Site.Data.metadata $t }}
 
-                    
-                    {{ if (isset .Params "weiner") }}
-                        {{ if and (not (eq .Params.weiner "")) (not (eq .Params.weiner nil)) }}
+                <!-- check for 'weiner' comic -->
+                {{ if (isset .Params "weiner") }}
+                    <!-- check to see if variable is defined AND not empty -->
+                    {{ if and (not (eq .Params.weiner "")) (not (eq .Params.weiner nil)) }}
                         <img src="{{ .Site.BaseURL }}_files/comics/{{ $s.folder }}/weiner/{{ .Date.Format "20060102" }}.png" alt="bonus panel" class="animated comic--weiner">
-                        {{ end }}
                     {{ end }}
+                    <!-- end check -->
+                {{ end }}
+                <!-- end 'weiner' comic check -->
 
 
-                    <!-- 
+                <!-- 
                     decided not to make this dynamic for the sake of the header and rss feed. Too many files NEED to know what the comic is. Just specify it in the post and be done.
 
                     Plus, eventually will probably want to SEO the file names as well.
@@ -27,14 +32,17 @@
                     {{ else }}
                         ** specified comic file (in case of jpg, for example) **
                     {{ end }}
-                    -->
+                -->
 
-                    {{ if (isset .Params "comic") }}
-                        <img src="{{ .Site.BaseURL }}_files/comics/{{ $s.folder }}/{{ .Params.comic }}" alt="Comic: {{ .Title }} {{ .Date.Format "January 2, 2006" }} by {{ .Site.Author.name }}" {{if isset .Params "alt"}}title="{{ .Params.alt }}"{{else}}title="{{ .Title }}: {{ .Date.Format "January 2, 2006" }} by {{ .Site.Author.name }}"{{end}} class="animated comic--comic_img">
-                    {{ end }}
+                <!-- main comic //-->
+                <img src="{{ .Site.BaseURL }}_files/comics/{{ $s.folder }}/{{ .Params.comic }}" alt="Comic: {{ .Title }} {{ .Date.Format "January 2, 2006" }} by {{ .Site.Author.name }}" {{ if and (isset .Params "alt") (and (not (eq .Params.alt "")) (not (eq .Params.alt nil))) }}title="{{ .Params.alt }}"{{else}}title="{{ .Title }}: {{ .Date.Format "January 2, 2006" }} by {{ .Site.Author.name }}"{{end}} class="animated comic--comic_img">
+                <!--// main comic -->
+
             </figure>      
-           
         </section>
+        {{ end }}
+        <!-- end comic check -->
+
         <!-- begin navigation -->
         <nav class="comic--nav">
             
@@ -84,17 +92,19 @@
         <article class="comic--article">
             <div class="container">
             <header>
-                <a href="{{ .Permalink }}">
+                <a href="{{ .Permalink }}" title="Permalink to comic &quot;{{ .Title }}&quot;, published {{ .Date.Format "January 2, 2006" }} by {{ .Site.Author.name }}">
                     <h1>{{ .Title }}</h1>
                 </a>
                 <small>{{ .Date.Format "Jan 2, 2006" }}</small>
             </header>
+
             <main>
                 {{ .Content }}
             </main>
+
             <aside>
                 <!-- tags -->
-                {{ if isset .Params "tags"}}
+                {{ if and (isset .Params "tags") (and (not (eq .Params.tags "")) (not (eq .Params.tags nil))) }}
                 <div class="tags">
                     <!--<label>tags</label>-->
                     {{ range .Params.tags }}
@@ -106,7 +116,7 @@
                 {{ end }}
 
                 <!-- characters -->
-                {{ if isset .Params "characters"}}
+                {{ if and (isset .Params "characters") (and (not (eq .Params.characters "")) (not (eq .Params.characters nil))) }}
                 <div class="tags--characters">
                     <!--<label>characters</label>-->
                     {{ range .Params.characters }}
@@ -118,7 +128,7 @@
                 {{ end }}
 
                 <!-- storyline -->
-                {{ if isset .Params "storyline"}}
+                {{ if and (isset .Params "storyline") (and (not (eq .Params.storyline "")) (not (eq .Params.storyline nil))) }}
                 <div class="tags--storyline">
                     <!--<label>storyline</label>-->
                     {{ range .Params.storyline }}
@@ -132,9 +142,24 @@
             <footer>
                 <p>Share this comic:</p>
                 <ul class="ul">
-                    <li><a href="" title="Share on Facebook"><span class="icon-facebook">facebook</span><i class="icon-tag tag" data-grunticon-embed></i></a></li>
-                    <li><a href="" title="Share on Twitter"><span class="icon-twitter">twitter</span><i class="icon-tag tag" data-grunticon-embed></i></a></li>
-                    <li><a href="" title="Share on Google+"><span class="icon-gplus">google plus</span><i class="icon-tag tag" data-grunticon-embed></i></a></li>
+                    <li>
+                        <a href="http://www.facebook.com/share.php?u={{ .URL | absURL }}" title="Share on Facebook">
+                            <span class="icon-facebook">facebook</span>
+                            <i class="icon-tag tag" data-grunticon-embed></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://twitter.com/intent/tweet?url={{ .URL | absURL }}&text={{ .Title }}" title="Share on Twitter">
+                            <span class="icon-twitter">twitter</span>
+                            <i class="icon-tag tag" data-grunticon-embed></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://plus.google.com/share?url={{ .URL | absURL }}" title="Share on Google+">
+                            <span class="icon-gplus">google plus</span>
+                            <i class="icon-tag tag" data-grunticon-embed></i>
+                        </a>
+                    </li>
                 </ul>
                 <a href="{{ .Site.BaseURL }}chipmunkbay" title="Browse the archives"><span>browse archives</span><i class="icon-button" data-grunticon-embed></i></a>
                 

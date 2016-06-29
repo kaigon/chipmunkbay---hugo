@@ -6,12 +6,10 @@ date: 2006-01-24T02:50:16+00:00
 url: /2006/01/23/wattersons-game-sucks/
 categories:
   - Chipmunk Bay
-tags:
-  - monkey
-  - ninja
+characters:
+  - ninja monkey
   - watterson
-
+comic: 20060124.png 
+storyline:
+  - What happened to the dinosaurs
 ---
-![Comic: Watteron's Game Sucks][1]
-
- [1]: http://www.chipmunkbay.com/wp-content/uploads/2009/04/0111.png

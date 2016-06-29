@@ -7,8 +7,8 @@ url: /2005/05/20/shawn-hates-haircuts/
 categories:
   - Chipmunk Bay
 tags:
-  - monkey
-  - ninja
+  - ninja monkey
   - shawn
-
+storyline:
+comic: 20050521.png
 ---

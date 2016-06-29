@@ -4,9 +4,16 @@ author: Justin Parks
 layout: post
 date: 2010-04-07T08:01:33+00:00
 url: /2010/04/07/magic-binding-bolt-immunity/
-hovertext:
-  - THANK YOU FOR YOUR SUGGESTION! IT WAS VERY HELPFUL! LET ME PROPERLY THANK YOU!
 categories:
   - Chipmunk Bay
-
+characters:
+  - shawn
+  - kaigon
+tags:
+  - d&d  
+comic: 200100407.png 
+storyline:
+  - Watterson buys a game
 ---
+### Bonus panel idea
+THANK YOU FOR YOUR SUGGESTION! IT WAS VERY HELPFUL! LET ME PROPERLY THANK YOU!

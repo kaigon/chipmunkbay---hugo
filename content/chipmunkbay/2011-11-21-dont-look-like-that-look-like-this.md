@@ -6,7 +6,13 @@ date: 2011-11-21T08:00:14+00:00
 url: /2011/11/21/dont-look-like-that-look-like-this/
 categories:
   - Chipmunk Bay
-
+comic: 20111121.png
+weiner:
+characters:
+  - jacob
+  - karen
+tags:
+  - magic eye
 ---
 This is totally something I would do.
 

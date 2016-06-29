@@ -6,10 +6,10 @@ date: 2005-05-28T01:08:41+00:00
 url: /2005/05/27/ninja-monkeys-career-plan/
 categories:
   - Chipmunk Bay
-tags:
+characters:
   - kaigon
-  - monkey
-  - ninja
+  - ninja monkey
   - shawn
-
+storyline:
+comic: 20050528.png
 ---

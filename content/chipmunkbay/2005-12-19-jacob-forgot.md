@@ -6,11 +6,14 @@ date: 2005-12-20T02:39:12+00:00
 url: /2005/12/19/jacob-forgot/
 categories:
   - Chipmunk Bay
-tags:
+characters:
   - jacob
   - kaigon
-  - monkey
-  - ninja
+  - ninja monkey
   - watterson
-
+comic: 20051220.png 
+storyline:
+  - Jacob and Karen have a son
+tags:
+  - parenting  
 ---

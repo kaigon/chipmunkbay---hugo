@@ -8,5 +8,20 @@ hovertext:
   - But seriously, show me your boobs.
 categories:
   - Chipmunk Bay
-
+characters:
+  - shawn
+  - kaigon
+  - angela
+  - wolf
+  - ford
+  - kwip
+comic: 200100419.png 
+storyline:
+  - New friends
+tags:
+  - beta station
+  - boobs
+  - d&d
 ---
+### Bonus panel idea:
+But seriously, show me your boobs

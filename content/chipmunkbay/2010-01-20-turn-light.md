@@ -4,14 +4,24 @@ author: Justin Parks
 layout: post
 date: 2010-01-20T08:01:55+00:00
 url: /2010/01/20/turn-light/
-hovertext:
+alt:
   - "They're not the same curtains."
-categories:
-  - Chipmunk Bay
+characters:
+  - shawn
+  - ninja monkey
+tags:
+  - shawn's cat
+comic: 200100120.png 
 
 ---
-I wrote this story arc over three years ago when I began the sprinkles gags. Each part was scripted out. Karen tricks Jacob into eating sprinkles, and the cat explodes as a result. 
+I wrote this story arc over three years ago when I began the sprinkles gags. 
 
-Last month, after I started drawing the strips again, picking up the story where it had left off, my parents&#8217; cat died in an similar fashion (probably unrelated to sprinkles though). I&#8217;m not clear on the details, but it was apparently a tumor or something. That exploded.
+It's based on a true story. My dad bought some groceries as a kid. His parents were in financial strain, but nonetheless he snuck in a purchase of a sprinkle-covered donut for himself. Then on the way a woman was killed and dragged by a bus right in front of his eyes. Kid-logic dictates that it was his fault for being selfish and treating himself to some sprinkles.
 
-So, should my family be reading this&#8230; I was not &#8216;inspired&#8217; by Ozzie&#8217;s passing. The timing is just a really really bad coincidence.
+Fast-forward to now. I have a character who believes that when he eats sprinkles he can kill people. He eats sprinkles, and a cat explodes.
+
+Last month my parents&#8217; cat essentially exploded in their bathtub. Tumor or something. But it actually exploded.
+
+I know it happened before I drew these strips (though I didn't find out until a couple days ago), but maybe there's something to this whole 'sprinkles are bad luck' thing after all.
+
+(I'm never going to stop eating sprinkles)

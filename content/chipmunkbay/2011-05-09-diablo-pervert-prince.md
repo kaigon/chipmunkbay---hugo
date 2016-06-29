@@ -6,7 +6,19 @@ date: 2011-05-09T08:00:48+00:00
 url: /2011/05/09/diablo-pervert-prince/
 categories:
   - Chipmunk Bay
-
+characters:
+  - wolf
+  - amber
+  - kaigon
+  - angela
+  - kwip
+comic: 20110509.png
+weiner:
+tags:
+  - beta station
+  - angela cheats
+storyline:
+  - Chipmunk Bay plays Diablo 2
 ---
 Also, was anyone else ever baffled by the fact that Jeryhn let you run around solving like 8 other quests in his town before he bothered to mention &#8220;Oh, hey, mister heroes, my palace is overrun by demons. Think maybe you could help with that? Thanks.&#8221;
 

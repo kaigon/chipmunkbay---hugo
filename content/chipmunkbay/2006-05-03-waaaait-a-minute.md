@@ -6,13 +6,14 @@ date: 2006-05-04T03:05:25+00:00
 url: /2006/05/03/waaaait-a-minute/
 categories:
   - Chipmunk Bay
-tags:
+characters:
   - cloney
-  - cop
-  - doctor
   - kaigon
-  - monkey
-  - ninja
-  - proctor
-
+  - ninja monkey
+tags:
+  - cops
+  - doctor  
+comic: 20060504.png 
+storyline:
+  - Shawn is crazy
 ---

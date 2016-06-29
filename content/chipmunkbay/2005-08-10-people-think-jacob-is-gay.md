@@ -9,7 +9,10 @@ categories:
 tags:
   - jacob
   - kaigon
-  - monkey
-  - ninja
-
+  - ninja monkey
+tags:
+  - homophobia
+storyline:
+  - Karen is pretty
+comic: 20050811.png 
 ---

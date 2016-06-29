@@ -6,11 +6,14 @@ date: 2006-03-11T02:57:05+00:00
 url: /2006/03/10/it-was-aliens/
 categories:
   - Chipmunk Bay
-tags:
+characters:
   - kaigon
   - karen
-  - monkey
-  - ninja
+  - ninja monkey
   - shawn
-
+comic: 20060311.png 
+storyline:
+  - What happened to the dinosaurs
+tags:
+  - rent  
 ---

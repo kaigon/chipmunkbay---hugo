@@ -8,5 +8,16 @@ hovertext:
   - "'Screw you, kid, I can still hear you.'"
 categories:
   - Chipmunk Bay
-
+characters:
+  - larson
+  - watterson
+comic: 200100322.png 
+tags:
+  - clerk
+  - beta station
+  - d&d
+storyline:
+  - Watterson buys a game  
 ---
+### Bonus panel idea:
+I can still hear you, kid.

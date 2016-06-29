@@ -6,14 +6,17 @@ date: 2005-10-27T02:16:25+00:00
 url: /2005/10/26/goodbye-bryce/
 categories:
   - Chipmunk Bay
-tags:
+characters:
   - aliens
   - bryce
   - jacob
   - kaigon
   - karen
-  - monkey
-  - ninja
+  - ninja monkey
   - shawn
-
+tags:
+  - aliens blow up stuff  
+comic: 20051017.png
+storyline:
+  - bryce is boring
 ---

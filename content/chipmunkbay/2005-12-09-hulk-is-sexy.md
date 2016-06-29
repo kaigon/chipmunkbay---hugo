@@ -6,11 +6,12 @@ date: 2005-12-10T02:36:40+00:00
 url: /2005/12/09/hulk-is-sexy/
 categories:
   - Chipmunk Bay
-tags:
+characters:
   - jacob
   - kaigon
   - karen
-  - monkey
-  - ninja
-
+  - ninja monkey
+comic: 20051210.png
+tags:
+  - sexy time
 ---

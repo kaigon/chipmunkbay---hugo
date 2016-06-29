@@ -8,6 +8,9 @@ hovertext:
   - Lots of people in this bed.
 categories:
   - Chipmunk Bay
-
+characters:
+  - jacob
+  - karen
+comic: 20100721.png
 ---
 These color choices better translate well to print or I&#8217;m going to be soooooo pissed at myself.

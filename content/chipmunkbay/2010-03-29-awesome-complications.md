@@ -8,5 +8,14 @@ hovertext:
   - Wow, think how awesome THIS complication will make it!
 categories:
   - Chipmunk Bay
-
+characters:
+  - larson
+  - watterson
+comic: 200100329.png 
+storyline:
+  - Watterson buys a game
+tags:
+  - d&d  
 ---
+### Bonus panel idea:
+Watterson: Think how awesome THAT complication will make it, RIGHT?! *glaring at Larson*

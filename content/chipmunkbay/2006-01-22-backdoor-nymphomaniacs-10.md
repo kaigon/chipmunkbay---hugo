@@ -8,9 +8,12 @@ mood:
   - none
 categories:
   - Chipmunk Bay
-tags:
-  - monkey
-  - ninja
+characters:
+  - ninja monkey
   - watterson
-
+comic: 20060123.png 
+storyline:
+  - What happened to the dinosaurs
+tags:
+  - porn  
 ---

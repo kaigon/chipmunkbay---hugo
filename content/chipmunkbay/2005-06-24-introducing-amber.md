@@ -7,9 +7,11 @@ url: /2005/06/24/introducing-amber/
 categories:
   - Chipmunk Bay
 tags:
-  - allison
-  - amber
   - boss
+  - kaigon's workplace
+  - new character
+characters:
+  - amber
   - kaigon
-
+comic: 20050625.png
 ---

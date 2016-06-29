@@ -6,9 +6,12 @@ date: 2005-09-10T01:58:15+00:00
 url: /2005/09/09/ninja-monkey-apologizes/
 categories:
   - Chipmunk Bay
-tags:
+characters:
   - bryce
-  - monkey
-  - ninja
-
+  - ninja monkey
+comic: 20050909.png
+storyline:
+  - bryce is boring  
+tags:
+  - character dies
 ---

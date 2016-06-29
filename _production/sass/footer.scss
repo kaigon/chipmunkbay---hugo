@@ -10,29 +10,13 @@ img.city-bg-footer {
 
 .footer {
     position: relative;
-    font-size: 0.8em;
+    background-color: $dark;
     .container {
         position: relative;
         z-index: 1;
         max-width: 560px;
         @include media('>sm') {
             max-width: 1480px;
-        }
-    }
-    .icon-comic-bg {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        svg {
-            position: absolute;
-            width: 100%;
-            top: -20px;
-            left: 0;
-            path {
-                fill: inherit;
-            }
         }
     }
     h3 {
@@ -223,6 +207,9 @@ img.city-bg-footer {
                     max-width: 560px;
                     &:first-of-type {
                         flex: 0 0 50%;
+                        &:after {
+                            display: none;
+                        }
                     }
                 }
             }
@@ -245,31 +232,31 @@ img.city-bg-footer {
             padding-top: 12px;
         }
         button {
-            border:0;
-            box-shadow:0;
+            border: 0;
+            box-shadow: 0;
             text-shadow: none;
-            background:transparent;
-            color:white;
-            padding:0;
+            background: transparent;
+            color: white;
+            padding: 0;
             vertical-align: middle;
             display: flex;
-            align-items:center;
-            cursor:pointer;
+            align-items: center;
+            cursor: pointer;
             transition: all 400ms ease;
             opacity: 0.8;
             i {
-                width:37px;
-                height:24px;
-                background-size:contain;
+                width: 37px;
+                height: 24px;
+                background-size: contain;
                 display: inline-block;
-                margin-right:6px;
+                margin-right: 6px;
                 transition: inherit;
             }
             &:hover {
                 opacity: 1;
                 transform: scale(1.1);
                 i {
-                    transform:rotate(12deg);
+                    transform: rotate(12deg);
                 }
             }
         }
@@ -285,22 +272,55 @@ img.city-bg-footer {
                 }
             }
         }
-        > .icon-comic-bg {
-            background-color: #000;
-            svg {
-                fill: #000;
-                transform: rotateY(180deg);
-                width:200%;
+    }
+    .icon-comic-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        svg {
+            position: absolute;
+            width: 100%;
+            top: 0;
+            left: 0;
+            path {
+                fill: inherit;
             }
         }
     }
-    > .icon-comic-bg {
-        background-color: $dark;
-        svg {
-            fill: $dark;
-            width:150%;
-            right:0;
-            left:initial;
+    .footer-bg-wrap {
+        position: absolute;
+        top: -20px;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+    footer {
+        background-color: black;
+        .icon-comic-bg {
+            svg {
+                fill: #000;
+                transform: rotateY(180deg);
+                width: 250%;
+                @include media('>md'){
+                    width:200%;
+                }
+            }
+        }
+    }
+    > .footer-bg-wrap {
+        .icon-comic-bg {
+            svg {
+                fill: $dark;
+                width: 200%;
+                right: 0;
+                left: initial;
+                @include media('>md'){
+                    width:150%;
+                }
+            }
         }
     }
 }

@@ -8,5 +8,13 @@ hovertext:
   - Ooh, wait, no! I hope my power is that I can fly! Ok, NOW shoot me!
 categories:
   - Chipmunk Bay
-
+characters:
+  - shawn
+  - kaigon
+comic: 20100614.png
+storyline:
+  - Super powers
 ---
+### Bonus panel idea:
+Ooooh, no, wait! I hope my super power is that I can fly!
+Ok, **now** shoot me.

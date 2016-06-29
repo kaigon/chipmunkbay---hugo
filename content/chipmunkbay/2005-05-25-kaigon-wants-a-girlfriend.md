@@ -7,8 +7,9 @@ url: /2005/05/25/kaigon-wants-a-girlfriend/
 categories:
   - Chipmunk Bay
 tags:
+characters:
   - kaigon
-  - monkey
-  - ninja
-
+  - ninja monkey
+storyline:
+comic: 20050526.png
 ---

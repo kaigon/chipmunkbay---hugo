@@ -7,10 +7,15 @@ url: /2005/09/28/how-is-he-doc/
 categories:
   - Chipmunk Bay
 tags:
+  - doctor
+  - bryce's dead body
+characters:
   - bryce
   - god
   - jacob
   - kaigon
   - karen
-
+comic: 20050929.png
+storyline:
+  - bryce is boring
 ---

@@ -3,9 +3,9 @@
 </section>
 <footer class="footer">
     <header class="container">
-    	<i class="icon-logo">Chipmunk Bay</i>
+        <i class="icon-logo">Chipmunk Bay</i>
     </header>
-    <main class="container{{ if and (isset .Site.Author "patreon") (eq .Site.Author.patreon "") }} two-col {{ end }}">
+    <main class="container{{ if and (isset .Site.Author " patreon ") (eq .Site.Author.patreon " ") }} two-col {{ end }}">
         <div class="col">
             <h3>a comic by {{ .Site.Author.name }}</h3>
             <p>The humorous adventures of five four close friends (and a kid) in the tiny lake-side town of Chipmunk Bay. </p>
@@ -22,13 +22,14 @@
             </ul>
         </div>
         {{ if and (isset .Site.Author "patreon") (not (eq .Site.Author.patreon "")) }}
-	    <div class="col">
+        <div class="col">
             <h3>Support the comic!</h3>
             <p>Become a Chipmunk Bay patron and receive lots of happy karma thoughts, straight from my brain waves directly to you!</p>
-            <a href="{{ .Site.Author.patreon }}" title="Visit my patreon account for details"><i class="icon-patreon_full"></i></a>
+            <a href="{{ .Site.Author.patreon }}" title="Visit my patreon account for details">
+                <i class="icon-patreon_full"></i>
+            </a>
         </div>
-	    {{ end }}
-        
+        {{ end }}
     </main>
     <footer>
         <div class="container">
@@ -38,15 +39,19 @@
                 </p>
             </div>
             <div class="col">
-            	<button>
-            		<i class="icon-email"></i>
-            		<span>Contact me</span>
-            	</button>
+                <button type="button" title="Email {{ .Site.Author.name }}">
+                    <i class="icon-email"></i>
+                    <span>Contact me</span>
+                </button>
             </div>
         </div>
-        <i class="icon-comic-bg" data-grunticon-embed></i>
+        <div class="footer-bg-wrap">
+            <i class="icon-comic-bg" data-grunticon-embed></i>
+        </div>
     </footer>
-    <i class="icon-comic-bg" data-grunticon-embed></i>
+    <div class="footer-bg-wrap">
+        <i class="icon-comic-bg" data-grunticon-embed></i>
+    </div>
 </footer>
 <script src="{{ .Site.BaseURL }}_files/js/vendor/custom-modernizr.js"></script>
 <script src="{{ .Site.BaseURL }}_files/js/scripts.js"></script>

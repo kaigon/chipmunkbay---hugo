@@ -8,6 +8,14 @@ hovertext:
   - Was that loud enough, dad? I said it just like you told me. Can I have my five dollars now?
 categories:
   - Chipmunk Bay
-
+characters:
+  - jacob
+  - karen
+  - watterson
+comic: 20100719.png
 ---
 This might be my new favorite comic.
+
+
+### Bonus panel idea:
+Was that loud enough, dad? I said it just like you told me. Can I have my five dollars now?

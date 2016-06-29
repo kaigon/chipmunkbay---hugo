@@ -8,5 +8,14 @@ hovertext:
   - 'Remember her? '
 categories:
   - Chipmunk Bay
-
+characters:
+  - shawn
+  - kaigon
+  - crystal
+  - ninja monkey
+tags:
+  - porn
+storyline:
+  - Shawn's first date
+comic: 200100129.png 
 ---

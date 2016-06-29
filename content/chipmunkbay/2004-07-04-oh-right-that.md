@@ -7,7 +7,7 @@ url = "/2004/07/04/oh-right-that/"
 comic = "20040704.png"
 weiner = ""
 alt = ""
-tags = []
+tags = [ "new character"]
 characters = [ "Kaigon", "Ninja Monkey", "Shawn" ]
 storyline = ["The beginning"]
 +++

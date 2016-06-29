@@ -8,7 +8,10 @@ hovertext:
   - Bub.
 categories:
   - Chipmunk Bay
-
+comic: 200100317.png 
+tags:
+  - wolverine
+  - misc
 ---
 I picked today&#8217;s joke because I didn&#8217;t have time for a multiple panel joke.
 

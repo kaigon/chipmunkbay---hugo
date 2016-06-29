@@ -8,8 +8,9 @@ categories:
   - Chipmunk Bay
 tags:
   - aliens
-  - monkey
-  - ninja
+  - ninja monkey
   - shawn
-
+comic: 20060228.png 
+storyline:
+  - What happened to the dinosaurs
 ---

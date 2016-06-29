@@ -9,5 +9,7 @@ categories:
 tags:
   - amber
   - kaigon
-
+storyline:
+  - Kaigon's first date
+comic: 20050728.png 
 ---

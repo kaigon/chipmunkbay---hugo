@@ -6,9 +6,9 @@ date: 2005-06-18T01:13:02+00:00
 url: /2005/06/17/shawn-talks-to-the-internet/
 categories:
   - Chipmunk Bay
-tags:
-  - monkey
-  - ninja
+characters:
+  - ninja monkey
   - shawn
-
+storyline:
+comic: 20050618.png
 ---

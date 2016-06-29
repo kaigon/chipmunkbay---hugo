@@ -6,11 +6,14 @@ date: 2005-10-22T02:14:46+00:00
 url: /2005/10/21/bryces-funeral/
 categories:
   - Chipmunk Bay
-tags:
+characters:
   - bryce
   - kaigon
   - monkey
-  - ninja
-  - shawn
-
+  - ninja monkey
+comic: 20051022.png
+storyline:
+  - bryce is boring
+tags:
+  - bryce's dead body  
 ---

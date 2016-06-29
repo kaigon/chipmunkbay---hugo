@@ -6,7 +6,9 @@ date: 2010-08-06T04:37:56+00:00
 url: /2010/08/05/london-bridge/
 categories:
   - Miscellaneous
-
+tags:
+  - misc  
+comic: 20100806.png
 ---
 Ok, so I acknowledge that this is easily the dumbest comic I&#8217;ve ever done, but I can&#8217;t stop laughing at it. I&#8217;m probably just really tired.
 

@@ -10,7 +10,10 @@ tags:
   - bryce
   - crystal
   - kaigon
-  - monkey
-  - ninja
-
+  - ninja monkey
+tags:
+  - porn
+storyline:
+  - Kaigon's first date
+comic: 20050726.png 
 ---

@@ -6,8 +6,10 @@ date: 2005-06-07T01:11:04+00:00
 url: /2005/06/06/beauty-is-only-skin-deep/
 categories:
   - Chipmunk Bay
-tags:
+characters:
   - bryce
   - karen
-
+storyline:
+  - Views on beauty
+comic: 20050607.png
 ---

@@ -8,7 +8,14 @@ hovertext:
   - Gotta admit. She makes it hard to be a sore loser.
 categories:
   - Chipmunk Bay
-
+characters:
+  - kaigon
+  - ninja monkey
+  - jacob
+  - karen
+tags:
+  - sexy time
+comic: 20100820.png
 ---
 SPANK IT!
 

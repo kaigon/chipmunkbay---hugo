@@ -8,10 +8,16 @@ hovertext:
   - KRYPTONITE BOOBS
 categories:
   - Chipmunk Bay
-
+characters:
+  - kaigon
+  - angela
+  - ford
+comic: 20100712.png
+storyline:
+  - Super powers
+tags:
+  - angela cheats
+  - kaigon is superman
+  - boobs
 ---
-Easy. He&#8217;s SUPERMAN.
-
-He just flies around the world backwards super fast until he doesn&#8217;t have to pee anymore.
-
-Doctors think of everything.
+Kryptonite boobs!

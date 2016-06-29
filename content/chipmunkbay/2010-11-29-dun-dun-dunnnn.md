@@ -6,6 +6,10 @@ date: 2010-11-29T08:01:28+00:00
 url: /2010/11/29/dun-dun-dunnnn/
 categories:
   - Chipmunk Bay
+characters:
+  - shawn
+comic: 20101129.png
 
+tags:
+  - bryce's dead body
 ---
-No alt comic for today, I&#8217;m afraid. Couldn&#8217;t think of anything appropriate.

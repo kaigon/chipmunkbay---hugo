@@ -9,7 +9,8 @@ categories:
 tags:
   - jacob
   - kaigon
-  - monkey
-  - ninja
-
+  - ninja monkey
+comic: 20050917.png
+storyline:
+  - bryce is boring
 ---

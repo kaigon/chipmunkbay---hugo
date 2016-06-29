@@ -6,8 +6,8 @@ date: 2005-07-05T01:27:14+00:00
 url: /2005/07/04/wanna-lose-a-game-of-chess/
 categories:
   - Chipmunk Bay
-tags:
+characters:
   - bryce
   - kaigon
-
+comic: 20050705.png
 ---

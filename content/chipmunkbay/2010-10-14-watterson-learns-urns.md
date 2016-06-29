@@ -6,7 +6,15 @@ date: 2010-10-14T08:01:51+00:00
 url: /2010/10/14/watterson-learns-urns/
 categories:
   - Chipmunk Bay
-
+characters:
+  - kaigon
+  - karen
+  - watterson
+tags:
+  - karen hates shawn 
+  - bryce's dead body 
+comic: 20101014.png
+weiner:
 ---
 I agree with Watterson. Urns are weird.
 

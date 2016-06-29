@@ -6,10 +6,9 @@ date: 2005-06-28T01:16:02+00:00
 url: /2005/06/27/ninja-monkey-likes-amber/
 categories:
   - Chipmunk Bay
-tags:
+characters:
   - amber
   - kaigon
-  - monkey
-  - ninja
-
+  - ninja monkey
+comic: 20050628.png
 ---

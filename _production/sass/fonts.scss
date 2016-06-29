@@ -7,7 +7,7 @@ body {
     font-size: 1em;
     line-height: 1.438;
     text-transform: none;
-    color:$default;
+    color: $default;
     @include media(">sm") {
         font-size: 1.1em;
         line-height: 1.529;
@@ -22,19 +22,19 @@ h1 {
     //font-family: 'Finger Paint', Helvetica, Helvetica Neue, Arial, sans-serif;
     font-family: 'Gochi Hand', Helvetica, Helvetica Neue, Arial, sans-serif;
     //font-weight: 900;
-    font-size:2rem;
-    color:$title;
-    display:inline-block;
-    margin:0;
-    line-height: 1.4;
-    @include media('>sm'){
-        font-size:2.4rem;
+    font-size: 2rem;
+    color: $title;
+    display: inline-block;
+    margin: 0 0 0.5em;
+    line-height: 1;
+    @include media('>sm') {
+        font-size: 2.4rem;
     }
-    @include media('>md'){
-        font-size:3rem;
+    @include media('>md') {
+        font-size: 3rem;
     }
-    @include media('>lg'){
-        font-size:3.4rem;
+    @include media('>lg') {
+        font-size: 3.4rem;
     }
 }
 
@@ -44,9 +44,7 @@ h2 {
     font-size: 1.4em;
 }
 
-h3 {
-
-}
+h3 {}
 
 h4 {
     font-weight: normal;
@@ -57,10 +55,11 @@ h4 {
 p,
 q,
 li {
-	font-size: inherit;
+    font-size: inherit;
     line-height: inherit;
     font-weight: inherit;
 }
+
 p,
 q {
     margin: 0 0 0.75rem;
@@ -69,11 +68,13 @@ q {
 li {
     margin: 0 0 1.25rem;
 }
+
 ul {
     margin-bottom: 0;
     margin-top: 0;
     padding-left: 1.2rem;
 }
+
 .ul {
     li {
         list-style: none;

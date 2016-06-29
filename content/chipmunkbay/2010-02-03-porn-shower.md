@@ -8,5 +8,15 @@ hovertext:
   - Awwwwwwwwwww!
 categories:
   - Chipmunk Bay
-
+characters:
+  - shawn
+  - crystal
+  - jacob
+  - kaigon
+tags:
+  - porn
+storyline:
+  - Shawn's first date
+comic: 200100203.png 
 ---
+Awwwwwwwwwww!

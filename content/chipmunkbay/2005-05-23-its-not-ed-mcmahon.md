@@ -10,6 +10,8 @@ tags:
   - dad
   - mcmahon
   - mom
+characters:
   - shawn
-
+storyline:
+comic: 20050524.png
 ---

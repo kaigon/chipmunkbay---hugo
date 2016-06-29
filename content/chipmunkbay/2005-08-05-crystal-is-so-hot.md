@@ -11,5 +11,9 @@ tags:
   - jacob
   - kaigon
   - karen
-
+tags:
+  - angry karen
+storyline:
+  - Karen is pretty
+comic: 20050806.png 
 ---
