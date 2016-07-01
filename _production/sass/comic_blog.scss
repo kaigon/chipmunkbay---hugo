@@ -98,6 +98,10 @@
             position:relative;
             color:white;
             margin-top:0.5rem;
+            font-size:12px;
+            @include media('>sm'){
+                font-size:14px;
+            }
             span {
                 position: relative;
                 z-index: 2;

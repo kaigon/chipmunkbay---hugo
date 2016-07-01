@@ -1,110 +1,133 @@
 {{ partial "head.html" . }}
 <main class="list">
     <div class="container">
-    	<header>
-    		<!-- define baseurl -->
-            {{ $baseurl := .Site.BaseURL }} 
-
-            <!-- define metadata stuff -->
-	  		{{ $metadata := index $.Site.Data.metadata .Title }}
-
-	  		<!-- define characters stuff -->
-	  		{{ $char_title := ( replace .Title " " "-" ) }}
-	  		{{ $character := index $.Site.Data.characters $char_title }}
-
-			<!-- archives for comic section -->
-	  		<!-- ex: Chipmunk Bay, or Team N3 -->
-	  		{{ if isset $metadata "name" }}
-	   			<h1>{{ $metadata.name }} archives</h1>
-
-	   		<!-- all comics featuring a set tag -->
-	   		<!-- ex: all comics tagged as 'starcraft' -->
-	   		{{ else if isset .Data "tags" }}
-	   			<h1>Comics tagged as "{{ .Title }}"</h1>
-
-			<!-- all comics featuring a specific character -->
-	   		<!-- ex: all comics featuring 'Karen' -->
-	   		{{ else if isset .Data "characters" }}
-	   			{{ if isset $character "thumb" }}
-					<figure>
-						<img src="{{ $baseurl }}_files/img/thumb/{{ $character.thumb }}" alt="profile picture for {{ $character.fullname }}">
-					</figure>
-	   			{{ end }}
-	   			<div>
-	   				{{ if isset $character "level" }}
-		   				<label class="label">{{ $character.level }} cast member</label>
-		   			{{ end }}
-		   			<h1>Comics featuring "{{ .Title }}"</h1>
-	   			</div>
-
-			<!-- all comics in a set storyline -->
-	   		<!-- ex: all comics in the 'Shawn has a date' storyline -->
-	   		{{ else if isset .Data "storyline" }}
-	   			<label class="label">Storyline</label>
-	   			<h1>{{ .Title }}</h1>
-
-	   		{{ end }}
-   		</header>
-
-
-   		
-
-   		
-   		
-   		
-
-
-        <!--<p>$$$ total comics. Showing $$-$$.</p>-->
-        <ul class="ul">
-            <!-- define paginator -->
-            {{ $pag := .Paginator }} 
-
-            <!-- return actual results -->
-            {{ range $index, $pag.Pages }}
-            <li>
-                <a href="{{ .Permalink }}" title="{{ .Title }}">{{.Title}}</a>
-            </li>
-            {{ end }}
-            <!-- end results for this page -->
-        </ul>
-
-        <!-- if there are pages, render pagination -->
-        {{ if or ($pag.HasPrev) ($pag.HasNext) }}
-        <ul class="ul ul-inline pagination">
-        	
-            <!-- if there are more than 1 pages of results -->
-            {{ if gt $pag.TotalPages 1 }}
-            <li {{ if not $pag.HasPrev }} class="disabled" {{ end }}>
-                <a aria-label="First" href="{{ $baseurl }}{{ $pag.First.URL }}">
-                    <span aria-hidden="true">&laquo;&laquo;</span>
+        <nav>
+            <main>
+                <!-- define baseurl -->
+                {{ $baseurl := .Site.BaseURL }}
+                <!-- define metadata stuff -->
+                {{ $metadata := index $.Site.Data.metadata .Title }}
+                <!-- define characters stuff -->
+                {{ $char_title := ( replace .Title " " "-" ) }} {{ $character := index $.Site.Data.characters $char_title }}
+                <!-- begin filters -->
+                <h3>Archive filters:</h3>
+                <div>
+                    <label>By storyline:</label>
+                    <ul class="ul">
+                        <li></li>
+                    </ul>
+                </div>
+                <div>
+                    <label>By character:</label>
+                    <ul class="ul">
+                        {{ range $name, $taxonomy := .Site.Taxonomies.characters }}
+                        <li class="tags--characters">
+                            <a href="/tags/{{ $name | urlize }}" class="tag" title="Comics featuring &ldquo;{{ $name }}&rdquo;">
+                                <span>{{ $name }}</span><i class="icon-tag" data-grunticon-embed></i>
+                            </a>
+                        </li>
+                        {{ end }}
+                    </ul>
+                </div>
+                <div>
+                    <label>By tag:</label>
+                    <ul class="ul">
+                        <li></li>
+                    </ul>
+                </div>
+                <div>
+                    <label>View all:</label>
+                    <ul class="ul">
+                        <li></li>
+                    </ul>
+                </div>
+            </main>
+        </nav>
+        <section>
+            <header>
+                <!-- archives for comic section -->
+                <!-- ex: Chipmunk Bay, or Team N3 -->
+                {{ if isset $metadata "name" }}
+                <h1>{{ $metadata.name }} archives</h1>
+                <!-- all comics featuring a set tag -->
+                <!-- ex: all comics tagged as 'starcraft' -->
+                {{ else if isset .Data "tags" }}
+                <h1>Comics tagged as "{{ .Title }}"</h1>
+                <!-- all comics featuring a specific character -->
+                <!-- ex: all comics featuring 'Karen' -->
+                {{ else if isset .Data "characters" }} {{ if isset $character "thumb" }}
+                <figure>
+                    <img src="{{ $baseurl }}_files/img/thumb/{{ $character.thumb }}" alt="profile picture for {{ $character.fullname }}">
+                </figure>
+                {{ end }}
+                <div>
+                    <label>Comics featuring</label>
+                    <h1>{{ .Title }}</h1> {{ if isset $character "level" }}
+                    <label class="tag"><span>{{ $character.level }} cast member</span><i class="icon-tag" data-grunticon-embed></i></label>
+                    {{ end }}
+                </div>
+                <!-- all comics in a set storyline -->
+                <!-- ex: all comics in the 'Shawn has a date' storyline -->
+                {{ else if isset .Data "storyline" }}
+                <label class="label">Storyline</label>
+                <h1>{{ .Title }}</h1> {{ end }}
+            </header>
+            <!--<p>$$$ total comics. Showing $$-$$.</p>-->
+            <main>
+                <ul class="ul">
+                    <!-- define paginator -->
+                    {{ $pag := .Paginator 20 }}
+                    <!-- return actual results -->
+                    {{ range $index, $pag.Pages }}
+                    <li>
+                        <a href="{{ .Permalink }}" title="{{ .Title }}">
+                    {{.Title}}
                 </a>
-            </li>
-            <li {{ if not $pag.HasPrev }} class="disabled" {{ end }}>
-                <a aria-label="Previous" href="{{ if $pag.HasPrev }}{{ $baseurl }}{{ $pag.Prev.URL }}{{ else }}#{{ end }}">
-                    <span aria-hidden="true">&laquo;</span>
+                        <span>{{ .Date.Format "Jan 2, 2006" }}</span>
+                    </li>
+                    {{ end }}
+                    <!-- end results for this page -->
+                </ul>
+            </main>
+            <!-- if there are pages, render pagination -->
+            <footer>
+                {{ if or ($pag.HasPrev) ($pag.HasNext) }}
+                <ul class="ul ul-inline pagination">
+                    <!-- if there are more than 1 pages of results -->
+                    {{ if gt $pag.TotalPages 1 }}
+                    <li {{ if not $pag.HasPrev }} class="disabled" {{ end }}>
+                        <a aria-label="First" href="{{ $baseurl }}{{ $pag.First.URL }}">
+                            <span aria-hidden="true">&laquo;&laquo;</span>
+                        </a>
+                    </li>
+                    <li {{ if not $pag.HasPrev }} class="disabled" {{ end }}>
+                        <a aria-label="Previous" href="{{ if $pag.HasPrev }}{{ $baseurl }}{{ $pag.Prev.URL }}{{ else }}#{{ end }}">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    {{ range $pag.Pagers }}
+                    <li {{ if eq . $pag }} class="active" {{ end }}>
+                        <a href="{{ $baseurl }}{{ .URL }}">
+                    {{ .PageNumber }}
                 </a>
-            </li>
-            {{ range $pag.Pagers }}
-            <li {{ if eq . $pag }} class="active" {{ end }}>
-                <a href="{{ $baseurl }}{{ .URL }}">
-    				{{ .PageNumber }}
-    			</a>
-            </li>
-            {{ end }}
-            <li {{ if not $pag.HasNext }} class="disabled" {{ end }}>
-                <a aria-label="Next" href="{{ if $pag.HasNext }}{{ $baseurl }}{{ $pag.Next.URL }}{{ else }}#{{ end }}">
-                    <span aria-hidden="true">&raquo;</span>
-                </a>
-            </li>
-            <li {{ if not $pag.HasNext }} class="disabled" {{ end }}>
-                <a aria-label="Last" href="{{ $baseurl }}{{ $pag.Last.URL }}">
-                    <span aria-hidden="true">&raquo;&raquo;</span>
-                </a>
-            </li>
-            {{ end }}
-        </ul>
-        {{ end }}
-        <!-- end pagination -->
+                    </li>
+                    {{ end }}
+                    <li {{ if not $pag.HasNext }} class="disabled" {{ end }}>
+                        <a aria-label="Next" href="{{ if $pag.HasNext }}{{ $baseurl }}{{ $pag.Next.URL }}{{ else }}#{{ end }}">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                    <li {{ if not $pag.HasNext }} class="disabled" {{ end }}>
+                        <a aria-label="Last" href="{{ $baseurl }}{{ $pag.Last.URL }}">
+                            <span aria-hidden="true">&raquo;&raquo;</span>
+                        </a>
+                    </li>
+                    {{ end }}
+                </ul>
+                {{ end }}
+            </footer>
+            <!-- end pagination -->
+        </section>
     </div>
 </main>
 </div>

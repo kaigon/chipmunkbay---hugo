@@ -71,7 +71,15 @@
         <link href="{{ .Site.BaseURL }}_files/img/icons.fallback.css" rel="stylesheet">
     </noscript>
 </head>
+{{ if and (.IsNode) (not (.IsHome)) }}
+<body class="isnode">
+{{ else if (.IsPage) }}
+    {{ if eq .Type "page" }}
+    <body class="ispage">
+    {{ end }}
+{{ else }}    
 <body>
+{{ end }}
 <!--[if lt IE 7]>
             <p class="browsehappy">
                 You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.

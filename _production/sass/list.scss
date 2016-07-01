@@ -1,0 +1,76 @@
+@import 'colors',
+'include-media';
+.list {
+    ul {
+        padding: 0;
+    }
+    .container {
+        > nav {
+            h3 {
+                letter-spacing: 1px;
+            }
+            div {
+                margin-bottom:1em;
+            }
+            li {
+                display: inline-block;
+                margin: -1px -2px;
+            }
+            .tag:hover {
+                padding: 5px 14px 4px 16px;
+                svg {
+                    fill: $gold;
+                }
+            }
+        }
+        > section {
+            main {
+                font-size: 1.4em;
+                li {
+                    margin-bottom: 1.5em;
+                    a {
+                        display: block;
+                    }
+                    span {
+                        display: block;
+                    }
+                }
+                @include media('>sm') {
+                    li {
+                        display: flex;
+                        margin-bottom: 0.5em;
+                        a {
+                            flex: 0 0 70%;
+                        }
+                        span {
+                            flex: 0 0 30%;
+                            text-align: right;
+                        }
+                    }
+                }
+            }
+        }
+        @include media('>sm') {
+            display: flex;
+            > nav {
+                flex: 0 0 33.3333%;
+            }
+            > section {
+                flex: 0 0 66.6666%;
+            }
+        }
+        @include media('>md') {
+            > nav {
+                flex: 0 0 30%;
+                padding-right: 3em;
+                main {
+                    padding-right: 3em;
+                    border-right: 1px solid $darkbg;
+                }
+            }
+            > section {
+                flex: 0 0 70%;
+            }
+        }
+    }
+}

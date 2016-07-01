@@ -1,8 +1,9 @@
 @import 'colors',
 'include-media';
 .comic {
-    padding:0;
+    padding: 0;
 }
+
 .comic--comic {
     padding: 10px;
     margin: 0 auto;
@@ -11,8 +12,8 @@
     width: 100%;
     text-align: center;
     figure {
-        margin:0 auto;
-        position:relative;
+        margin: 0 auto;
+        position: relative;
         max-width: 1400px;
     }
     img {
@@ -22,6 +23,19 @@
         margin: 0 15px 0 0;
         display: inline-block;
     }
+    .comic--weiner {
+        position: absolute;
+        z-index: 10;
+        opacity: 0;
+        width: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        //background-color:rgba(white,0.9);
+        &:hover {
+            opacity: 1;
+        }
+    }
     @include media('>sm') {
         padding: 20px 10px 0;
         overflow: hidden;
@@ -30,32 +44,14 @@
         background-size: contain;
         img {
             max-width: 100%;
-            height:auto;
+            height: auto;
             width: auto;
             max-height: none;
-            margin:0 auto;
+            margin: 0 auto;
         }
     }
-    @include media('>md'){
-        padding-right:50px;
-        padding-left:50px;
+    @include media('>md') {
+        padding-right: 50px;
+        padding-left: 50px;
     }
 }
-.comic--weiner {
-    position: absolute;
-    z-index: 10;
-    opacity: 0;
-    width:100%;
-    top:0;
-    left:0;
-    right:0;
-    background-color:rgba(white,0.9);
-    &:hover {
-
-    opacity:1;
-
-    }
-}
-
-    
-

@@ -16,7 +16,7 @@ pluralizelisttitles = false
 
 # Pagination
 paginate = 20
-paginatePath = "post"
+paginatePath = "page"
 
 [permalinks]
     chipmunkbay = "/:year/:month/:day/:slug/"

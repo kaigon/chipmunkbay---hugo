@@ -40,3 +40,18 @@
     height: 50px;
     }
 }
+
+.isnode {
+    .header {
+        @include media('>sm'){
+            background-color:$lightbg;
+        }
+    }
+}
+.ispage {
+    .header {
+        @include media('>sm'){
+            background-color:$lightbg;
+        }
+    }
+}

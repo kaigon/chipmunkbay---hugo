@@ -141,7 +141,7 @@ module.exports = function(grunt) {
                     expand: true,
                     cwd: '_production/test/',
                     src: ['**/*.{jpg,gif,png}'],
-                    custom_dest: '_production/build/comics/{%= name %}/'
+                    custom_dest: '_production/build/test/{%= path %}/{%= name %}/'
                 }]
             }
         },
@@ -152,10 +152,10 @@ module.exports = function(grunt) {
                 },
                 files: [{
                     expand: true,
-                    cwd: '_production/build/comics/',
+                    cwd: '_production/build/test/',
                     src: ['**/*.png'],
                     //src: ['**.png'],
-                    dest: 'static/_files/comics/',
+                    dest: 'static/_files/test/',
                 }]
             }
         },
@@ -317,10 +317,12 @@ module.exports = function(grunt) {
     //grunt.registerTask('hugo', ['connect:dev', 'shell:hugo:dev', 'watch']);
     grunt.registerTask('hugo', ['open:devserver', 'shell:dev', 'watch']);
     grunt.registerTask('build', ['shell:build']);
-    grunt.registerTask('responsive', ['newer:responsive_images', 'newer:pngquant:png']);
+    grunt.registerTask('responsive', ['responsive_images', 'newer:pngquant:png']);
     //grunt.registerTask('responsive', ['responsive_images', 'pngquant:png']);
     grunt.registerTask('cssStuff', ['sass', 'postcss', 'cssmin', 'clean', 'shell:dev']);
     grunt.registerTask('jsStuff', ['concat', 'uglify', 'clean', 'jshint', 'shell:dev']);
+
+    grunt.registerTask('resp', ['responsive_images']);
 
     /*
     grunt.registerTask 'hugo', (target) ->
