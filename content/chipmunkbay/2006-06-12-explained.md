@@ -11,5 +11,7 @@ characters:
   - ninja monkey
 tags:
   - sprinkles
+storyline:
+  - Jacob eats a sprinkle  
 comic: 20060613.png  
 ---

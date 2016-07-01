@@ -11,6 +11,8 @@ categories:
 characters:
   - jacob
   - shawn
+tags:
+  - rent
 comic: 20100531.png
 ---
 Internet culture.

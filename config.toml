@@ -15,7 +15,7 @@ googleAnalytics = "UA-8550146-1"
 pluralizelisttitles = false
 
 # Pagination
-paginate = 5
+paginate = 20
 paginatePath = "post"
 
 [permalinks]

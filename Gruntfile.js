@@ -121,6 +121,45 @@ module.exports = function(grunt) {
                 "uglify": true
             }
         },
+
+        responsive_images: {
+            cb: {
+                options: {
+                    newFilesOnly: true,
+                    sizes: [{
+                        name: 'sm',
+                        width: 960,
+                    }, {
+                        name: 'lg',
+                        width: 1400,
+                    }, {
+                        name: 'thumb',
+                        width: 250
+                    }]
+                },
+                files: [{
+                    expand: true,
+                    cwd: '_production/test/',
+                    src: ['**/*.{jpg,gif,png}'],
+                    custom_dest: '_production/build/comics/{%= name %}/'
+                }]
+            }
+        },
+        pngquant: { // Task 
+            png: {
+                options: {
+                    quality: 80
+                },
+                files: [{
+                    expand: true,
+                    cwd: '_production/build/comics/',
+                    src: ['**/*.png'],
+                    //src: ['**.png'],
+                    dest: 'static/_files/comics/',
+                }]
+            }
+        },
+
         svgmin: {
             options: {
                 plugins: [
@@ -151,21 +190,21 @@ module.exports = function(grunt) {
             }
         },
         shell: {
-                server: {
-                    command: '.\\hugo server'
-                },
-                dev: {
-                    command: '.\\hugo --baseUrl=http://localhost:8080/master_chipmunkbay/dev --destination=dev' //--source=site --destination=../dev
-                },
-                build: {
-                    command: '.\\hugo -d public/'
-                }
-                /*
-                deploy: {
-                    command: 'rsync -az --force --progress -e "ssh" build/ user@mysite.com:/path/to/webroot/'
-                }
-                */
-            
+            server: {
+                command: '.\\hugo server'
+            },
+            dev: {
+                command: '.\\hugo --baseUrl=http://localhost:8080/master_chipmunkbay/dev --destination=dev' //--source=site --destination=../dev
+            },
+            build: {
+                command: '.\\hugo -d public/'
+            }
+            /*
+            deploy: {
+                command: 'rsync -az --force --progress -e "ssh" build/ user@mysite.com:/path/to/webroot/'
+            }
+            */
+
         },
 
         open: {
@@ -220,7 +259,7 @@ module.exports = function(grunt) {
                 },
             },
             site: {
-                files: ['content/**/*','layouts/**/*','archetypes/**/*','config.toml','data/**/*'],
+                files: ['content/**/*', 'layouts/**/*', 'archetypes/**/*', 'config.toml', 'data/**/*'],
                 tasks: ['shell:dev']
             },
             scripts: {
@@ -264,19 +303,24 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-shell');
     grunt.loadNpmTasks('grunt-open');
+    grunt.loadNpmTasks('grunt-responsive-images');
+    grunt.loadNpmTasks('grunt-pngquant');
+    grunt.loadNpmTasks('grunt-newer');
 
 
     // Default task(s).
     grunt.registerTask('default', ['sass', 'postcss', 'cssmin', 'concat', 'uglify', 'clean', 'jshint']); // order matters here!
-    grunt.registerTask('icons', ['svgmin', 'grunticon', 'clean','shell:dev']); // order matters here!
+    grunt.registerTask('icons', ['svgmin', 'grunticon', 'clean', 'shell:dev']); // order matters here!
     //grunt.registerTask('icons', ['grunticon']);
     grunt.registerTask('dist', ['modernizr']); // order matters here!
     grunt.registerTask('scss', ['sass']);
     //grunt.registerTask('hugo', ['connect:dev', 'shell:hugo:dev', 'watch']);
-    grunt.registerTask('hugo', ['open:devserver', 'shell:dev','watch']);
+    grunt.registerTask('hugo', ['open:devserver', 'shell:dev', 'watch']);
     grunt.registerTask('build', ['shell:build']);
-    grunt.registerTask('cssStuff', ['sass', 'postcss', 'cssmin', 'clean','shell:dev']);
-    grunt.registerTask('jsStuff', ['concat', 'uglify', 'clean', 'jshint','shell:dev']);
+    grunt.registerTask('responsive', ['newer:responsive_images', 'newer:pngquant:png']);
+    //grunt.registerTask('responsive', ['responsive_images', 'pngquant:png']);
+    grunt.registerTask('cssStuff', ['sass', 'postcss', 'cssmin', 'clean', 'shell:dev']);
+    grunt.registerTask('jsStuff', ['concat', 'uglify', 'clean', 'jshint', 'shell:dev']);
 
     /*
     grunt.registerTask 'hugo', (target) ->

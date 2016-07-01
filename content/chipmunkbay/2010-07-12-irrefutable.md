@@ -19,5 +19,6 @@ tags:
   - angela cheats
   - kaigon is superman
   - boobs
+  - homophobia
 ---
 Kryptonite boobs!

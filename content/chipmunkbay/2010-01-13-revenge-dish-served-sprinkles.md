@@ -13,6 +13,8 @@ characters:
 tags:
   - sprinkles
   - doctor
-comic: 200100113.png 
+comic: 200100113.png
+storyline:
+  - Jacob eats a sprinkle
 ---
 Side note: I laughed the ENTIRE time I was drawing the photo that Shawn is holding in the first panel.

@@ -48,7 +48,11 @@
     {{ end }}
 
     {{ if isset .Params "comic" }}
-    <meta property="og:image" content="{{ .Params.comic | absURL }}" />
+        <!-- define title -->
+        {{ $t := title .Type }}
+        <!-- define metadata -->
+        {{ $s := index $.Site.Data.metadata $t }}
+        <meta property="og:image" content="{{ .Site.BaseURL }}_files/comics/{{ $s.folder }}/lg/{{ .Params.comic }}" />
     {{ else }}
     <!--<meta property="og:image" content="{{ .Site.Params.logo }}" />-->
     {{ end }}

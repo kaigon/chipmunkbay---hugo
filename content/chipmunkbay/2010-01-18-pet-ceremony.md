@@ -18,5 +18,7 @@ characters:
 tags:
   - shawn's cat
   - karen hates shawn
+storyline:
+  - Jacob eats a sprinkle  
 comic: 200100118.png 
 ---

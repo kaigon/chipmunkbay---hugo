@@ -11,5 +11,7 @@ characters:
   - karen
 tags:
   - jacob's penis
+storyline:
+  - Jacob eats a sprinkle  
 comic: 200100104.png  
 ---

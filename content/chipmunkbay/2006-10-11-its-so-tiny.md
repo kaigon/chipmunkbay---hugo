@@ -12,5 +12,7 @@ characters:
   - ninja monkey
 tags:
   - jacob's penis
+storyline:
+  - Jacob eats a sprinkle  
 comic: 20061012.png  
 ---

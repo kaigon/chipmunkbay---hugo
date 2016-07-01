@@ -84,6 +84,7 @@ node_modules
 site/themes
 dev
 themes
+_production/build
 
 #master files
 .psd

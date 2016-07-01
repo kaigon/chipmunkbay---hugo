@@ -14,5 +14,7 @@ tags:
   - parenting
   - shawn's cat
 comic: 200100115.png 
+storyline:
+  - Jacob eats a sprinkle
 ---
 Happy Birthday! Sorry we forgot you existed for 5 years! And left you alone in a room with a dead cat for a week. Covered in blood. Here's a coupon for a free ice cream cone from McDonald's. Love, mom and dad.  PS: please don't call child services.

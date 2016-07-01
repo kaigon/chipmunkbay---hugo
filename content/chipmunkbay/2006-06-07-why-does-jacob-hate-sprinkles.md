@@ -11,5 +11,7 @@ characters:
   - karen
 tags:
   - sprinkles
+storyline:
+  - Jacob eats a sprinkle  
 comic: 20060608.png  
 ---

@@ -28,7 +28,7 @@
       <description>
         {{ $t := title .Type }}
         {{ $s := index $.Site.Data.metadata $t }}
-        <img src="{{ .Site.BaseURL }}comics/{{ $s.folder }}/{{ .Params.comic }}" alt="Comic: {{ .Title }}" title="{{ if isset .Params "alt" }}{{ .Params.alt }}{{ end }}"/>
+        <img src="{{ .Site.BaseURL }}comics/{{ $s.folder }}/lg/{{ .Params.comic }}" alt="Comic: {{ .Title }}" title="{{ if isset .Params "alt" }}{{ .Params.alt }}{{ end }}"/>
         {{ .Summary | html }}
       </description>
     </item>

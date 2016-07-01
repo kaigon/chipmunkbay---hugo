@@ -12,6 +12,8 @@ characters:
 tags:
   - shawn's cat
 comic: 200100120.png 
+storyline:
+  - Jacob eats a sprinkle
 
 ---
 I wrote this story arc over three years ago when I began the sprinkles gags. 
