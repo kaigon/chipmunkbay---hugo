@@ -139,9 +139,9 @@ module.exports = function(grunt) {
                 },
                 files: [{
                     expand: true,
-                    cwd: '_production/test/',
+                    cwd: '_production/comics/',
                     src: ['**/*.{jpg,gif,png}'],
-                    custom_dest: '_production/build/test/{%= path %}/{%= name %}/'
+                    custom_dest: '_production/build/comics/{%= path %}/{%= name %}/'
                 }]
             }
         },
@@ -152,10 +152,10 @@ module.exports = function(grunt) {
                 },
                 files: [{
                     expand: true,
-                    cwd: '_production/build/test/',
+                    cwd: '_production/build/comics/',
                     src: ['**/*.png'],
                     //src: ['**.png'],
-                    dest: 'static/_files/test/',
+                    dest: 'static/_files/comics/',
                 }]
             }
         },
@@ -323,6 +323,7 @@ module.exports = function(grunt) {
     grunt.registerTask('jsStuff', ['concat', 'uglify', 'clean', 'jshint', 'shell:dev']);
 
     grunt.registerTask('resp', ['responsive_images']);
+    grunt.registerTask('png', ['newer:pngquant:png']);
 
     /*
     grunt.registerTask 'hugo', (target) ->
