@@ -9,7 +9,7 @@ categories:
 characters:
   - shawn
   - kaigon
-comic: 200100125.png 
+comic: 20100125.png 
 alt: Doesn't your pharmacy deliver? No? It doesn't tell your roommates what the medications are? Weird.
 storyline:
   - Jacob eats a sprinkle

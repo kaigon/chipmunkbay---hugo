@@ -13,7 +13,7 @@ characters:
   - jacob
   - ninja monkey
   - karen
-comic: 200100519.png 
+comic: 20100519.png 
 storyline:
   - Watterson takes a bath
 tags:

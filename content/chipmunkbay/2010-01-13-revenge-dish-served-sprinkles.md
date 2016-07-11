@@ -13,7 +13,7 @@ characters:
 tags:
   - sprinkles
   - doctor
-comic: 200100113.png
+comic: 20100113.png
 storyline:
   - Jacob eats a sprinkle
 ---

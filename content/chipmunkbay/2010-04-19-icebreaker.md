@@ -15,7 +15,7 @@ characters:
   - wolf
   - ford
   - kwip
-comic: 200100419.png 
+comic: 20100419.png 
 storyline:
   - New friends
 tags:

@@ -14,6 +14,6 @@ characters:
   - kaigon
 storyline:
   - Shawn's first date
-comic: 200100219.png 
+comic: 20100219.png 
 ---
 Let's pretend Karen is sleeping and can't hear Jacob obsessing over Crystal.

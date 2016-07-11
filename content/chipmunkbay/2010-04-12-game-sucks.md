@@ -13,7 +13,7 @@ characters:
   - watterson
   - shawn
   - kaigon
-comic: 200100412.png
+comic: 20100412.png
 tags:
   - beta station
   - clerk 

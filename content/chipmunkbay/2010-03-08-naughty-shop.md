@@ -12,7 +12,7 @@ characters:
   - jacob
   - karen
   - watterson
-comic: 200100308.png 
+comic: 20100308.png 
 ---
 ### Bonus panel idea:
 Oh, and while you're in there, get me a couple magazines, too

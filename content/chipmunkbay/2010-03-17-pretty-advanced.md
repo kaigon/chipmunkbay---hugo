@@ -8,7 +8,7 @@ hovertext:
   - Bub.
 categories:
   - Chipmunk Bay
-comic: 200100317.png 
+comic: 20100317.png 
 tags:
   - wolverine
   - misc

@@ -13,7 +13,7 @@ tags:
   - cops
   - rent
   - character dies
-comic: 201001007.png
+comic: 20101007.png
 weiner:
 ---
 FYI: Kaigon&#8217;s cast is really hard to fit into these panels.

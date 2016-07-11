@@ -11,7 +11,7 @@ categories:
 characters:
   - larson
   - watterson
-comic: 200100322.png 
+comic: 20100322.png 
 tags:
   - clerk
   - beta station

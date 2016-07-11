@@ -10,7 +10,7 @@ characters:
   - kaigon
   - shawn
   - ninja monkey
-comic: 200100521.png 
+comic: 20100521.png 
 storyline:
   - Watterson takes a bath
 tags:

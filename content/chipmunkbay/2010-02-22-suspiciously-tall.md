@@ -13,6 +13,6 @@ characters:
   - shawn
 storyline:
   - Shawn's first date
-comic: 200100222.png 
+comic: 20100222.png 
 ---
 Nope.

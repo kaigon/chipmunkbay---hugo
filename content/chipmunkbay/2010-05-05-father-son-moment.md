@@ -9,7 +9,7 @@ categories:
 characters:
   - watterson
   - jacob
-comic: 200100505.png 
+comic: 20100505.png 
 tags:
   - religion
 ---

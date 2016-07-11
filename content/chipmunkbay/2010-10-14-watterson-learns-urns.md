@@ -13,7 +13,7 @@ characters:
 tags:
   - karen hates shawn 
   - bryce's dead body 
-comic: 20101014.png
+comic: 20101013.png
 weiner:
 ---
 I agree with Watterson. Urns are weird.

@@ -11,7 +11,7 @@ categories:
 characters:
   - larson
   - watterson
-comic: 200100331.png 
+comic: 20100331.png 
 storyline:
   - Watterson buys a game
 tags:

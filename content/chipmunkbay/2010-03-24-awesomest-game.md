@@ -11,7 +11,7 @@ characters:
   - watterson
 tags:
   - d&d  
-comic: 200100324.png 
+comic: 20100324.png 
 storyline:
   - Watterson buys a game
 ---

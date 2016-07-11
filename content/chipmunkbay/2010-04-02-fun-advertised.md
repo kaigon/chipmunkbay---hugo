@@ -15,7 +15,7 @@ characters:
   - kaigon
 tags:
   - d&d  
-comic: 200100402.png 
+comic: 20100402.png 
 storyline:
   - Watterson buys a game
 ---

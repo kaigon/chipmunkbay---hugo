@@ -20,5 +20,5 @@ tags:
   - karen hates shawn
 storyline:
   - Jacob eats a sprinkle  
-comic: 200100118.png 
+comic: 20100118.png 
 ---

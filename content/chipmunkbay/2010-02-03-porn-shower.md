@@ -17,6 +17,6 @@ tags:
   - porn
 storyline:
   - Shawn's first date
-comic: 200100203.png 
+comic: 20100203.png 
 ---
 Awwwwwwwwwww!

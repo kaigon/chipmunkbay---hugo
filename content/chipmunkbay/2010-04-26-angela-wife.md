@@ -14,7 +14,7 @@ characters:
   - ford
   - kwip
   - mac
-comic: 200100426.png 
+comic: 20100426.png 
 storyline:
   - New friends
 tags:

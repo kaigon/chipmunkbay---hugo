@@ -11,7 +11,7 @@ categories:
 characters:
   - jacob
   - karen
-comic: 200100303.png 
+comic: 20100303.png 
 tags:
   - sexy time
 ---

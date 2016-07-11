@@ -15,7 +15,7 @@ storyline:
   - Shawn's first date
 tags:
   - character dies  
-comic: 200100212.png 
+comic: 20100212.png 
 ---
 ### Bonus panel idea:
 NOBODY MAKES ME WEAR A CONDOM! YOU HEAR ME?!?! NOBODY!

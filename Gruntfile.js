@@ -148,7 +148,7 @@ module.exports = function(grunt) {
         pngquant: { // Task 
             png: {
                 options: {
-                    quality: 80
+                    quality: 65
                 },
                 files: [{
                     expand: true,
@@ -275,8 +275,14 @@ module.exports = function(grunt) {
         },
         clean: {
             build: {
-                src: ['_production/sass/css', '_production/svgs/compressed'] //
+                src: ['_production/sass/css/', '_production/svgs/compressed'] //
             },
+            css: {
+                src: ['_production/sass/css/']
+            },
+            svgs: {
+                src: ['_production/svgs/compressed']
+            }
         },
         jshint: {
             options: {
@@ -309,8 +315,8 @@ module.exports = function(grunt) {
 
 
     // Default task(s).
-    grunt.registerTask('default', ['sass', 'postcss', 'cssmin', 'concat', 'uglify', 'clean', 'jshint']); // order matters here!
-    grunt.registerTask('icons', ['svgmin', 'grunticon', 'clean', 'shell:dev']); // order matters here!
+    grunt.registerTask('default', ['sass', 'postcss', 'cssmin', 'concat', 'uglify', 'clean:build', 'jshint']); // order matters here!
+    grunt.registerTask('icons', ['svgmin', 'grunticon', 'clean:svgs', 'shell:dev']); // order matters here!
     //grunt.registerTask('icons', ['grunticon']);
     grunt.registerTask('dist', ['modernizr']); // order matters here!
     grunt.registerTask('scss', ['sass']);
@@ -319,8 +325,8 @@ module.exports = function(grunt) {
     grunt.registerTask('build', ['shell:build']);
     grunt.registerTask('responsive', ['responsive_images', 'newer:pngquant:png']);
     //grunt.registerTask('responsive', ['responsive_images', 'pngquant:png']);
-    grunt.registerTask('cssStuff', ['sass', 'postcss', 'cssmin', 'clean', 'shell:dev']);
-    grunt.registerTask('jsStuff', ['concat', 'uglify', 'clean', 'jshint', 'shell:dev']);
+    grunt.registerTask('cssStuff', ['sass', 'postcss', 'cssmin', 'clean:css', 'shell:dev']);
+    grunt.registerTask('jsStuff', ['concat', 'uglify', 'jshint', 'shell:dev']);
 
     grunt.registerTask('resp', ['responsive_images']);
     grunt.registerTask('png', ['newer:pngquant:png']);

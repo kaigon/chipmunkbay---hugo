@@ -13,7 +13,7 @@ characters:
 tags:
   - parenting
   - shawn's cat
-comic: 200100115.png 
+comic: 20100115.png 
 storyline:
   - Jacob eats a sprinkle
 ---

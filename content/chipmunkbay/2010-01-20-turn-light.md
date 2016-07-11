@@ -11,7 +11,7 @@ characters:
   - ninja monkey
 tags:
   - shawn's cat
-comic: 200100120.png 
+comic: 20100120.png 
 storyline:
   - Jacob eats a sprinkle
 

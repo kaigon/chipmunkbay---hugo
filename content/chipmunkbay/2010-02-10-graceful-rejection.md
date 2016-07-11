@@ -13,5 +13,5 @@ characters:
   - crystal
 storyline:
   - Shawn's first date
-comic: 200100210.png 
+comic: 20100210.png 
 ---

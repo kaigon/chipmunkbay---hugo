@@ -13,7 +13,7 @@ tags:
   - karen hates shawn
 storyline:
   - Shawn's first date
-comic: 200100127.png 
+comic: 20100127.png 
 
 ---
 ### Bonus panel idea:

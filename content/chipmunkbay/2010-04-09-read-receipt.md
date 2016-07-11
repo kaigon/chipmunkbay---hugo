@@ -12,7 +12,7 @@ characters:
   - watterson
   - shawn
   - kaigon
-comic: 200100409.png 
+comic: 20100409.png 
 storyline:
   - Watterson buys a game
 ---
