@@ -8,7 +8,5 @@ categories:
   - Team N3
 tags:
   - diablo
-  - team
-  - 'Team N3 - Child'
-
+comic: diablo-01.png
 ---

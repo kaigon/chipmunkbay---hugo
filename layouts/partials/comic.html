@@ -14,9 +14,35 @@
                 {{ if (isset .Params "weiner") }}
                     <!-- check to see if variable is defined AND not empty -->
                     {{ if and (not (eq .Params.weiner "")) (not (eq .Params.weiner nil)) }}
-                        <img sizes="(min-width: 1400px) 1400px, 100vw" srcset="{{ .Site.BaseURL }}_files/comics/weiner/sm/{{ .Params.weiner }} 960w,{{ .Site.BaseURL }}_files/comics/weiner/lg/{{ .Params.weiner }} 1400w" src="{{ .Site.BaseURL }}_files/comics/weiner/lg/{{ .Params.weiner }}" alt="bonus panel" class="animated comic--weiner">
+                        <img 
+                            src="{{ .Site.BaseURL }}_files/comics/weiner/1400/{{ .Params.weiner }}" 
+                            sizes="(min-width: 1400px) 1400px, 100vw" 
+                            srcset="
+                                {{ .Site.BaseURL }}_files/comics/weiner/320/{{ .Params.weiner }} 320w,
+                                {{ .Site.BaseURL }}_files/comics/weiner/480/{{ .Params.weiner }} 480w,
+                                {{ .Site.BaseURL }}_files/comics/weiner/768/{{ .Params.weiner }} 768w,
+                                {{ .Site.BaseURL }}_files/comics/weiner/1024/{{ .Params.weiner }} 1024w,
+                                {{ .Site.BaseURL }}_files/comics/weiner/1280/{{ .Params.weiner }} 1280w,
+                                {{ .Site.BaseURL }}_files/comics/weiner/1400/{{ .Params.weiner }} 1400w"
+                            alt="bonus panel" 
+                            title="{{ .Title }}: Bonus Panel for {{ .Date.Format "January 2, 2006" }} by {{ .Site.Author.name }}"
+                            class="animated comic--weiner"
+                        />
                     {{ else }}
-                        <img sizes="(min-width: 1400px) 1400px, 100vw" srcset="{{ .Site.BaseURL }}_files/comics/weiner/sm/{{ .Date.Format "20060102" }}.png 960w,{{ .Site.BaseURL }}_files/comics/weiner/lg/{{ .Date.Format "20060102" }}.png 1400w" src="{{ .Site.BaseURL }}_files/comics/weiner/lg/{{ .Date.Format "20060102" }}.png" alt="bonus panel" class="animated comic--weiner">
+                        <img 
+                            src="{{ .Site.BaseURL }}_files/comics/weiner/1400/{{ .Date.Format "20060102" }}.png" 
+                            sizes="(min-width: 1400px) 1400px, 100vw" 
+                            srcset="
+                                {{ .Site.BaseURL }}_files/comics/weiner/320/{{ .Date.Format "20060102" }}.png 320w,
+                                {{ .Site.BaseURL }}_files/comics/weiner/480/{{ .Date.Format "20060102" }}.png 480w,
+                                {{ .Site.BaseURL }}_files/comics/weiner/768/{{ .Date.Format "20060102" }}.png 768w,
+                                {{ .Site.BaseURL }}_files/comics/weiner/1024/{{ .Date.Format "20060102" }}.png 1024w,
+                                {{ .Site.BaseURL }}_files/comics/weiner/1280/{{ .Date.Format "20060102" }}.png 1280w,
+                                {{ .Site.BaseURL }}_files/comics/weiner/1400/{{ .Date.Format "20060102" }}.png 1400w"
+                            alt="bonus panel" 
+                            title="{{ .Title }}: Bonus Panel for {{ .Date.Format "January 2, 2006" }} by {{ .Site.Author.name }}"
+                            class="animated comic--weiner"
+                        />
                     {{ end }}
                     <!-- end check -->
                 {{ end }}
@@ -37,7 +63,24 @@
                 -->
 
                 <!-- main comic //-->
-                <img sizes="(min-width: 1400px) 1400px, 100vw" srcset="{{ .Site.BaseURL }}_files/comics/{{ $s.folder }}/sm/{{ .Params.comic }} 960w,{{ .Site.BaseURL }}_files/comics/{{ $s.folder }}/lg/{{ .Params.comic }} 1400w" src="{{ .Site.BaseURL }}_files/comics/{{ $s.folder }}/lg/{{ .Params.comic }}" alt="Comic: {{ .Title }} {{ .Date.Format "January 2, 2006" }} by {{ .Site.Author.name }}" {{ if and (isset .Params "alt") (and (not (eq .Params.alt "")) (not (eq .Params.alt nil))) }}title="{{ .Params.alt }}"{{else}}title="{{ .Title }}: {{ .Date.Format "January 2, 2006" }} by {{ .Site.Author.name }}"{{end}} class="animated comic--comic_img">
+                <img 
+                    src="{{ .Site.BaseURL }}_files/comics/{{ $s.folder }}/1400/{{ .Params.comic }}"
+                    sizes="(min-width: 1400px) 1400px, 100vw" 
+                    srcset="
+                        {{ .Site.BaseURL }}_files/comics/{{ $s.folder }}/320/{{ .Params.comic }} 320w,
+                        {{ .Site.BaseURL }}_files/comics/{{ $s.folder }}/480/{{ .Params.comic }} 480w,
+                        {{ .Site.BaseURL }}_files/comics/{{ $s.folder }}/768/{{ .Params.comic }} 768w,
+                        {{ .Site.BaseURL }}_files/comics/{{ $s.folder }}/1024/{{ .Params.comic }} 1024w,
+                        {{ .Site.BaseURL }}_files/comics/{{ $s.folder }}/1280/{{ .Params.comic }} 1280w,
+                        {{ .Site.BaseURL }}_files/comics/{{ $s.folder }}/1400/{{ .Params.comic }} 1400w" 
+                    alt="Comic: {{ .Title }} {{ .Date.Format "January 2, 2006" }} by {{ .Site.Author.name }}" 
+                    {{ if and (isset .Params "alt") (and (not (eq .Params.alt "")) (not (eq .Params.alt nil))) }}
+                        title="{{ .Params.alt }}"
+                    {{else}}
+                        title="{{ .Title }}: {{ .Date.Format "January 2, 2006" }} by {{ .Site.Author.name }}"
+                    {{end}}
+                    class="animated comic--comic_img"
+                />
                 <!--// main comic -->
 
             </figure>      
@@ -52,7 +95,7 @@
                     <!-- Previous Post -->
                     {{ range first 1 (after 1 (where .Data.Pages "Type" "chipmunkbay")) }}
                       
-                            <a href="{{ .Permalink }}" class="icon-button prev" title="{{ .Title }}">
+                            <a href="{{ .Permalink }}" class="icon-button_alt prev" title="{{ .Title }}">
                                 <i class="icon-arrow"></i>
                                 <span>&lsaquo; Prev</span>
                             </a>
@@ -63,7 +106,7 @@
                     <!-- previous button -->
                     {{ if .PrevInSection }}
                         
-                            <a href="{{ .PrevInSection.Permalink }}" class="prev icon-button" data-toggle="tooltip" data-placement="top" title="{{ .PrevInSection.Title }}">
+                            <a href="{{ .PrevInSection.Permalink }}" class="prev icon-button_alt" data-toggle="tooltip" data-placement="top" title="{{ .PrevInSection.Title }}">
                                 <i class="icon-arrow"></i>
                                 <span>&laquo; Prev</span>
                             </a>
@@ -72,7 +115,7 @@
                     <!-- show weiner button -->
                     {{ if isset .Params "weiner" }}
                     
-                        <a href="#" data-target=".comic--weiner" class="icon-button weiner-toggle">
+                        <a href="#" data-target=".comic--weiner" class="icon-button_alt weiner-toggle">
                             <span>bonus panel</span>
                         </a>
                     
@@ -80,7 +123,7 @@
                     <!-- next -->
                     {{ if .NextInSection }}
                        
-                            <a href="{{ .NextInSection.Permalink }}" class="next icon-button" data-toggle="tooltip" data-placement="top" title="{{ .NextInSection.Title }}">
+                            <a href="{{ .NextInSection.Permalink }}" class="next icon-button_alt" data-toggle="tooltip" data-placement="top" title="{{ .NextInSection.Title }}">
                                 <i class="icon-arrow-next"></i>
                                 <span>Next &raquo;</span>
                             </a>
@@ -107,7 +150,7 @@
             <aside>
                 <!-- tags -->
                 {{ if and (isset .Params "tags") (and (not (eq .Params.tags "")) (not (eq .Params.tags nil))) }}
-                <div class="tags">
+                <div class="tags tags--tags">
                     <!--<label>tags</label>-->
                     {{ range .Params.tags }}
                         <a href="{{ "/tags/" | absURL }}{{ . | urlize }}" class="tag" title="Comics tagged as &ldquo;{{ . }}&rdquo;">
@@ -119,7 +162,7 @@
 
                 <!-- characters -->
                 {{ if and (isset .Params "characters") (and (not (eq .Params.characters "")) (not (eq .Params.characters nil))) }}
-                <div class="tags--characters">
+                <div class="tags tags--characters">
                     <!--<label>characters</label>-->
                     {{ range .Params.characters }}
                         <a href="{{ "/characters/" | absURL }}{{ . | urlize }}" class="tag" title="Comics featuring &ldquo;{{ . }}&rdquo;">
@@ -131,7 +174,7 @@
 
                 <!-- storyline -->
                 {{ if and (isset .Params "storyline") (and (not (eq .Params.storyline "")) (not (eq .Params.storyline nil))) }}
-                <div class="tags--storyline">
+                <div class="tags tags--storyline">
                     <!--<label>storyline</label>-->
                     {{ range .Params.storyline }}
                         <a href="{{ "/storyline/" | absURL }}{{ . | urlize }}" class="tag" title="Comics in the &ldquo;{{ . }}&rdquo; storyline">

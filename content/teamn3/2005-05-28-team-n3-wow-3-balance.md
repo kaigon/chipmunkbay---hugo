@@ -7,9 +7,7 @@ url: /2005/05/28/team-n3-wow-3-balance/
 categories:
   - Team N3
 tags:
-  - team
-  - 'Team N3 - Child'
   - warcraft
   - wow
-
+comic: wow-03.png
 ---

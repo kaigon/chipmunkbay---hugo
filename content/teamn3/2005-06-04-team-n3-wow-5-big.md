@@ -7,9 +7,7 @@ url: /2005/06/04/team-n3-wow-5-big/
 categories:
   - Team N3
 tags:
-  - team
-  - 'Team N3 - Child'
   - warcraft
   - wow
-
+comic: wow-05.png
 ---

@@ -6,5 +6,5 @@ date: 1997-06-24T08:00:00+00:00
 url: /1997/06/24/guy-holding-a-dog/
 categories:
   - Old
-
+comic: 19970624.png
 ---

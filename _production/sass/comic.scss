@@ -7,8 +7,8 @@
 .comic--comic {
     padding: 10px;
     margin: 0 auto;
-    overflow: hidden;
-    overflow-x: scroll;
+    //overflow: hidden;
+    //overflow-x: scroll;
     width: 100%;
     text-align: center;
     figure {
@@ -17,9 +17,11 @@
         max-width: 1400px;
     }
     img {
-        width: auto;
+        //width: auto;
+        width:100%;
         height: auto;
-        max-width: 960px;
+        //max-width: 960px;
+        max-width: 100%;
         margin: 0 15px 0 0;
         display: inline-block;
     }
@@ -31,21 +33,20 @@
         top: 0;
         left: 0;
         right: 0;
-        //background-color:rgba(white,0.9);
         &:hover {
             opacity: 1;
         }
     }
     @include media('>sm') {
         padding: 20px 10px 0;
-        overflow: hidden;
+        //overflow: hidden;
         background-color: $darkbg;
         background-position: center bottom;
         background-size: contain;
         img {
-            max-width: 100%;
-            height: auto;
-            width: auto;
+            //max-width: 100%;
+            //height: auto;
+            //width: auto;
             max-height: none;
             margin: 0 auto;
         }

@@ -4,6 +4,8 @@
 
 .icon-button { background-image: url('png/button.png'); background-repeat: no-repeat; }
 
+.icon-button_alt { background-image: url('png/button_alt.png'); background-repeat: no-repeat; }
+
 .icon-comic-bg { background-image: url('png/comic-bg.png'); background-repeat: no-repeat; }
 
 .icon-email { background-image: url('png/email.png'); background-repeat: no-repeat; }

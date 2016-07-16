@@ -6,8 +6,5 @@ date: 2006-04-21T06:44:15+00:00
 url: /2006/04/20/team-n3-super/
 categories:
   - Team N3
-tags:
-  - team
-  - 'Team N3 - Child'
-
+comic: ran-020.png
 ---

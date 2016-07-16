@@ -1,14 +1,15 @@
 @import 'colors',
 'include-media';
 .comic--nav {
-    font-size:0.75rem;
-    padding:15px;
+    font-size:0.9rem;
+    //padding:15px;
+    padding: 0 15px 15px;
     text-align: center;
-
     a {
         background-size:cover;
         padding:4px 12px;
         display: inline-block;
+        color:#fff;
     }
     i {
 
@@ -23,7 +24,8 @@
         .prev,.next {
             background:none;
             position: fixed;
-            top: 225px;
+            //top: 225px;
+            top:40%;
             opacity:0.3;
             transition: all 300ms ease;
             //transform: translateY(-25%);
@@ -53,7 +55,8 @@
     }
     @include media('>1550px'){
         position: fixed;
-        top: 225px;
+        //top: 225px;
+        top:40%;
         width: 1550px;
         margin: 0 auto;
         left: 0;
@@ -70,6 +73,20 @@
         }
     }
 }
-
+@media (min-height: 550px) and (min-width:64em) {
+    .comic--nav {
+        .prev,.next {
+            top:225px;
+        }
+    }
+}
+@media (min-height: 550px) and (min-width:1551px) {
+    .comic--nav {
+        top:225px;
+        .prev,.next {
+            top:0;
+        }
+    }
+}
     
 

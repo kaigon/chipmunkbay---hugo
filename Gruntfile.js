@@ -127,14 +127,26 @@ module.exports = function(grunt) {
                 options: {
                     newFilesOnly: true,
                     sizes: [{
-                        name: 'sm',
-                        width: 960,
-                    }, {
-                        name: 'lg',
-                        width: 1400,
-                    }, {
                         name: 'thumb',
                         width: 250
+                    },{
+                        name: '320',
+                        width: 320
+                    }, {
+                        name: '480',
+                        width: 480
+                    }, {
+                        name: '768',
+                        width: 768
+                    }, {
+                        name: '1024',
+                        width: 1024
+                    }, {
+                        name: '1280',
+                        width: 1280
+                    }, {
+                        name: '1400',
+                        width: 1400
                     }]
                 },
                 files: [{
@@ -148,7 +160,7 @@ module.exports = function(grunt) {
         pngquant: { // Task 
             png: {
                 options: {
-                    quality: 65
+                    quality: 60
                 },
                 files: [{
                     expand: true,

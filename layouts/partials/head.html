@@ -6,10 +6,33 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    {{ $singular_title := .Title }}
+    {{ $s := index $.Site.Data.metadata $singular_title }}
+
     {{ $.Scratch.Add "title" "" }}
     {{ $.Scratch.Add "description" "" }}
 
-    {{ $s := index $.Site.Data.metadata .Title }}
+    {{ if (.IsHome) }}
+        <!-- // is home -->
+        
+    {{ else if (.IsNode) }}
+        <!-- // is node -->
+    {{ else if (.IsPage) }}
+        {{ if eq .Type "page" }}
+            <!-- // is page -->
+        {{ else }}
+            <!-- // is comic -->
+        {{ end }}
+    {{ else }}    
+        <!-- // is nothing -->
+    {{ end }}
+
+
+
+
+
+    
+    
     {{ if isset $s "name" }}
         {{ $.Scratch.Set "title" $s.name }}
         {{ $.Scratch.Set "description" $s.description }}
@@ -18,11 +41,34 @@
         {{ $.Scratch.Set "description" .Site.Params.Description }}
     {{ end }}
 
-    {{ if .IsHome }}
-    <title>{{ .Site.Title }} || a comic by {{ .Site.Author.name }}</title>
-    {{ else }}
-    <title>{{ $.Scratch.Get "title" }} || {{ .Title }}</title>
+
+    {{ if (.IsHome) }}
+        <!-- // is home -->
+        <title>{{ .Site.Title }} || {{ .Site.Params.Description }}</title>
+        <!-- Chipmunk Bay || a comic by Justin Parks -->
+    {{ else if (.IsNode) }}
+        <!-- // is node -->
+        <title>{{ $.Scratch.Get "title" }} archives || {{ .Site.Title }}</title>
+        <!-- Chipmunk Bay archives || Chipmunk Bay -->
+    {{ else if (.IsPage) }}
+        {{ if eq .Type "page" }}
+            <!-- // is page -->
+            <title>{{ .Title }} || {{ .Site.Title }}</title>
+            <!-- Page title || Chipmunk Bay -->
+        {{ else }}
+            <!-- // is comic -->
+            <title>Comic: {{ .Title }} by {{ .Site.Author.name }} || {{ .Site.Title }}</title>
+            <!-- Chipmunk Bay || a comic by Justin Parks -->
+        {{ end }}
+    {{ else }}    
+        <!-- // is nothing -->
+        <title>{{ .Site.Title }} || {{ .Site.Params.Description }}</title>
+        <!-- Chipmunk Bay || a comic by Justin Parks -->
     {{ end }}
+
+
+
+
     <meta name="description" content="{{ .Scratch.Get "description" }}"> 
     <meta name="author" content="{{ .Site.Author.name }}" />
     <meta name="viewport" content="width=device-width, initial-scale=1"> 
@@ -52,7 +98,7 @@
         {{ $t := title .Type }}
         <!-- define metadata -->
         {{ $s := index $.Site.Data.metadata $t }}
-        <meta property="og:image" content="{{ .Site.BaseURL }}_files/comics/{{ $s.folder }}/lg/{{ .Params.comic }}" />
+        <meta property="og:image" content="{{ .Site.BaseURL }}_files/comics/{{ $s.folder }}/1400/{{ .Params.comic }}" />
     {{ else }}
     <!--<meta property="og:image" content="{{ .Site.Params.logo }}" />-->
     {{ end }}
@@ -71,14 +117,19 @@
         <link href="{{ .Site.BaseURL }}_files/img/icons.fallback.css" rel="stylesheet">
     </noscript>
 </head>
-{{ if and (.IsNode) (not (.IsHome)) }}
+
+{{ if (.IsHome) }}
+<body class="ishome">
+{{ else if (.IsNode) }}
 <body class="isnode">
 {{ else if (.IsPage) }}
     {{ if eq .Type "page" }}
-    <body class="ispage">
+        <body class="ispage">
+    {{ else }}
+        <body class="iscomic">
     {{ end }}
 {{ else }}    
-<body>
+<body>       
 {{ end }}
 <!--[if lt IE 7]>
             <p class="browsehappy">

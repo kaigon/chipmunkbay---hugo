@@ -19,7 +19,7 @@
         z-index:2;
         display: inline-block;
     }
-    .icon-tag {
+    i[class*="icon-"] {
         position:absolute;
         top: 0;
         left: 0;
@@ -38,14 +38,24 @@
 
 }
 
-.tags {
+.tags--tags {
     svg {
-        fill:$tan;
+        fill:darken($tan,4);
     }
 }
 .tags--storyline {
     svg {
         fill:$teal;
+    }
+}
+.tags--characters {
+    svg {
+        fill:$gray;
+    }
+}
+.tags--section {
+    svg {
+        fill:$red;
     }
 }
 

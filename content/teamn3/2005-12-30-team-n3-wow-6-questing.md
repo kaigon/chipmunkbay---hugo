@@ -7,9 +7,7 @@ url: /2005/12/30/team-n3-wow-6-questing/
 categories:
   - Team N3
 tags:
-  - team
-  - 'Team N3 - Child'
   - warcraft
   - wow
-
+comic: wow-06.png
 ---

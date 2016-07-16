@@ -6,16 +6,17 @@ languageCode = "en-us"
 title = "Chipmunk Bay"
 canonifyurls = true
 
-
+SectionPagesMenu = "archives"
 
 [params]
 	Description = "a comic by Justin Parks"
 
 googleAnalytics = "UA-8550146-1"
-pluralizelisttitles = false
+
+pluralizeListTitles = false
 
 # Pagination
-paginate = 20
+paginate = 50
 paginatePath = "page"
 
 [permalinks]

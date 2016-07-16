@@ -7,9 +7,7 @@ url: /2005/05/29/team-n3-wow-4-sexy/
 categories:
   - Team N3
 tags:
-  - team
-  - 'Team N3 - Child'
   - warcraft
   - wow
-
+comic: wow-04.png
 ---

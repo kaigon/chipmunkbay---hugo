@@ -5,19 +5,20 @@
         padding: 0;
     }
     .container {
+        padding-top:1em;
         > nav {
             h3 {
                 letter-spacing: 1px;
             }
-            div {
-                margin-bottom:1em;
+            .list_tags {
+                margin-bottom: 1em;
             }
-            li {
+            .tags {
                 display: inline-block;
-                margin: -1px -2px;
+                margin: -3px 1px 2px 0;
             }
             .tag:hover {
-                padding: 5px 14px 4px 16px;
+                padding: 5px 10px 4px 12px;
                 svg {
                     fill: $gold;
                 }
@@ -52,24 +53,43 @@
         }
         @include media('>sm') {
             display: flex;
+            padding-top:1.5em;
             > nav {
-                flex: 0 0 33.3333%;
-            }
-            > section {
-                flex: 0 0 66.6666%;
-            }
-        }
-        @include media('>md') {
-            > nav {
-                flex: 0 0 30%;
-                padding-right: 3em;
-                main {
-                    padding-right: 3em;
-                    border-right: 1px solid $darkbg;
+                flex: 0 0 40%;
+                padding-right:1em;
+                .tags {
+                    display: inline-block;
+                    margin: -3px 1px 0;
                 }
             }
             > section {
+                flex: 0 0 60%;
+                border-left: 1px solid $darkbg;
+                padding-left:1em;
+            }
+        }
+        @include media('>md') {
+            padding-top:2em;
+            > nav {
+                flex: 0 0 35%;
+                padding-right: 2em;
+                .tags {
+                    margin: -3px 0 -2px;
+                }
+            }
+            > section {
+                flex: 0 0 65%;
+                padding-left:2em;
+            }
+        }
+        @include media('>lg') {
+            > nav {
+                flex: 0 0 30%;
+                padding-right:3em;
+            }
+            > section {
                 flex: 0 0 70%;
+                padding-left:3em;
             }
         }
     }

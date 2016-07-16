@@ -7,8 +7,6 @@ url: /2004/09/19/team-n3-diablo-3/
 categories:
   - Team N3
 tags:
-  - diabo
-  - team
-  - 'Team N3 - Child'
-
+  - diablo
+comic: diablo-03.png
 ---

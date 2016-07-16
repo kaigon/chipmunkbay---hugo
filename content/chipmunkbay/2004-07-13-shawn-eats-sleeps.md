@@ -11,7 +11,6 @@ characters:
   - shawn
 alt: 
 comic: 20040713.png
-weiner: 
 storyline: 
   - The beginning
 ---

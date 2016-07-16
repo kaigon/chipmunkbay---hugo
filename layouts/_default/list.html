@@ -5,23 +5,44 @@
             <main>
                 <!-- define baseurl -->
                 {{ $baseurl := .Site.BaseURL }}
+                {{ $singular := ( .Title | singularize) }}
                 <!-- define metadata stuff -->
-                {{ $metadata := index $.Site.Data.metadata .Title }}
+                {{ $metadata := index $.Site.Data.metadata $singular }}
                 <!-- define characters stuff -->
-                {{ $char_title := ( replace .Title " " "-" ) }} {{ $character := index $.Site.Data.characters $char_title }}
+                {{ $char_title := ( replace .Title " " "-" ) }} 
+                {{ $character := index $.Site.Data.characters $char_title }}
                 <!-- begin filters -->
                 <h3>Archive filters:</h3>
-                <div>
+                {{ if and (isset $metadata "name") (eq $metadata.name "Chipmunk Bay") }}
+                <div class="list_tags">
                     <label>By storyline:</label>
                     <ul class="ul">
-                        <li></li>
+                        {{ range $name, $taxonomy := .Site.Taxonomies.storyline }}
+                        <li class="tags--storyline tags">
+                            <a href="/storyline/{{ $name | urlize }}" class="tag" title="Comics featuring &ldquo;{{ $name }}&rdquo;">
+                                <span>{{ $name }}</span><i class="icon-button" data-grunticon-embed></i>
+                            </a>
+                        </li>
+                        {{ end }}
                     </ul>
                 </div>
-                <div>
+                <div class="list_tags">
                     <label>By character:</label>
                     <ul class="ul">
                         {{ range $name, $taxonomy := .Site.Taxonomies.characters }}
-                        <li class="tags--characters">
+                        <li class="tags--characters tags">
+                            <a href="/characters/{{ $name | urlize }}" class="tag" title="Comics featuring &ldquo;{{ $name }}&rdquo;">
+                                <span>{{ $name }}</span><i class="icon-tag" data-grunticon-embed></i>
+                            </a>
+                        </li>
+                        {{ end }}
+                    </ul>
+                </div>
+                <div class="list_tags">
+                    <label>By tag:</label>
+                    <ul class="ul">
+                        {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+                        <li class="tags--tags tags">
                             <a href="/tags/{{ $name | urlize }}" class="tag" title="Comics featuring &ldquo;{{ $name }}&rdquo;">
                                 <span>{{ $name }}</span><i class="icon-tag" data-grunticon-embed></i>
                             </a>
@@ -29,16 +50,31 @@
                         {{ end }}
                     </ul>
                 </div>
-                <div>
-                    <label>By tag:</label>
+                <div class="list_tags">
                     <ul class="ul">
-                        <li></li>
+                        <li class="tags tags--section">
+                            <a href="/chipmunkbay" class="tag" title="Browse the archives">
+                                <span>View all</span>
+                                <i class="icon-button" data-grunticon-embed></i>
+                            </a>
+                        </li>
                     </ul>
                 </div>
-                <div>
-                    <label>View all:</label>
+                {{ end }}
+                <div class="list_tags">
+                    <label>Switch Archives:</label>
                     <ul class="ul">
-                        <li></li>
+                        {{ range $section, $taxonomy := .Site.Sections }}
+                            {{ $m := index $.Site.Data.metadata (title $section) }}
+                            {{ if isset $m "name" }}
+                            <li class="tags--characters tags">
+                                <a href="/{{ $section | urlize }}" class="tag" title="Browse the archives">
+                                    <span>{{ $m.name }}</span>
+                                    <i class="icon-button" data-grunticon-embed></i>
+                                </a>
+                            </li>
+                            {{ end }}
+                        {{ end }}
                     </ul>
                 </div>
             </main>
@@ -76,13 +112,13 @@
             <main>
                 <ul class="ul">
                     <!-- define paginator -->
-                    {{ $pag := .Paginator 20 }}
+                    {{ $pag := .Paginator 25 }}
                     <!-- return actual results -->
                     {{ range $index, $pag.Pages }}
                     <li>
                         <a href="{{ .Permalink }}" title="{{ .Title }}">
-                    {{.Title}}
-                </a>
+                            {{.Title}}
+                        </a>
                         <span>{{ .Date.Format "Jan 2, 2006" }}</span>
                     </li>
                     {{ end }}

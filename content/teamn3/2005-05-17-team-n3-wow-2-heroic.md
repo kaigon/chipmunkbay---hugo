@@ -7,9 +7,7 @@ url: /2005/05/17/team-n3-wow-2-heroic/
 categories:
   - Team N3
 tags:
-  - team
-  - 'Team N3 - Child'
   - warcraft
   - wow
-
+comic: wow-02.png
 ---

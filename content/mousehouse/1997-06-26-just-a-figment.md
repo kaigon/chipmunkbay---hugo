@@ -6,5 +6,5 @@ date: 1997-06-26T08:00:00+00:00
 url: /1997/06/26/just-a-figment/
 categories:
   - Old
-
+comic: 19970626.png
 ---

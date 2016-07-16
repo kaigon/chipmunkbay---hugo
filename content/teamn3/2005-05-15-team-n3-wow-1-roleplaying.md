@@ -7,9 +7,7 @@ url: /2005/05/15/team-n3-wow-1-roleplaying/
 categories:
   - Team N3
 tags:
-  - team
-  - 'Team N3 - Child'
   - warcraft
   - wow
-
+comic: wow-01.png
 ---
