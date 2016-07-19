@@ -1,7 +1,7 @@
 @import 'colors',
 'include-media';
 .list {
-    ul {
+    .ul--list {
         padding: 0;
     }
     .container {
@@ -10,7 +10,7 @@
             h3 {
                 letter-spacing: 1px;
             }
-            .list_tags {
+            .ul--list_tags {
                 margin-bottom: 1em;
             }
             .tags {

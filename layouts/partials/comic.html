@@ -153,7 +153,7 @@
                 <div class="tags tags--tags">
                     <!--<label>tags</label>-->
                     {{ range .Params.tags }}
-                        <a href="{{ "/tags/" | absURL }}{{ . | urlize }}" class="tag" title="Comics tagged as &ldquo;{{ . }}&rdquo;">
+                        <a href="{{ "/tags/" }}{{ . | urlize }}" class="tag" title="Comics tagged as &ldquo;{{ . }}&rdquo;">
                             <span>{{ . }}</span><i class="icon-tag" data-grunticon-embed></i>                            
                         </a> 
                     {{ end }} 
@@ -165,7 +165,7 @@
                 <div class="tags tags--characters">
                     <!--<label>characters</label>-->
                     {{ range .Params.characters }}
-                        <a href="{{ "/characters/" | absURL }}{{ . | urlize }}" class="tag" title="Comics featuring &ldquo;{{ . }}&rdquo;">
+                        <a href="{{ "/characters/" }}{{ . | urlize }}" class="tag" title="Comics featuring &ldquo;{{ . }}&rdquo;">
                             <span>{{ . }}</span><i class="icon-tag" data-grunticon-embed></i>                            
                         </a>
                     {{ end }} 
@@ -177,7 +177,7 @@
                 <div class="tags tags--storyline">
                     <!--<label>storyline</label>-->
                     {{ range .Params.storyline }}
-                        <a href="{{ "/storyline/" | absURL }}{{ . | urlize }}" class="tag" title="Comics in the &ldquo;{{ . }}&rdquo; storyline">
+                        <a href="{{ "/storyline/" }}{{ . | urlize }}" class="tag" title="Comics in the &ldquo;{{ . }}&rdquo; storyline">
                             <span>{{ . }}</span><i class="icon-tag" data-grunticon-embed></i>                            
                         </a>
                     {{ end }} 
