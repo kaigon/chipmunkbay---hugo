@@ -9,4 +9,6 @@ alt = ""
 tags = [ "new character"]
 characters = [ "Kaigon", "Ninja Monkey", "Shawn" ]
 storyline = ["The beginning"]
+[params]
+	storyline = "The beginning"
 +++

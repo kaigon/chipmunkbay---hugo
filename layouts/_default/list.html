@@ -26,6 +26,22 @@
                         {{ end }}
                     </ul>
                 </div>
+
+
+                <!-- BEGIN TEST //-->
+                <div>
+                    <label>TEST:</label>
+                    <ul class="ul ul--list ul--list_tags">
+                        {{ range .Site.Pages.GroupByParam "storyline" }}
+                            {{range first 1 .Pages.ByDate.Reverse }}
+                            <li>{{.Params.storyline}}</li>
+                            {{ end }}
+                        {{ end }}
+                    </ul>
+                </div>
+                <!--// END TEST -->
+
+
                 <div>
                     <label>By character:</label>
                     <ul class="ul ul--list ul--list_tags">
