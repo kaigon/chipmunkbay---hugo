@@ -17,30 +17,27 @@
                 <div>
                     <label>By storyline:</label>
                     <ul class="ul ul--list ul--list_tags">
-                        {{ range $name, $taxonomy := .Site.Taxonomies.storyline }}
-                        <li class="tags--storyline tags">
-                            <a href="/storyline/{{ $name | urlize }}" class="tag" title="Comics featuring &ldquo;{{ $name }}&rdquo;">
-                                <span>{{ humanize (string $name) }}<label>{{ .Count }}</label></span><i class="icon-button" data-grunticon-embed></i>
-                            </a>
-                        </li>
-                        {{ end }}
-                    </ul>
-                </div>
-
-
-                <!-- BEGIN TEST //-->
-                <div>
-                    <label>TEST:</label>
-                    <ul class="ul ul--list ul--list_tags">
-                        {{ range .Site.Pages.GroupByParam "storyline" }}
-                            {{range first 1 .Pages.ByDate.Reverse }}
-                            <li>{{.Params.storyline}}</li>
+                        {{ range where $.Site.Pages.ByDate ".Params.storyline" "!=" nil }}
+                            {{ $link := .Permalink }}
+                            {{ range $name, $taxonomy := .Site.Taxonomies }}
+                                {{ if eq "storyline" $name }}
+                                    {{ range $key, $value := $taxonomy }}
+                                        {{ $count := .Count }}
+                                        {{ range first 1 $value.Pages }}
+                                            {{ if (eq .Permalink $link) }}
+                                                <li class="tags--storyline tags">
+                                                    <a href="/storyline/{{ $key | urlize }}" class="tag" title="Comics within the &ldquo;{{ humanize (string $key) }}&rdquo; storyline">
+                                                        <span>{{ humanize (string $key) }}</span><label>{{ $count }}</label></span><i class="icon-button" data-grunticon-embed></i>
+                                                    </a>
+                                                </li>
+                                            {{ end }}
+                                        {{ end }}
+                                    {{ end }}
+                                {{ end }}
                             {{ end }}
                         {{ end }}
                     </ul>
                 </div>
-                <!--// END TEST -->
-
 
                 <div>
                     <label>By character:</label>
