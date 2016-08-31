@@ -1,27 +1,61 @@
 @import 'colors',
 'include-media';
 body {
-    font-family: 'Architects Daughter', Georgia, serif;
-    font-weight: 300;
+    //font-family: 'Architects Daughter', Georgia, serif;
+    //font-family: 'Bitter', serif;
+    //font-family: 'Suez One', serif;
+    //font-family: 'Patua One', cursive;
+    //font-family: 'Chewy', cursive;
+    //font-family: 'Atma', cursive;
+    //font-family: 'Chelsea Market', cursive;
+    //font-family: 'Sniglet', cursive;
+    font-family: 'McLaren', Georgia, serif;
+    //font-family: 'Oldenburg', cursive;
+    //font-family: 'Short Stack', cursive;
     font-style: normal;
+    font-weight: 400;
     font-size: 1em;
     line-height: 1.438;
     text-transform: none;
     color: $default;
     @include media(">sm") {
-        font-size: 1.1em;
+        font-size: 1.05em;
         line-height: 1.529;
     }
     @include media(">md") {
-        font-size: 1.2em;
+        font-size: 1.1em;
         line-height: 1.556;
     }
 }
 
+h2,h3,h4 {
+    font-weight: 600;
+}
+
+/*
+h2,h3,h4,.tags {
+    font-family: 'Architects Daughter', Georgia, serif;
+}
+*/
+
+.serif {
+    font-family: Georgia,serif;
+}
+
 h1 {
     //font-family: 'Finger Paint', Helvetica, Helvetica Neue, Arial, sans-serif;
-    font-family: 'Gochi Hand', Helvetica, Helvetica Neue, Arial, sans-serif;
-    //font-weight: 900;
+    //font-family: 'Gochi Hand', Helvetica, Helvetica Neue, Arial, sans-serif;
+    //font-family: 'Bitter', serif;
+    //font-family: 'Suez One', serif;
+    //font-family: 'Patua One', cursive;
+    font-family: 'Chewy', Helvetica, Helvetica Neue, Arial, sans-serif;
+    //font-family: 'Atma', cursive;
+    //font-family: 'Chelsea Market', cursive;
+    //font-family: 'Sniglet', cursive;
+    //font-family: 'McLaren', cursive;
+    //font-family: 'Oldenburg', cursive;
+    //font-family: 'Short Stack', cursive;
+    font-weight: inherit;
     font-size: 2rem;
     color: $title;
     display: inline-block;
@@ -39,16 +73,14 @@ h1 {
 }
 
 h2 {
-    font-weight: normal;
-    font-family: inherit;
     font-size: 1.4em;
 }
 
-h3 {}
+h3 {
+
+}
 
 h4 {
-    font-weight: normal;
-    font-family: inherit;
     font-size: 2rem;
 }
 

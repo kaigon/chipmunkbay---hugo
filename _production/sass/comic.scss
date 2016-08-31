@@ -2,6 +2,8 @@
 'include-media';
 .comic {
     padding: 0;
+    z-index: 2;
+    position: relative;
 }
 
 .comic--comic {

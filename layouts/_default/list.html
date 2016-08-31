@@ -1,7 +1,11 @@
 {{ partial "head.html" . }}
 <main class="list">
     <div class="container">
-        <nav>
+        <nav class="list__nav">
+            <h3 class="tag">
+                <span class="tag__text">Archive filters</span>
+                <i class="icon-button--red tag__bg"></i>
+            </h3>
             <main>
                 <!-- define baseurl -->
                 {{ $baseurl := .Site.BaseURL }}
@@ -12,7 +16,24 @@
                 {{ $char_title := ( replace .Title " " "-" ) }} 
                 {{ $character := index $.Site.Data.characters $char_title }}
                 <!-- begin filters -->
-                <h3>Archive filters:</h3>
+                
+                <!--
+                <div>
+                    <label>Search:</label>
+                    <form action="/search_results" method="get" role="form">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input type="text" name="terms" title="You can also use &quot;quotes&quot; and &amp; to narrow down results." id="terms" class="form-control" placeholder="Search by Keyword or Date">
+                                <span class="input-group-btn">
+                                    <button name="" type="sumbit" class="btn btn-primary">
+                                        <i class="fa fa-search"></i> Search
+                                    </button>      
+                                </span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                -->
                 {{ if and (isset $metadata "name") (eq $metadata.name "Chipmunk Bay") }}
                 <div>
                     <label>By storyline:</label>
@@ -25,9 +46,9 @@
                                         {{ $count := .Count }}
                                         {{ range first 1 $value.Pages }}
                                             {{ if (eq .Permalink $link) }}
-                                                <li class="tags--storyline tags">
-                                                    <a href="/storyline/{{ $key | urlize }}" class="tag" title="Comics within the &ldquo;{{ humanize (string $key) }}&rdquo; storyline">
-                                                        <span>{{ humanize (string $key) }}</span><label>{{ $count }}</label></span><i class="icon-button" data-grunticon-embed></i>
+                                                <li class="tags">
+                                                    <a href="/storyline/{{ $key | urlize }}" class="tag tag--storyline" title="{{ $count }} comics within the &ldquo;{{ humanize (string $key) }}&rdquo; storyline">
+                                                        <span class="tag__text">{{ humanize (string $key) }}</span><i class="tag__bg icon-button--teal"></i>
                                                     </a>
                                                 </li>
                                             {{ end }}
@@ -43,65 +64,78 @@
                     <label>By character:</label>
                     <ul class="ul ul--list ul--list_tags">
                         {{ range $name, $taxonomy := .Site.Taxonomies.characters }}
-                        <li class="tags--characters tags">
-                            <a href="/characters/{{ $name | urlize }}" class="tag" title="Comics featuring &ldquo;{{ $name }}&rdquo;">
-                                <span>{{ $name }}<label>{{ .Count }}</label></span><i class="icon-tag" data-grunticon-embed></i>
+                        <li class="tags">
+                            <a href="/characters/{{ $name | urlize }}" class="tag tag--character" title="{{ .Count }} comics featuring &ldquo;{{ $name }}&rdquo;">
+                                <span class="tag__text">{{ $name }}</span><i class="icon-button--grey tag__bg"></i>
                             </a>
                         </li>
                         {{ end }}
                     </ul>
                 </div>
+                <!--
                 <div>
                     <label>By tag:</label>
                     <ul class="ul ul--list ul--list_tags">
                         {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
                         <li class="tags--tags tags">
-                            <a href="/tags/{{ $name | urlize }}" class="tag" title="Comics featuring &ldquo;{{ $name }}&rdquo;">
-                                <span>{{ $name }}<label>{{ .Count }}</label></span><i class="icon-tag" data-grunticon-embed></i>
+                            <a href="/tags/{{ $name | urlize }}" class="tag tag--tags" title="{{ .Count }} comics featuring &ldquo;{{ $name }}&rdquo;">
+                                <span class="tag__text">{{ $name }}</span><i class="icon-button--tan tag__bg"></i>
                             </a>
                         </li>
                         {{ end }}
                     </ul>
                 </div>
+                -->
                 <div>
                     <ul class="ul ul--list ul--list_tags">
-                        <li class="tags tags--section">
-                            <a href="/chipmunkbay" class="tag" title="Browse the archives">
-                                <span>View all</span>
-                                <i class="icon-button" data-grunticon-embed></i>
+                        <li class="tags">
+                            <a href="/tags/" class="tag tag--section" title="View a list of all defined tags">
+                                <span class="tag__text">Search by tag</span>
+                                <i class="icon-button--red tag__bg"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <ul class="ul ul--list ul--list_tags">
+                        <li class="tags">
+                            <a href="/chipmunkbay" class="tag tag--section" title="Browse the archives">
+                                <span class="tag__text">Browse all</span>
+                                <i class="icon-button--red tag__bg"></i>
                             </a>
                         </li>
                     </ul>
                 </div>
                 {{ end }}
                 <div>
-                    <label>Switch Archives:</label>
+                    <label>Switch to another comic series:</label>
                     <ul class="ul ul--list ul--list_tags">
                         {{ range $section, $taxonomy := .Site.Sections }}
                             {{ $m := index $.Site.Data.metadata (title $section) }}
                             {{ if isset $m "name" }}
-                            <li class="tags--characters tags">
-                                <a href="/{{ $section | urlize }}" class="tag" title="Browse the archives">
-                                    <span>{{ $m.name }}</span>
-                                    <i class="icon-button" data-grunticon-embed></i>
+                            <li class="tags">
+                                <a href="/{{ $section | urlize }}" class="tag tag--character" title="Browse the archives">
+                                    <span class="tag__text">{{ $m.name }}</span>
+                                    <i class="icon-button--green tag__bg"></i>
                                 </a>
                             </li>
                             {{ end }}
                         {{ end }}
                     </ul>
                 </div>
+                
             </main>
         </nav>
-        <section>
+        <section class="list__results">
             <header>
                 <!-- archives for comic section -->
                 <!-- ex: Chipmunk Bay, or Team N3 -->
                 {{ if isset $metadata "name" }}
-                    <h1>{{ $metadata.name }} archives</h1>
+                    <h3>{{ $metadata.name }} archives</h3>
                 <!-- all comics featuring a set tag -->
                 <!-- ex: all comics tagged as 'starcraft' -->
                 {{ else if isset .Data "tags" }}
-                    <h1>Comics tagged as "{{ .Title }}"</h1>
+                    <h3>Comics tagged as "{{ .Title }}"</h3>
                 <!-- all comics featuring a specific character -->
                 <!-- ex: all comics featuring 'Karen' -->
                 {{ else if isset .Data "characters" }} 
@@ -112,18 +146,19 @@
                     </figure>
                     {{ end }}
                     <div>
-                        <label>Comics featuring</label>
-                        <h1>{{ .Title }}</h1> 
+                        <label class="label">Comics featuring</label>
+                        <h3>{{ .Title }}</h3> 
                         {{ if isset $character "level" }}
-                        <label class="tag"><span>{{ $character.level }} cast member</span><i class="icon-tag" data-grunticon-embed></i></label>
+                        <span>{{ $character.level }} cast member</span>
                         {{ end }}
                     </div>
                 <!-- all comics in a set storyline -->
                 <!-- ex: all comics in the 'Shawn has a date' storyline -->
                 {{ else if isset .Data "storyline" }}
                     <label class="label">Storyline</label>
-                    <h1>{{ .Title }}</h1> 
+                    <h3>{{ .Title }}</h3> 
                 {{ end }}
+
             </header>
             <!--<p>$$$ total comics. Showing $$-$$.</p>-->
             <main>

@@ -15,10 +15,10 @@
             <h3>Follow the comic!</h3>
             <p>Need to be notified everytime there's a new comic posted? Here are some options:</p>
             <ul>
-                <li><a href="{{ .Site.Author.facebook }}" title="Follow via Facebook"><span class="icon-facebook">via facebook</span><i class="icon-tag tag" data-grunticon-embed></i></a></li>
-                <li><a href="{{ .Site.Author.twitter }}" title="Follow via Twitter"><span class="icon-twitter">via twitter</span><i class="icon-tag tag" data-grunticon-embed></i></a></li>
-                <li><a href="{{ .Site.Author.rss }}" title="Follow via RSS"><span class="icon-rss">via rss</span><i class="icon-tag tag" data-grunticon-embed></i></a></li>
-                <li><a href="{{ .Site.Author.rss_email }}" title="Get notified via email"><span class="icon-email">via email</span><i class="icon-tag tag" data-grunticon-embed></i></a></li>
+                <li><a class="tag" href="{{ .Site.Author.facebook }}" title="Follow via Facebook"><span class="tag__text icon-facebook">via facebook</span><i class="icon-tag--facebook tag__bg"></i></a></li>
+                <li><a class="tag" href="{{ .Site.Author.twitter }}" title="Follow via Twitter"><span class="tag__text icon-twitter">via twitter</span><i class="icon-tag--twitter tag__bg"></i></a></li>
+                <li><a class="tag" href="{{ .Site.Author.rss }}" title="Follow via RSS"><span class="tag__text icon-rss">via rss</span><i class="icon-tag--rss tag__bg"></i></a></li>
+                <li><a class="tag" href="{{ .Site.Author.rss_email }}" title="Get notified via email"><span class="tag__text icon-email">via email</span><i class="icon-tag--red tag__bg"></i></a></li>
             </ul>
         </div>
         {{ if and (isset .Site.Author "patreon") (not (eq .Site.Author.patreon "")) }}
@@ -35,7 +35,7 @@
         <div class="container">
             <div class="col">
                 <p>
-                    Copyright &copy; 2004-<span data-updateme-year>today</span> {{ .Site.Author.name }}. All rights reserved.
+                    Copyright <span class="serif">&copy;</span> 2004-<span data-updateme-year>today</span> {{ .Site.Author.name }}. All rights reserved.
                 </p>
             </div>
             <div class="col">

@@ -150,11 +150,11 @@
             <aside>
                 <!-- tags -->
                 {{ if and (isset .Params "tags") (and (not (eq .Params.tags "")) (not (eq .Params.tags nil))) }}
-                <div class="tags tags--tags">
+                <div class="tags">
                     <!--<label>tags</label>-->
                     {{ range .Params.tags }}
-                        <a href="{{ "/tags/" }}{{ . | urlize }}" class="tag" title="Comics tagged as &ldquo;{{ . }}&rdquo;">
-                            <span>{{ . }}</span><i class="icon-tag" data-grunticon-embed></i>                            
+                        <a href="{{ "/tags/" }}{{ . | urlize }}" class="tag tag--tag" title="Comics tagged as &ldquo;{{ . }}&rdquo;">
+                            <span class="tag__text">{{ . }}</span><i class="icon-button--tan tag__bg"></i>                            
                         </a> 
                     {{ end }} 
                 </div>
@@ -162,11 +162,11 @@
 
                 <!-- characters -->
                 {{ if and (isset .Params "characters") (and (not (eq .Params.characters "")) (not (eq .Params.characters nil))) }}
-                <div class="tags tags--characters">
+                <div class="tags">
                     <!--<label>characters</label>-->
                     {{ range .Params.characters }}
-                        <a href="{{ "/characters/" }}{{ . | urlize }}" class="tag" title="Comics featuring &ldquo;{{ . }}&rdquo;">
-                            <span>{{ . }}</span><i class="icon-tag" data-grunticon-embed></i>                            
+                        <a href="{{ "/characters/" }}{{ . | urlize }}" class="tag tag--character" title="Comics featuring &ldquo;{{ . }}&rdquo;">
+                            <span class="tag__text">{{ . }}</span><i class="icon-button--grey tag__bg"></i>                            
                         </a>
                     {{ end }} 
                 </div>
@@ -174,11 +174,11 @@
 
                 <!-- storyline -->
                 {{ if and (isset .Params "storyline") (and (not (eq .Params.storyline "")) (not (eq .Params.storyline nil))) }}
-                <div class="tags tags--storyline">
+                <div class="tags">
                     <!--<label>storyline</label>-->
                     {{ range .Params.storyline }}
-                        <a href="{{ "/storyline/" }}{{ . | urlize }}" class="tag" title="Comics in the &ldquo;{{ . }}&rdquo; storyline">
-                            <span>{{ . }}</span><i class="icon-tag" data-grunticon-embed></i>                            
+                        <a href="{{ "/storyline/" }}{{ . | urlize }}" class="tag tag--storyline" title="Comics in the &ldquo;{{ . }}&rdquo; storyline">
+                            <span class="tag__text">{{ . }}</span><i class="icon-button--teal tag__bg"></i>                            
                         </a>
                     {{ end }} 
                 </div>
@@ -186,27 +186,27 @@
             </aside>
             <footer>
                 <p>Share this comic:</p>
-                <ul class="ul">
+                <ul class="ul ul--list">
                     <li>
-                        <a href="http://www.facebook.com/share.php?u={{ .URL | absURL }}" title="Share on Facebook">
-                            <span class="icon-facebook">facebook</span>
-                            <i class="icon-tag tag" data-grunticon-embed></i>
+                        <a href="http://www.facebook.com/share.php?u={{ .URL | absURL }}" title="Share on Facebook" class="tag">
+                            <span class="icon-facebook tag__text">facebook</span>
+                            <i class="icon-tag--facebook tag__bg"></i>
                         </a>
                     </li>
                     <li>
-                        <a href="https://twitter.com/intent/tweet?url={{ .URL | absURL }}&text={{ .Title }}" title="Share on Twitter">
-                            <span class="icon-twitter">twitter</span>
-                            <i class="icon-tag tag" data-grunticon-embed></i>
+                        <a href="https://twitter.com/intent/tweet?url={{ .URL | absURL }}&text={{ .Title }}" title="Share on Twitter" class="tag">
+                            <span class="icon-twitter tag__text">twitter</span>
+                            <i class="icon-tag--twitter tag__bg"></i>
                         </a>
                     </li>
                     <li>
-                        <a href="https://plus.google.com/share?url={{ .URL | absURL }}" title="Share on Google+">
-                            <span class="icon-gplus">google plus</span>
-                            <i class="icon-tag tag" data-grunticon-embed></i>
+                        <a href="https://plus.google.com/share?url={{ .URL | absURL }}" title="Share on Google+" class="tag">
+                            <span class="icon-gplus tag__text">google plus</span>
+                            <i class="icon-tag--red tag__bg"></i>
                         </a>
                     </li>
                 </ul>
-                <a href="{{ .Site.BaseURL }}chipmunkbay" title="Browse the archives"><span>browse archives</span><i class="icon-button" data-grunticon-embed></i></a>
+                <a href="{{ .Site.BaseURL }}chipmunkbay" title="Browse the archives" class="tag"><span class="tag__text">browse archives</span><i class="icon-button--red tag__bg"></i></a>
                 
             </footer>
             </div>

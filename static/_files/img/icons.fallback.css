@@ -2,6 +2,20 @@
 
 .icon-arrow { background-image: url('png/arrow.png'); background-repeat: no-repeat; }
 
+.icon-button--character { background-image: url('png/button--character.png'); background-repeat: no-repeat; }
+
+.icon-button--gold { background-image: url('png/button--gold.png'); background-repeat: no-repeat; }
+
+.icon-button--green { background-image: url('png/button--green.png'); background-repeat: no-repeat; }
+
+.icon-button--grey { background-image: url('png/button--grey.png'); background-repeat: no-repeat; }
+
+.icon-button--red { background-image: url('png/button--red.png'); background-repeat: no-repeat; }
+
+.icon-button--tan { background-image: url('png/button--tan.png'); background-repeat: no-repeat; }
+
+.icon-button--teal { background-image: url('png/button--teal.png'); background-repeat: no-repeat; }
+
 .icon-button { background-image: url('png/button.png'); background-repeat: no-repeat; }
 
 .icon-button_alt { background-image: url('png/button_alt.png'); background-repeat: no-repeat; }
@@ -25,6 +39,24 @@
 .icon-patreon_full { background-image: url('png/patreon_full.png'); background-repeat: no-repeat; }
 
 .icon-rss { background-image: url('png/rss.png'); background-repeat: no-repeat; }
+
+.icon-tag--facebook { background-image: url('png/tag--facebook.png'); background-repeat: no-repeat; }
+
+.icon-tag--gold { background-image: url('png/tag--gold.png'); background-repeat: no-repeat; }
+
+.icon-tag--green { background-image: url('png/tag--green.png'); background-repeat: no-repeat; }
+
+.icon-tag--grey { background-image: url('png/tag--grey.png'); background-repeat: no-repeat; }
+
+.icon-tag--red { background-image: url('png/tag--red.png'); background-repeat: no-repeat; }
+
+.icon-tag--rss { background-image: url('png/tag--rss.png'); background-repeat: no-repeat; }
+
+.icon-tag--tan { background-image: url('png/tag--tan.png'); background-repeat: no-repeat; }
+
+.icon-tag--teal { background-image: url('png/tag--teal.png'); background-repeat: no-repeat; }
+
+.icon-tag--twitter { background-image: url('png/tag--twitter.png'); background-repeat: no-repeat; }
 
 .icon-tag { background-image: url('png/tag.png'); background-repeat: no-repeat; }
 
