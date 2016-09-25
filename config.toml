@@ -16,7 +16,7 @@ googleAnalytics = "UA-8550146-1"
 pluralizeListTitles = false
 
 # Pagination
-paginate = 50
+paginate = 5
 paginatePath = "page"
 
 [permalinks]

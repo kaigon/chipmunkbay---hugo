@@ -7,41 +7,6 @@
     .container {
         padding-top: 1em;
     }
-    .list__nav {
-        h3 {
-            letter-spacing: 1px;
-        }
-        main {
-            display:none;
-        }
-    }
-    .list__results {
-        main {
-            font-size: 1.4em;
-            li {
-                margin-bottom: 1.5em;
-                a {
-                    display: block;
-                }
-                span {
-                    display: block;
-                }
-            }
-            @include media('>sm') {
-                li {
-                    display: flex;
-                    margin-bottom: 0.5em;
-                    a {
-                        flex: 0 0 70%;
-                    }
-                    span {
-                        flex: 0 0 30%;
-                        text-align: right;
-                    }
-                }
-            }
-        }
-    }
     @include media('>sm') {
         .container {
             display: flex;
@@ -79,5 +44,114 @@
             flex: 0 0 70%;
             padding-left: 3em;
         }
+    }
+}
+
+.list__nav {
+    h3 {
+        letter-spacing: 1px;
+        cursor: pointer;
+    }
+    &--main {
+        display: none;
+        padding-top: 2em;
+    }
+}
+
+.list__results {
+    &--h3 {
+        span {
+            color: $green;
+        }
+    }
+    &--item {
+        margin-bottom: 3em;
+    }
+    &--main {
+        //font-size: 1.4em;
+    }
+    &--info {
+        margin-bottom: 0.2em;
+    }
+    &--title {
+        display: inline-block;
+        color: $red;
+    }
+    &--date {
+        display: inline-block;
+        color: $gray;
+        &:before {
+            content: '// ';
+            letter-spacing: -4px;
+            margin-right: 8px;
+            opacity: 0.4;
+        }
+    }
+    &--comic {
+        .comic--comic {
+            padding: 0;
+            background: transparent;
+        }
+    }
+    &--tags {
+        font-size:12px;
+        .tags {
+            display: inline-block;
+        }
+        .tag {
+            margin-bottom:0.2em;
+            padding: 2px 8px 4px;
+        }
+        p {
+            display: inline-block;
+            margin-bottom: 0.2em;
+        }
+    }
+    &--share {
+        .tag {
+            padding: 2px 4px;
+            display:flex;
+            &:hover {
+                transform:scale(1.1);
+            }
+        }
+        .tag__text {
+            text-indent: -1000em;
+            background-size: contain;
+            position: relative;
+            z-index: 2;
+            background-position: center;
+            width: 12px;
+            height: 12px;
+            margin: 8px;
+            font-size: 0;
+            &:nth-of-type(even) {
+                transform: rotate(180deg);
+            }
+        }
+    }
+    @include media('>sm') {
+        &--info {
+            display: flex;
+            //margin-bottom: 0.5em;
+        }
+        &--title {
+            flex: 0 0 70%;
+        }
+        &--date {
+            flex: 0 0 30%;
+            text-align: right;
+            &:before {
+                display: none;
+            }
+        }
+        /*
+        &--share {
+            .tag__text {
+                width: 18px;
+                height: 18px;
+            }
+        }
+        */
     }
 }

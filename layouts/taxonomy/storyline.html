@@ -1,5 +1,5 @@
 {{ partial "head.html" . }}
-<main class="list">
+<main class="list list--storyline">
     <div class="container">
         <nav class="list__nav">
             <h3 class="tag">
@@ -17,24 +17,6 @@
                 {{ $character := index $.Site.Data.characters $char_title }}
                 <!-- begin filters -->
                 
-                <!--
-                <div>
-                    <label>Search:</label>
-                    <form action="/search_results" method="get" role="form">
-                        <div class="form-group">
-                            <div class="input-group">
-                                <input type="text" name="terms" title="You can also use &quot;quotes&quot; and &amp; to narrow down results." id="terms" class="form-control" placeholder="Search by Keyword or Date">
-                                <span class="input-group-btn">
-                                    <button name="" type="sumbit" class="btn btn-primary">
-                                        <i class="fa fa-search"></i> Search
-                                    </button>      
-                                </span>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                -->
-                {{ if and (isset $metadata "name") (eq $metadata.name "Chipmunk Bay") }}
                 <div>
                     <label>By storyline:</label>
                     <ul class="ul ul--list ul--list_tags">
@@ -72,20 +54,7 @@
                         {{ end }}
                     </ul>
                 </div>
-                <!--
-                <div>
-                    <label>By tag:</label>
-                    <ul class="ul ul--list ul--list_tags">
-                        {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
-                        <li class="tags--tags tags">
-                            <a href="/tags/{{ $name | urlize }}" class="tag tag--tags" title="{{ .Count }} comics featuring &ldquo;{{ $name }}&rdquo;">
-                                <span class="tag__text">{{ $name }}</span><i class="icon-button--tan tag__bg"></i>
-                            </a>
-                        </li>
-                        {{ end }}
-                    </ul>
-                </div>
-                -->
+
                 <div>
                     <ul class="ul ul--list ul--list_tags">
                         <li class="tags">
@@ -106,7 +75,7 @@
                         </li>
                     </ul>
                 </div>
-                {{ end }}
+
                 <div>
                     <label>Switch to another comic series:</label>
                     <ul class="ul ul--list ul--list_tags">
@@ -127,59 +96,105 @@
             </main>
         </nav>
         <section class="list__results">
-            <header class="list__results--header">
-                <!-- archives for comic section -->
-                <!-- ex: Chipmunk Bay, or Team N3 -->
-                {{ if isset $metadata "name" }}
-                    <h3>{{ $metadata.name }} archives</h3>
-                <!-- all comics featuring a set tag -->
-                <!-- ex: all comics tagged as 'starcraft' -->
-                {{ else if isset .Data "tags" }}
-                    <h3>Comics tagged as "{{ .Title }}"</h3>
-                <!-- all comics featuring a specific character -->
-                <!-- ex: all comics featuring 'Karen' -->
-                {{ else if isset .Data "characters" }} 
-                    <!-- if thumbnail exists -->
-                    {{ if isset $character "thumb" }}
-                    <figure>
-                        <img src="{{ $baseurl }}_files/img/thumb/{{ $character.thumb }}" alt="profile picture for {{ $character.fullname }}">
-                    </figure>
-                    {{ end }}
-                    <div>
-                        <label class="label">Comics featuring</label>
-                        <h3>{{ .Title }}</h3> 
-                        {{ if isset $character "level" }}
-                        <span>{{ $character.level }} cast member</span>
-                        {{ end }}
-                    </div>
-                <!-- all comics in a set storyline -->
-                <!-- ex: all comics in the 'Shawn has a date' storyline -->
-                {{ else if isset .Data "storyline" }}
-                    <!--<label class="label">Storyline</label>-->
-                    <h3 class="list__results--h3">Comics in the <span>"{{ .Title }}"</span> storyline</h3> 
-                    
-                {{ end }}
+            
+            <!-- define paginator -->
+            
+            {{ $pag := (.Paginate (where .Data.Pages.GroupByDate "2006-01" "asc") 5) }}
 
+
+            <header class="list__results--header">
+                <h3 class="list__results--h3">Comics in the <span>"{{ .Title }}"</span> storyline</h3> 
+                <p>{{ $pag.NumberOfElements }} Results</p>
+                <p>{{ $pag.HasPrev }} Results</p>
+                <p>{{ $pag.Pagers }} Results</p>
+                <p>{{ $pag.TotalPages }} Results</p>
+                <p>{{ $pag.TotalNumberOfElements }} Results. Showing </p>
+                
+                <p>Showing $$-$$ of $$ total comics.</p>
             </header>
-            <!--<p>$$$ total comics. Showing $$-$$.</p>-->
+
             <main class="list__results--main">
-                <ul class="ul">
-                    <!-- define paginator -->
-                    {{ $pag := .Paginator 25 }}
+                <ul class="ul">                    
                     <!-- return actual results -->
                     {{ range $index, $pag.Pages.ByDate }}
-                    <li>
-                        <a href="{{ .Permalink }}" title="{{ .Title }}">
-                            {{.Title}}
-                        </a>
-                        <span>{{ .Date.Format "Jan 2, 2006" }}</span>
+
+                    <li class="list__results--item">
+                        <div class="list__results--info">
+                            <a href="{{ .Permalink }}" title="{{ .Title }}" class="list__results--title">
+                                {{.Title}}
+                            </a>
+                            <span class="list__results--date">{{ .Date.Format "Jan 2, 2006" }}</span>
+                        </div>
+                        <div class="list__results--comic">
+                            {{ partial "comic__comic.html" . }}
+                            <aside class="list__results--tags">
+                                <p>Tags:</p>
+                                <!-- tags -->
+                                {{ if and (isset .Params "tags") (and (not (eq .Params.tags "")) (not (eq .Params.tags nil))) }}
+                                
+                                    <!--<label>tags</label>-->
+                                    {{ range .Params.tags }}
+                                        <a href="{{ "/tags/" }}{{ . | urlize }}" class="tag tag--tag" title="Comics tagged as &ldquo;{{ . }}&rdquo;">
+                                            <span class="tag__text">{{ . }}</span><i class="icon-button--tan tag__bg"></i>                            
+                                        </a> 
+                                    {{ end }} 
+                                
+                                {{ end }}
+
+                                <!-- characters -->
+                                {{ if and (isset .Params "characters") (and (not (eq .Params.characters "")) (not (eq .Params.characters nil))) }}
+                                
+                                    <!--<label>characters</label>-->
+                                    {{ range .Params.characters }}
+                                        <a href="{{ "/characters/" }}{{ . | urlize }}" class="tag tag--character" title="Comics featuring &ldquo;{{ . }}&rdquo;">
+                                            <span class="tag__text">{{ . }}</span><i class="icon-button--grey tag__bg"></i>                            
+                                        </a>
+                                    {{ end }} 
+                                
+                                {{ end }}
+
+                                <!-- storyline -->
+                                {{ if and (isset .Params "storyline") (and (not (eq .Params.storyline "")) (not (eq .Params.storyline nil))) }}
+                                
+                                    <!--<label>storyline</label>-->
+                                    {{ range .Params.storyline }}
+                                        <a href="{{ "/storyline/" }}{{ . | urlize }}" class="tag tag--storyline" title="Comics in the &ldquo;{{ . }}&rdquo; storyline">
+                                            <span class="tag__text">{{ . }}</span><i class="icon-button--teal tag__bg"></i>                            
+                                        </a>
+                                    {{ end }} 
+                                
+                                {{ end }}
+                            </aside>
+                            <footer class="list__results--share">
+                                <ul class="ul ul--list">
+                                    <li>
+                                        <a href="http://www.facebook.com/share.php?u={{ .URL | absURL }}" title="Share on Facebook" class="tag">
+                                            <span class="icon-facebook tag__text">facebook</span>
+                                            <i class="icon-tag--facebook tag__bg"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://twitter.com/intent/tweet?url={{ .URL | absURL }}&text={{ .Title }}" title="Share on Twitter" class="tag">
+                                            <span class="icon-twitter tag__text">twitter</span>
+                                            <i class="icon-tag--twitter tag__bg"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://plus.google.com/share?url={{ .URL | absURL }}" title="Share on Google+" class="tag">
+                                            <span class="icon-gplus tag__text">google plus</span>
+                                            <i class="icon-tag--red tag__bg"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </footer>
+                        </div>
                     </li>
                     {{ end }}
                     <!-- end results for this page -->
                 </ul>
             </main>
             <!-- if there are pages, render pagination -->
-            <footer class="list_results--footer">
+            <footer class="list__results--footer">
                 {{ if or ($pag.HasPrev) ($pag.HasNext) }}
                 <ul class="ul ul-inline pagination">
                     <!-- if there are more than 1 pages of results -->

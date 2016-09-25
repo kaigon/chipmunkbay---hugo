@@ -1,0 +1,47 @@
+
+        <!-- begin navigation -->
+        <nav class="comic--nav">
+            
+                {{ if .IsHome }}
+                    <!-- Previous Post -->
+                    {{ range first 1 (after 1 (where .Data.Pages "Type" "chipmunkbay")) }}
+                      
+                            <a href="{{ .Permalink }}" class="icon-button_alt prev" title="{{ .Title }}">
+                                <i class="icon-arrow"></i>
+                                <span>&lsaquo; Prev</span>
+                            </a>
+                        
+                    {{ end }}
+                    <!-- end previous post btn -->
+                {{ else }}
+                    <!-- previous button -->
+                    {{ if .PrevInSection }}
+                        
+                            <a href="{{ .PrevInSection.Permalink }}" class="prev icon-button_alt" data-toggle="tooltip" data-placement="top" title="{{ .PrevInSection.Title }}">
+                                <i class="icon-arrow"></i>
+                                <span>&laquo; Prev</span>
+                            </a>
+                        
+                    {{ end }}
+                    <!-- show weiner button -->
+                    {{ if isset .Params "weiner" }}
+                    
+                        <a href="#" data-target=".comic--weiner" class="icon-button_alt weiner-toggle">
+                            <span>bonus panel</span>
+                        </a>
+                    
+                    {{ end }}
+                    <!-- next -->
+                    {{ if .NextInSection }}
+                       
+                            <a href="{{ .NextInSection.Permalink }}" class="next icon-button_alt" data-toggle="tooltip" data-placement="top" title="{{ .NextInSection.Title }}">
+                                <i class="icon-arrow-next"></i>
+                                <span>Next &raquo;</span>
+                            </a>
+                    
+                    {{ end }}
+                    <!-- end if comic check -->
+                {{ end }}
+            
+        </nav>
+        

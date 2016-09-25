@@ -1,0 +1,89 @@
+   
+        <!-- begin comic -->
+        {{ if (isset .Params "comic") }}
+        <section class="comic--comic icon-comic-bg">
+            <figure>
+                <!-- define title -->
+                {{ $t := title .Type }}
+                <!-- define metadata -->
+                {{ $s := index $.Site.Data.metadata $t }}
+
+                <!-- check for 'weiner' comic -->
+                {{ if (isset .Params "weiner") }}
+                    <!-- check to see if variable is defined AND not empty -->
+                    {{ if and (not (eq .Params.weiner "")) (not (eq .Params.weiner nil)) }}
+                        <img 
+                            src="{{ .Site.BaseURL }}_files/comics/weiner/1400/{{ .Params.weiner }}" 
+                            sizes="(min-width: 1400px) 1400px, 100vw" 
+                            srcset="
+                                {{ .Site.BaseURL }}_files/comics/weiner/320/{{ .Params.weiner }} 320w,
+                                {{ .Site.BaseURL }}_files/comics/weiner/480/{{ .Params.weiner }} 480w,
+                                {{ .Site.BaseURL }}_files/comics/weiner/768/{{ .Params.weiner }} 768w,
+                                {{ .Site.BaseURL }}_files/comics/weiner/1024/{{ .Params.weiner }} 1024w,
+                                {{ .Site.BaseURL }}_files/comics/weiner/1280/{{ .Params.weiner }} 1280w,
+                                {{ .Site.BaseURL }}_files/comics/weiner/1400/{{ .Params.weiner }} 1400w"
+                            alt="bonus panel" 
+                            title="{{ .Title }}: Bonus Panel for {{ .Date.Format "January 2, 2006" }} by {{ .Site.Author.name }}"
+                            class="animated comic--weiner"
+                        />
+                    {{ else }}
+                        <img 
+                            src="{{ .Site.BaseURL }}_files/comics/weiner/1400/{{ .Date.Format "20060102" }}.png" 
+                            sizes="(min-width: 1400px) 1400px, 100vw" 
+                            srcset="
+                                {{ .Site.BaseURL }}_files/comics/weiner/320/{{ .Date.Format "20060102" }}.png 320w,
+                                {{ .Site.BaseURL }}_files/comics/weiner/480/{{ .Date.Format "20060102" }}.png 480w,
+                                {{ .Site.BaseURL }}_files/comics/weiner/768/{{ .Date.Format "20060102" }}.png 768w,
+                                {{ .Site.BaseURL }}_files/comics/weiner/1024/{{ .Date.Format "20060102" }}.png 1024w,
+                                {{ .Site.BaseURL }}_files/comics/weiner/1280/{{ .Date.Format "20060102" }}.png 1280w,
+                                {{ .Site.BaseURL }}_files/comics/weiner/1400/{{ .Date.Format "20060102" }}.png 1400w"
+                            alt="bonus panel" 
+                            title="{{ .Title }}: Bonus Panel for {{ .Date.Format "January 2, 2006" }} by {{ .Site.Author.name }}"
+                            class="animated comic--weiner"
+                        />
+                    {{ end }}
+                    <!-- end check -->
+                {{ end }}
+                <!-- end 'weiner' comic check -->
+
+
+                <!-- 
+                    decided not to make this dynamic for the sake of the header and rss feed. Too many files NEED to know what the comic is. Just specify it in the post and be done.
+
+                    Plus, eventually will probably want to SEO the file names as well.
+
+                    but this would have worked:
+                    {{ if or (not (isset .Params "comic")) (or (not (eq .Params.comic "")) (not (eq .Params.comic nil))) }}
+                        ** (dynamic comic file based on date).png **
+                    {{ else }}
+                        ** specified comic file (in case of jpg, for example) **
+                    {{ end }}
+                -->
+
+                <!-- main comic //-->
+                <img 
+                    src="{{ .Site.BaseURL }}_files/comics/{{ $s.folder }}/1400/{{ .Params.comic }}"
+                    sizes="(min-width: 1400px) 1400px, 100vw" 
+                    srcset="
+                        {{ .Site.BaseURL }}_files/comics/{{ $s.folder }}/320/{{ .Params.comic }} 320w,
+                        {{ .Site.BaseURL }}_files/comics/{{ $s.folder }}/480/{{ .Params.comic }} 480w,
+                        {{ .Site.BaseURL }}_files/comics/{{ $s.folder }}/768/{{ .Params.comic }} 768w,
+                        {{ .Site.BaseURL }}_files/comics/{{ $s.folder }}/1024/{{ .Params.comic }} 1024w,
+                        {{ .Site.BaseURL }}_files/comics/{{ $s.folder }}/1280/{{ .Params.comic }} 1280w,
+                        {{ .Site.BaseURL }}_files/comics/{{ $s.folder }}/1400/{{ .Params.comic }} 1400w" 
+                    alt="Comic: {{ .Title }} {{ .Date.Format "January 2, 2006" }} by {{ .Site.Author.name }}" 
+                    {{ if and (isset .Params "alt") (and (not (eq .Params.alt "")) (not (eq .Params.alt nil))) }}
+                        title="{{ .Params.alt }}"
+                    {{else}}
+                        title="{{ .Title }}: {{ .Date.Format "January 2, 2006" }} by {{ .Site.Author.name }}"
+                    {{end}}
+                    class="animated comic--comic_img"
+                />
+                <!--// main comic -->
+
+            </figure>      
+        </section>
+        {{ end }}
+        <!-- end comic check -->
+
+        
