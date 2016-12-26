@@ -2,6 +2,8 @@
 
 .icon-arrow { background-image: url('png/arrow.png'); background-repeat: no-repeat; }
 
+.icon-button--black { background-image: url('png/button--black.png'); background-repeat: no-repeat; }
+
 .icon-button--character { background-image: url('png/button--character.png'); background-repeat: no-repeat; }
 
 .icon-button--gold { background-image: url('png/button--gold.png'); background-repeat: no-repeat; }
@@ -22,6 +24,8 @@
 
 .icon-comic-bg { background-image: url('png/comic-bg.png'); background-repeat: no-repeat; }
 
+.icon-dropdown { background-image: url('png/dropdown.png'); background-repeat: no-repeat; }
+
 .icon-email { background-image: url('png/email.png'); background-repeat: no-repeat; }
 
 .icon-facebook { background-image: url('png/facebook.png'); background-repeat: no-repeat; }
@@ -39,6 +43,8 @@
 .icon-patreon_full { background-image: url('png/patreon_full.png'); background-repeat: no-repeat; }
 
 .icon-rss { background-image: url('png/rss.png'); background-repeat: no-repeat; }
+
+.icon-tag--black { background-image: url('png/tag--black.png'); background-repeat: no-repeat; }
 
 .icon-tag--facebook { background-image: url('png/tag--facebook.png'); background-repeat: no-repeat; }
 

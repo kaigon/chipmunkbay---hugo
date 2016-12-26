@@ -1,0 +1,43 @@
+.header {
+  overflow: visible;
+  z-index: 3;
+  background-repeat: repeat-x;
+  background-position: center bottom;
+  padding: 0;
+  display: block;
+  background-size: 110%;
+  margin: 0;
+  position: relative;
+  padding-bottom: 15px; }
+  .header .container {
+    background-color: #414753;
+    padding-top: 10px; }
+  .header h2 {
+    margin: 0 auto;
+    font-size: 0; }
+  @media (min-width: 48.01em) {
+    .header {
+      background-color: #D3D3D3; }
+      .header .container {
+        text-align: center; } }
+
+.icon-logo {
+  width: 100%;
+  max-width: 140px;
+  height: 40px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  display: inline-block;
+  background-size: contain; }
+  @media (min-width: 48.01em) {
+    .icon-logo {
+      max-width: 180px;
+      height: 50px; } }
+
+@media (min-width: 48.01em) {
+  .isnode .header {
+    background-color: #E7EAEF; } }
+
+@media (min-width: 48.01em) {
+  .ispage .header {
+    background-color: #E7EAEF; } }

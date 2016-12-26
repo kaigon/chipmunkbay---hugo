@@ -1,0 +1,76 @@
+.nav-menu {
+  cursor: pointer;
+  user-select: none;
+  position: absolute;
+  right: 15px;
+  top: 18px;
+  align-items: center;
+  display: flex;
+  z-index: 1000;
+  text-align: right;
+  opacity: 0.4;
+  transition: all 400ms ease;
+  color: #E7EAEF;
+  font-size: 1rem; }
+  .nav-menu span {
+    color: inherit;
+    padding-left: 6px; }
+  .nav-menu .icon-menu {
+    width: 20px;
+    height: 20px;
+    background-position: center;
+    background-size: contain;
+    display: block; }
+  .nav-menu .close-button {
+    top: inherit; }
+  .nav-menu:hover {
+    opacity: 1; }
+  @media (min-width: 48.01em) {
+    .nav-menu .icon-menu {
+      width: 30px;
+      height: 30px; } }
+
+.nav-content {
+  position: relative;
+  transition: all 400ms ease;
+  color: #E7EAEF;
+  text-align: center; }
+  .nav-content li {
+    transition: inherit;
+    margin: 0 auto;
+    font-size: 0;
+    line-height: 2.4em;
+    transform: translateX(-100%); }
+  .nav-content a {
+    color: inherit; }
+
+.icon-patreon {
+  width: 0.8em;
+  height: 0.9em;
+  display: inline-block;
+  background-size: contain;
+  vertical-align: middle; }
+
+#menuToggle {
+  position: absolute;
+  top: -9999px;
+  left: -9999px; }
+  #menuToggle:checked ~ .nav-content li {
+    font-size: inherit;
+    transform: translateX(0%); }
+    #menuToggle:checked ~ .nav-content li:last-of-type {
+      padding-bottom: 2em; }
+    #menuToggle:checked ~ .nav-content li:first-of-type {
+      padding-top: 1em; }
+    #menuToggle:checked ~ .nav-content li:nth-child(1) {
+      transition: line-height 400ms ease, padding 400ms ease, font-size 400ms ease, transform 400ms ease 200ms; }
+    #menuToggle:checked ~ .nav-content li:nth-child(2) {
+      transition: line-height 400ms ease, padding 400ms ease, font-size 400ms ease, transform 400ms ease 300ms; }
+    #menuToggle:checked ~ .nav-content li:nth-child(3) {
+      transition: line-height 400ms ease, padding 400ms ease, font-size 400ms ease, transform 400ms ease 400ms; }
+    #menuToggle:checked ~ .nav-content li:nth-child(4) {
+      transition: line-height 400ms ease, padding 400ms ease, font-size 400ms ease, transform 400ms ease 500ms; }
+    #menuToggle:checked ~ .nav-content li:nth-child(5) {
+      transition: line-height 400ms ease, padding 400ms ease, font-size 400ms ease, transform 400ms ease 600ms; }
+    #menuToggle:checked ~ .nav-content li:nth-child(6) {
+      transition: line-height 400ms ease, padding 400ms ease, font-size 400ms ease, transform 400ms ease 700ms; }

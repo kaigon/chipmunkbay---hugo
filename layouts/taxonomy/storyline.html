@@ -1,57 +1,214 @@
 {{ partial "head.html" . }}
 <main class="archives archives--storyline">
     <div class="container">
-        <nav class="archives__menu">
-            <h3 class="tag archives__menu--title">
-                <span class="tag__text">Archive filters</span>
-                <i class="icon-button--red tag__bg"></i>
-            </h3>
-            <main>
-                <!-- define baseurl -->
-                {{ $baseurl := .Site.BaseURL }}
-                {{ $singular := ( .Title | singularize) }}
+         <!-- define baseurl -->
+                {{ $baseurl := .Site.BaseURL }} {{ $singular := ( .Title | singularize) }}
                 <!-- define metadata stuff -->
                 {{ $metadata := index $.Site.Data.metadata $singular }}
                 <!-- define characters stuff -->
-                {{ $char_title := ( replace .Title " " "-" ) }} 
-                {{ $character := index $.Site.Data.characters $char_title }}
+                {{ $char_title := ( replace .Title " " "-" ) }} {{ $character := index $.Site.Data.characters $char_title }}
+        <section class="archives__results">
+            <!-- define paginator -->
+            {{ $pag := .Paginate (where .Data.Pages "Type" "chipmunkbay").Reverse }}
+            <header class="archives__results__header">
+                <h3 class="archives__results--page-title">Comics in the <span>"{{ .Title }}"</span> storyline</h3>
+                <p class="archives__results--count">Showing {{add (mul (sub $pag.PageNumber 1) $pag.PageSize) 1 }}-{{ if $pag.HasNext }}{{ mul $pag.PageNumber $pag.PageSize }}{{ else }}{{ $pag.TotalNumberOfElements }}{{ end }} of {{ $pag.TotalNumberOfElements }} total comics.</p>
+            </header>
+            <main class="archives__results--main">
+                <!-- return actual results -->
+                {{ range $index, $pag.Pages.ByDate }}
+                <div class="archives__results--item">
+                    <div class="archives__results--info">
+                        <a href="{{ .Permalink }}" title="{{ .Title }}" class="archives__results--title">
+                                {{.Title}}
+                            </a>
+                        <span class="archives__results--date">{{ .Date.Format "Jan 2, 2006" }}</span>
+                    </div>
+                    <div class="archives__results--comic">
+                        {{ partial "comic__comic.html" . }}
+                        <aside class="archives__results--tags">
+                            <p>Tags:</p>
+                            <!-- tags -->
+                            {{ if and (isset .Params "tags") (and (not (eq .Params.tags "")) (not (eq .Params.tags nil))) }}
+                            <!--<label>tags</label>-->
+                            {{ range .Params.tags }}
+                            <span>
+                                        <a href="{{ "/tags/" }}{{ . | urlize }}" title="Comics tagged as &ldquo;{{ . }}&rdquo;">{{ . }}</a> 
+                                    </span> {{ end }} {{ end }}
+                            <!-- characters -->
+                            {{ if and (isset .Params "characters") (and (not (eq .Params.characters "")) (not (eq .Params.characters nil))) }}
+                            <!--<label>characters</label>-->
+                            {{ range .Params.characters }}
+                            <span>
+                                        <a href="{{ "/characters/" }}{{ . | urlize }}" title="Comics featuring &ldquo;{{ . }}&rdquo;">{{ . }}</a>
+                                    </span> {{ end }} {{ end }}
+                            <!-- storyline -->
+                            {{ if and (isset .Params "storyline") (and (not (eq .Params.storyline "")) (not (eq .Params.storyline nil))) }}
+                            <!--<label>storyline</label>-->
+                            {{ range .Params.storyline }}
+                            <span>
+                                        <a href="{{ "/storyline/" }}{{ . | urlize }}" title="Comics in the &ldquo;{{ . }}&rdquo; storyline">{{ . }}</a>
+                                    </span> {{ end }} {{ end }}
+                        </aside>
+                        <footer class="archives__results--share">
+                            <ul class="ul ul--archives">
+                                <li>
+                                    <a href="http://www.facebook.com/share.php?u={{ .URL | absURL }}" title="Share on Facebook" class="tag">
+                                        <span class="icon-facebook tag__text">facebook</span>
+                                        <i class="icon-tag--facebook tag__bg"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://twitter.com/intent/tweet?url={{ .URL | absURL }}&text={{ .Title }}" title="Share on Twitter" class="tag">
+                                        <span class="icon-twitter tag__text">twitter</span>
+                                        <i class="icon-tag--twitter tag__bg"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://plus.google.com/share?url={{ .URL | absURL }}" title="Share on Google+" class="tag">
+                                        <span class="icon-gplus tag__text">google plus</span>
+                                        <i class="icon-tag--red tag__bg"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </footer>
+                    </div>
+                </div>
+                {{ end }}
+                <!-- end results for this page -->
+            </main>
+            <!-- if there are pages, render pagination -->
+            <footer class="archives__results--footer">
+                {{ if or ($pag.HasPrev) ($pag.HasNext) }}
+                <ul class="ul ul-inline pagination">
+                    <!-- if there are more than 1 pages of results -->
+                    {{ if gt $pag.TotalPages 1 }}
+                    <!-- first -->
+                        {{ if not $pag.HasPrev }}
+                        <li class="disabled">
+                            <span aria-hidden="true">&laquo;</span>
+                            <i class="icon-tag--grey"></i>
+                        </li>
+                        {{ else }}
+                        <li>
+                            <a aria-label="First" title="First page of results" href="{{ $baseurl }}{{ $pag.First.URL }}">
+                                <span aria-hidden="true">&laquo;</span>
+                                <i class="icon-tag--grey"></i>
+                            </a>
+                        </li>
+                        {{ end }}
+                    <!-- prev -->
+                        {{ if not $pag.HasPrev }}
+                        <li class="disabled">
+                            <span aria-hidden="true">&lsaquo;</span>
+                            <i class="icon-tag--grey"></i>
+                        </li>
+                        {{ else }}
+                        <li>
+                            <a aria-label="Previous" title="Previous page of results" href="{{ $baseurl }}">
+                                <span aria-hidden="true">&lsaquo;</span>
+                                <i class="icon-tag--grey"></i>
+                            </a>
+                        </li>
+                        {{ end }}
+                    <!-- page numbers -->
+                        {{ range $pag.Pagers }}
+                        <li {{ if eq . $pag }} class="active" {{ end }}>
+                            <a href="{{ $baseurl }}{{ .URL }}" title="Page {{ .PageNumber }}">
+                                <span>{{ .PageNumber }}</span>
+                                <i {{ if eq . $pag }} class="icon-tag--red" {{ else }} class="icon-tag--grey" {{ end }}></i>
+                            </a>
+                        </li>
+                        {{ end }}
+                    <!-- next -->
+                        {{ if not $pag.HasNext }}
+                        <li class="disabled">
+                            
+                                <span aria-hidden="true">&rsaquo;</span>
+                                <i class="icon-tag--grey"></i>
+                            
+                        </li>
+                        {{ else }}
+                        <li>
+                            <a aria-label="Next" href="{{ $baseurl }}" title="Next page of results">
+                                <span aria-hidden="true">&rsaquo;</span>
+                                <i class="icon-tag--grey"></i>
+                            </a>
+                        </li>
+                        {{ end }}
+                    <!-- last -->
+                        {{ if not $pag.HasNext }}
+                        <li class="disabled">
+                            
+                                <span aria-hidden="true">&raquo;</span>
+                                <i class="icon-tag--grey"></i>
+                            
+                        </li>
+                        {{ else }}
+                        <li>
+                            <a aria-label="Last" href="{{ $baseurl }}{{ $pag.Last.URL }}" title="Last page of results">
+                                <span aria-hidden="true">&raquo;</span>
+                                <i class="icon-tag--grey"></i>
+                            </a>
+                        </li>
+                        {{ end }}
+                    <!-- end more than 1 pages check -->
+                    {{ end }}
+                </ul>
+                {{ end }}
+            </footer>
+            <!-- end pagination -->
+        </section>
+        <nav class="archives__menu">
+            <h3 class="archives__menu--title">
+                Archive filters
+            </h3>
+            <main>
+               
                 <!-- begin filters -->
-                
-                <div class="archives__menu--taxonomy">
-                    <label class="archives__menu--subtitle">By storyline:</label>
-                    <ul class="ul ul--archives ul--archives_tags">
-                        {{ range where $.Site.Pages.ByDate ".Params.storyline" "!=" nil }}
-                            {{ $link := .Permalink }}
-                            {{ range $name, $taxonomy := .Site.Taxonomies }}
-                                {{ if eq "storyline" $name }}
-                                    {{ range $key, $value := $taxonomy }}
-                                        {{ $count := .Count }}
-                                        {{ range first 1 $value.Pages }}
-                                            {{ if (eq .Permalink $link) }}
-                                                <li class="tags">
-                                                    <a href="/storyline/{{ $key | urlize }}" class="tag tag--storyline" title="{{ $count }} comics within the &ldquo;{{ humanize (string $key) }}&rdquo; storyline">
-                                                        <span class="tag__text">{{ humanize (string $key) }}</span><i class="tag__bg icon-button--teal"></i>
-                                                    </a>
-                                                </li>
-                                            {{ end }}
-                                        {{ end }}
-                                    {{ end }}
-                                {{ end }}
-                            {{ end }}
+                <!--
+                <div class="archives__menu--taxonomy -storyline">
+                    <label class="archives__menu--subtitle icon-tag--black">By storyline:</label>
+                    <ul class="ul ul--archives">
+                        {{ range where $.Site.Pages.ByDate ".Params.storyline" "!=" nil }} {{ $link := .Permalink }} {{ range $name, $taxonomy := .Site.Taxonomies }} {{ if eq "storyline" $name }} {{ range $key, $value := $taxonomy }} {{ $count := .Count }} {{ range first 1 $value.Pages }} {{ if (eq .Permalink $link) }}
+                        <li>
+                            <a href="/storyline/{{ $key | urlize }}" title="{{ $count }} comics within the &ldquo;{{ humanize (string $key) }}&rdquo; storyline">
+                                {{ humanize (string $key) }}
+                            </a>
+                        </li>
+                        {{ end }} {{ end }} {{ end }} {{ end }} {{ end }} {{ end }}
+                    </ul>
+                </div>
+                -->
+                <div class="archives__menu--taxonomy -character">
+                    <input type="checkbox" name="checkbox--character" id="checkbox--character" />
+                    <label for="checkbox--character" class="archives__menu--subtitle icon-button--black">By character <i class="icon-dropdown"></i></label>                    
+                    <ul class="ul ul--archives">
+                        {{ range $name, $taxonomy := .Site.Taxonomies.characters }}
+                        <li>
+                            <a href="/characters/{{ $name | urlize }}" title="{{ .Count }} comics featuring &ldquo;{{ $name }}&rdquo;" class="character--{{ $name }}">
+                                {{ $name }}
+                            </a>
+                            {{ .Count }}
+                        </li>
                         {{ end }}
                     </ul>
                 </div>
 
                 <div class="archives__menu--taxonomy">
-                    <label class="archives__menu--subtitle">By character:</label>
-                    <ul class="ul ul--archives ul--archives_tags">
-                        {{ range $name, $taxonomy := .Site.Taxonomies.characters }}
-                        <li class="tags">
-                            <a href="/characters/{{ $name | urlize }}" class="tag tag--character" title="{{ .Count }} comics featuring &ldquo;{{ $name }}&rdquo;">
-                                <span class="tag__text">{{ $name }}</span><i class="icon-button--grey tag__bg"></i>
+                    
+                            <a href="/tags/" class="tag tag--section" title="View a archives of all defined tags">
+                                <span class="tag__text">Search by storyline</span>
+                                <i class="icon-button--red tag__bg"></i>
+                            </a>
+                    <ul class="ul ul--archives hidden">
+                        {{ range where $.Site.Pages.ByDate ".Params.storyline" "!=" nil }} {{ $link := .Permalink }} {{ range $name, $taxonomy := .Site.Taxonomies }} {{ if eq "storyline" $name }} {{ range $key, $value := $taxonomy }} {{ $count := .Count }} {{ range first 1 $value.Pages }} {{ if (eq .Permalink $link) }}
+                        <li>
+                            <a href="/storyline/{{ $key | urlize }}" title="{{ $count }} comics within the &ldquo;{{ humanize (string $key) }}&rdquo; storyline">
+                                {{ humanize (string $key) }}
                             </a>
                         </li>
-                        {{ end }}
+                        {{ end }} {{ end }} {{ end }} {{ end }} {{ end }} {{ end }}
                     </ul>
                 </div>
 
@@ -65,6 +222,7 @@
                         </li>
                     </ul>
                 </div>
+
                 <div class="archives__menu--taxonomy">
                     <ul class="ul ul--archives ul--archives_tags">
                         <li class="tags">
@@ -75,153 +233,21 @@
                         </li>
                     </ul>
                 </div>
-
                 <div class="archives__menu--taxonomy">
-                    <label class="archives__menu--subtitle">Switch to another comic series:</label>
+                    <label class="archives__menu--subtitle">Switch series:</label>
                     <ul class="ul ul--archives ul--archives_tags">
-                        {{ range $section, $taxonomy := .Site.Sections }}
-                            {{ $m := index $.Site.Data.metadata (title $section) }}
-                            {{ if isset $m "name" }}
-                            <li class="tags">
-                                <a href="/{{ $section | urlize }}" class="tag tag--character" title="Browse the archives">
-                                    <span class="tag__text">{{ $m.name }}</span>
-                                    <i class="icon-button--green tag__bg"></i>
-                                </a>
-                            </li>
-                            {{ end }}
-                        {{ end }}
+                        {{ range $section, $taxonomy := .Site.Sections }} {{ $m := index $.Site.Data.metadata (title $section) }} {{ if isset $m "name" }}
+                        <li class="tags">
+                            <a href="/{{ $section | urlize }}" class="tag tag--character" title="Browse the archives">
+                                <span class="tag__text">{{ $m.name }}</span>
+                                <i class="icon-button--green tag__bg"></i>
+                            </a>
+                        </li>
+                        {{ end }} {{ end }}
                     </ul>
                 </div>
-                
             </main>
         </nav>
-        <section class="archives__results">
-            
-            <!-- define paginator -->
-            
-            
-
-            {{ $pag := .Paginate (where .Data.Pages "Type" "chipmunkbay").Reverse }}
-
-
-            <header class="archives__results__header">
-                <h3 class="archives__results--page-title">Comics in the <span>"{{ .Title }}"</span> storyline</h3> 
-                <p class="archives__results--count">Showing {{add (mul (sub $pag.PageNumber 1) $pag.PageSize) 1 }}-{{ if $pag.HasNext }}{{ mul $pag.PageNumber $pag.PageSize }}{{ else }}{{ $pag.TotalNumberOfElements }}{{ end }} of {{ $pag.TotalNumberOfElements }} total comics.</p>
-            </header>
-
-            <main class="archives__results--main">
-                                   
-                    <!-- return actual results -->
-                    {{ range $index, $pag.Pages.ByDate }}
-
-                    <div class="archives__results--item">
-                        <div class="archives__results--info">
-                            <a href="{{ .Permalink }}" title="{{ .Title }}" class="archives__results--title">
-                                {{.Title}}
-                            </a>
-                            <span class="archives__results--date">{{ .Date.Format "Jan 2, 2006" }}</span>
-                        </div>
-                        <div class="archives__results--comic">
-                            {{ partial "comic__comic.html" . }}
-                            <aside class="archives__results--tags">
-                                <p>Tags:</p>
-                                <!-- tags -->
-                                {{ if and (isset .Params "tags") (and (not (eq .Params.tags "")) (not (eq .Params.tags nil))) }}
-                                
-                                    <!--<label>tags</label>-->
-                                    {{ range .Params.tags }}
-                                        <a href="{{ "/tags/" }}{{ . | urlize }}" title="Comics tagged as &ldquo;{{ . }}&rdquo;">{{ . }}</a> 
-                                    {{ end }} 
-                                
-                                {{ end }}
-
-                                <!-- characters -->
-                                {{ if and (isset .Params "characters") (and (not (eq .Params.characters "")) (not (eq .Params.characters nil))) }}
-                                
-                                    <!--<label>characters</label>-->
-                                    {{ range .Params.characters }}
-                                        <a href="{{ "/characters/" }}{{ . | urlize }}" title="Comics featuring &ldquo;{{ . }}&rdquo;">{{ . }}</a>
-                                    {{ end }} 
-                                
-                                {{ end }}
-
-                                <!-- storyline -->
-                                {{ if and (isset .Params "storyline") (and (not (eq .Params.storyline "")) (not (eq .Params.storyline nil))) }}
-                                
-                                    <!--<label>storyline</label>-->
-                                    {{ range .Params.storyline }}
-                                        <a href="{{ "/storyline/" }}{{ . | urlize }}" title="Comics in the &ldquo;{{ . }}&rdquo; storyline">{{ . }}</a>
-                                    {{ end }} 
-                                
-                                {{ end }}
-                            </aside>
-                            <footer class="archives__results--share">
-                                <ul class="ul ul--archives">
-                                    <li>
-                                        <a href="http://www.facebook.com/share.php?u={{ .URL | absURL }}" title="Share on Facebook" class="tag">
-                                            <span class="icon-facebook tag__text">facebook</span>
-                                            <i class="icon-tag--facebook tag__bg"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://twitter.com/intent/tweet?url={{ .URL | absURL }}&text={{ .Title }}" title="Share on Twitter" class="tag">
-                                            <span class="icon-twitter tag__text">twitter</span>
-                                            <i class="icon-tag--twitter tag__bg"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://plus.google.com/share?url={{ .URL | absURL }}" title="Share on Google+" class="tag">
-                                            <span class="icon-gplus tag__text">google plus</span>
-                                            <i class="icon-tag--red tag__bg"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </footer>
-                        </div>
-                    </div>
-                    {{ end }}
-                    <!-- end results for this page -->
-                
-            </main>
-            <!-- if there are pages, render pagination -->
-            <footer class="archives__results--footer">
-                {{ if or ($pag.HasPrev) ($pag.HasNext) }}
-                <ul class="ul ul-inline pagination">
-                    <!-- if there are more than 1 pages of results -->
-                    {{ if gt $pag.TotalPages 1 }}
-                    <li {{ if not $pag.HasPrev }} class="disabled" {{ end }}>
-                        <a aria-label="First" href="{{ $baseurl }}{{ $pag.First.URL }}">
-                            <span aria-hidden="true">&laquo;&laquo;</span>
-                        </a>
-                    </li>
-                    <li {{ if not $pag.HasPrev }} class="disabled" {{ end }}>
-                        <a aria-label="Previous" href="{{ if $pag.HasPrev }}{{ $baseurl }}{{ $pag.Prev.URL }}{{ else }}#{{ end }}">
-                            <span aria-hidden="true">&laquo;</span>
-                        </a>
-                    </li>
-                    {{ range $pag.Pagers }}
-                    <li {{ if eq . $pag }} class="active" {{ end }}>
-                        <a href="{{ $baseurl }}{{ .URL }}">
-                    {{ .PageNumber }}
-                </a>
-                    </li>
-                    {{ end }}
-                    <li {{ if not $pag.HasNext }} class="disabled" {{ end }}>
-                        <a aria-label="Next" href="{{ if $pag.HasNext }}{{ $baseurl }}{{ $pag.Next.URL }}{{ else }}#{{ end }}">
-                            <span aria-hidden="true">&raquo;</span>
-                        </a>
-                    </li>
-                    <li {{ if not $pag.HasNext }} class="disabled" {{ end }}>
-                        <a aria-label="Last" href="{{ $baseurl }}{{ $pag.Last.URL }}">
-                            <span aria-hidden="true">&raquo;&raquo;</span>
-                        </a>
-                    </li>
-                    {{ end }}
-                </ul>
-                {{ end }}
-            </footer>
-            <!-- end pagination -->
-        </section>
     </div>
 </main>
 </div>

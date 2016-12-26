@@ -9,7 +9,6 @@ categories:
 characters:
   - bryce
   - kaigon
-  - monkey
   - ninja monkey
 comic: 20051022.png
 storyline:

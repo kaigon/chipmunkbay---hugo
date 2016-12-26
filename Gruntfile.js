@@ -15,7 +15,7 @@ module.exports = function(grunt) {
                     expand: true,
                     cwd: '_production/sass/',
                     src: ['*.scss'],
-                    dest: '_production/sass/css/',
+                    dest: '_production/temp/css/',
                     ext: '.css'
                 }]
             }
@@ -29,9 +29,9 @@ module.exports = function(grunt) {
             },
             dist: {
                 expand: true,
-                cwd: '_production/sass/css/',
+                cwd: '_production/temp/css/',
                 src: ['*.css'],
-                dest: '_production/sass/css/build/',
+                dest: '_production/temp/css/build/',
                 ext: '.min.css'
             }
         },
@@ -42,7 +42,7 @@ module.exports = function(grunt) {
             },
             target: {
                 files: {
-                    'static/_files/css/style.css': ['_production/vendor/css/normalize.css', '_production/sass/css/build/*.css'] // can merge multiple css files. ex: ['foo.css', 'bar.css']
+                    'static/_files/css/style.css': ['_production/vendor/css/normalize.css', '_production/temp/css/build/*.css'] // can merge multiple css files. ex: ['foo.css', 'bar.css']
                 }
             }
         },
@@ -189,7 +189,7 @@ module.exports = function(grunt) {
             }
         },
         grunticon: {
-            icons: {
+            svgicons: {
                 files: [{
                     expand: true,
                     cwd: "_production/svgs/compressed",
@@ -258,7 +258,7 @@ module.exports = function(grunt) {
                 livereload: true,
                 debounceDelay: 250,
             },
-            sass: {
+            sasswatch: {
                 files: ['_production/sass/*.scss'],
                 tasks: ['cssStuff'],
             },
@@ -287,10 +287,10 @@ module.exports = function(grunt) {
         },
         clean: {
             build: {
-                src: ['_production/sass/css/', '_production/svgs/compressed'] //
+                src: ['_production/temp/css/', '_production/svgs/compressed'] //
             },
             css: {
-                src: ['_production/sass/css/']
+                src: ['_production/temp/css/']
             },
             svgs: {
                 src: ['_production/svgs/compressed']
@@ -328,16 +328,16 @@ module.exports = function(grunt) {
 
     // Default task(s).
     grunt.registerTask('default', ['sass', 'postcss', 'cssmin', 'concat', 'uglify', 'clean:build', 'jshint']); // order matters here!
-    grunt.registerTask('icons', ['svgmin', 'grunticon', 'clean:svgs', 'shell:dev']); // order matters here!
+    grunt.registerTask('icons', ['svgmin', 'grunticon', 'clean:svgs']); // order matters here!
     //grunt.registerTask('icons', ['grunticon']);
     grunt.registerTask('dist', ['modernizr']); // order matters here!
-    grunt.registerTask('scss', ['sass']);
+    grunt.registerTask('scss', ['sass', 'shell:dev']);
     //grunt.registerTask('hugo', ['connect:dev', 'shell:hugo:dev', 'watch']);
     grunt.registerTask('hugo', ['open:devserver', 'shell:dev', 'watch']);
     grunt.registerTask('build', ['shell:build']);
     grunt.registerTask('responsive', ['responsive_images', 'newer:pngquant:png']);
     //grunt.registerTask('responsive', ['responsive_images', 'pngquant:png']);
-    grunt.registerTask('cssStuff', ['sass', 'postcss', 'cssmin', 'clean:css', 'shell:dev']);
+    grunt.registerTask('cssStuff', ['sass', 'postcss', 'cssmin', 'clean:build', 'shell:dev']);
     grunt.registerTask('jsStuff', ['concat', 'uglify', 'jshint', 'shell:dev']);
 
     grunt.registerTask('resp', ['responsive_images']);
