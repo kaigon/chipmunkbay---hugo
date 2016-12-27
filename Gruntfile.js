@@ -227,6 +227,26 @@ module.exports = function(grunt) {
                 path: 'http://kaigon.github.io/'
             }
         },
+        copy: { // Task
+            styles: {
+                cwd: 'static/_files/css',
+                src: ['**/*'],
+                dest: 'dev/_files/css/',
+                expand: true,
+            },
+            jquery: {
+                cwd: 'static/_files/js',
+                src: ['**/*'],
+                dest: 'dev/_files/js/',
+                expand: true,
+            },
+            imgs: {
+                cwd: 'static/_files/img',
+                src: ['**/*'],
+                dest: 'dev/_files/img/',
+                expand: true,
+            }
+        },
 
         /*
          shell: {
@@ -324,11 +344,12 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-responsive-images');
     grunt.loadNpmTasks('grunt-pngquant');
     grunt.loadNpmTasks('grunt-newer');
+    grunt.loadNpmTasks('grunt-contrib-copy');
 
 
     // Default task(s).
     grunt.registerTask('default', ['sass', 'postcss', 'cssmin', 'concat', 'uglify', 'clean:build', 'jshint']); // order matters here!
-    grunt.registerTask('icons', ['svgmin', 'grunticon', 'clean:svgs']); // order matters here!
+    grunt.registerTask('icons', ['svgmin', 'grunticon', 'clean:svgs','copy:imgs']); // order matters here!
     //grunt.registerTask('icons', ['grunticon']);
     grunt.registerTask('dist', ['modernizr']); // order matters here!
     grunt.registerTask('scss', ['sass', 'shell:dev']);
@@ -337,8 +358,8 @@ module.exports = function(grunt) {
     grunt.registerTask('build', ['shell:build']);
     grunt.registerTask('responsive', ['responsive_images', 'newer:pngquant:png']);
     //grunt.registerTask('responsive', ['responsive_images', 'pngquant:png']);
-    grunt.registerTask('cssStuff', ['sass', 'postcss', 'cssmin', 'clean:build', 'shell:dev']);
-    grunt.registerTask('jsStuff', ['concat', 'uglify', 'jshint', 'shell:dev']);
+    grunt.registerTask('cssStuff', ['sass', 'postcss', 'cssmin', 'clean:build', 'copy:styles']);
+    grunt.registerTask('jsStuff', ['concat', 'uglify', 'jshint', 'copy:jquery']);
 
     grunt.registerTask('resp', ['responsive_images']);
     grunt.registerTask('png', ['newer:pngquant:png']);

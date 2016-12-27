@@ -1,12 +1,12 @@
 {{ partial "head.html" . }}
 <main class="archives archives--storyline">
     <div class="container">
-         <!-- define baseurl -->
-                {{ $baseurl := .Site.BaseURL }} {{ $singular := ( .Title | singularize) }}
-                <!-- define metadata stuff -->
-                {{ $metadata := index $.Site.Data.metadata $singular }}
-                <!-- define characters stuff -->
-                {{ $char_title := ( replace .Title " " "-" ) }} {{ $character := index $.Site.Data.characters $char_title }}
+        <!-- define baseurl -->
+        {{ $baseurl := .Site.BaseURL }} {{ $singular := ( .Title | singularize) }}
+        <!-- define metadata stuff -->
+        {{ $metadata := index $.Site.Data.metadata $singular }}
+        <!-- define characters stuff -->
+        {{ $char_title := ( replace .Title " " "-" ) }} {{ $character := index $.Site.Data.characters $char_title }}
         <section class="archives__results">
             <!-- define paginator -->
             {{ $pag := .Paginate (where .Data.Pages "Type" "chipmunkbay").Reverse }}
@@ -84,74 +84,70 @@
                     <!-- if there are more than 1 pages of results -->
                     {{ if gt $pag.TotalPages 1 }}
                     <!-- first -->
-                        {{ if not $pag.HasPrev }}
-                        <li class="disabled">
+                    {{ if not $pag.HasPrev }}
+                    <li class="disabled">
+                        <span aria-hidden="true">&laquo;</span>
+                        <i class="icon-tag--grey"></i>
+                    </li>
+                    {{ else }}
+                    <li>
+                        <a aria-label="First" title="First page of results" href="{{ $baseurl }}{{ $pag.First.URL }}">
                             <span aria-hidden="true">&laquo;</span>
                             <i class="icon-tag--grey"></i>
-                        </li>
-                        {{ else }}
-                        <li>
-                            <a aria-label="First" title="First page of results" href="{{ $baseurl }}{{ $pag.First.URL }}">
-                                <span aria-hidden="true">&laquo;</span>
-                                <i class="icon-tag--grey"></i>
-                            </a>
-                        </li>
-                        {{ end }}
+                        </a>
+                    </li>
+                    {{ end }}
                     <!-- prev -->
-                        {{ if not $pag.HasPrev }}
-                        <li class="disabled">
+                    {{ if not $pag.HasPrev }}
+                    <li class="disabled">
+                        <span aria-hidden="true">&lsaquo;</span>
+                        <i class="icon-tag--grey"></i>
+                    </li>
+                    {{ else }}
+                    <li>
+                        <a aria-label="Previous" title="Previous page of results" href="{{ $baseurl }}">
                             <span aria-hidden="true">&lsaquo;</span>
                             <i class="icon-tag--grey"></i>
-                        </li>
-                        {{ else }}
-                        <li>
-                            <a aria-label="Previous" title="Previous page of results" href="{{ $baseurl }}">
-                                <span aria-hidden="true">&lsaquo;</span>
-                                <i class="icon-tag--grey"></i>
-                            </a>
-                        </li>
-                        {{ end }}
+                        </a>
+                    </li>
+                    {{ end }}
                     <!-- page numbers -->
-                        {{ range $pag.Pagers }}
-                        <li {{ if eq . $pag }} class="active" {{ end }}>
-                            <a href="{{ $baseurl }}{{ .URL }}" title="Page {{ .PageNumber }}">
-                                <span>{{ .PageNumber }}</span>
-                                <i {{ if eq . $pag }} class="icon-tag--red" {{ else }} class="icon-tag--grey" {{ end }}></i>
-                            </a>
-                        </li>
-                        {{ end }}
+                    {{ range $pag.Pagers }}
+                    <li {{ if eq . $pag }} class="active" {{ end }}>
+                        <a href="{{ $baseurl }}{{ .URL }}" title="Page {{ .PageNumber }}">
+                            <span>{{ .PageNumber }}</span>
+                            <i {{ if eq . $pag }} class="icon-tag--red" {{ else }} class="icon-tag--grey" {{ end }}></i>
+                        </a>
+                    </li>
+                    {{ end }}
                     <!-- next -->
-                        {{ if not $pag.HasNext }}
-                        <li class="disabled">
-                            
-                                <span aria-hidden="true">&rsaquo;</span>
-                                <i class="icon-tag--grey"></i>
-                            
-                        </li>
-                        {{ else }}
-                        <li>
-                            <a aria-label="Next" href="{{ $baseurl }}" title="Next page of results">
-                                <span aria-hidden="true">&rsaquo;</span>
-                                <i class="icon-tag--grey"></i>
-                            </a>
-                        </li>
-                        {{ end }}
+                    {{ if not $pag.HasNext }}
+                    <li class="disabled">
+                        <span aria-hidden="true">&rsaquo;</span>
+                        <i class="icon-tag--grey"></i>
+                    </li>
+                    {{ else }}
+                    <li>
+                        <a aria-label="Next" href="{{ $baseurl }}" title="Next page of results">
+                            <span aria-hidden="true">&rsaquo;</span>
+                            <i class="icon-tag--grey"></i>
+                        </a>
+                    </li>
+                    {{ end }}
                     <!-- last -->
-                        {{ if not $pag.HasNext }}
-                        <li class="disabled">
-                            
-                                <span aria-hidden="true">&raquo;</span>
-                                <i class="icon-tag--grey"></i>
-                            
-                        </li>
-                        {{ else }}
-                        <li>
-                            <a aria-label="Last" href="{{ $baseurl }}{{ $pag.Last.URL }}" title="Last page of results">
-                                <span aria-hidden="true">&raquo;</span>
-                                <i class="icon-tag--grey"></i>
-                            </a>
-                        </li>
-                        {{ end }}
+                    {{ if not $pag.HasNext }}
+                    <li class="disabled">
+                        <span aria-hidden="true">&raquo;</span>
+                        <i class="icon-tag--grey"></i>
+                    </li>
+                    {{ else }}
+                    <li>
+                        <a aria-label="Last" href="{{ $baseurl }}{{ $pag.Last.URL }}" title="Last page of results">
+                            <span aria-hidden="true">&raquo;</span>
+                            <i class="icon-tag--grey"></i>
+                        </a>
+                    </li>
+                    {{ end }}
                     <!-- end more than 1 pages check -->
                     {{ end }}
                 </ul>
@@ -160,11 +156,13 @@
             <!-- end pagination -->
         </section>
         <nav class="archives__menu">
+            <input type="checkbox" name="checkbox--archives" id="checkbox--archives" class="archives__menu--checkbox" />
             <h3 class="archives__menu--title">
-                Archive filters
+                <label for="checkbox--archives" class="archives__menu--subtitle icon-button--black">Archives Filter<i class="icon-dropdown"></i></label>
             </h3>
-            <main>
-               
+            
+            
+            <main class="archives__menu--content">
                 <!-- begin filters -->
                 <!--
                 <div class="archives__menu--taxonomy -storyline">
@@ -181,26 +179,23 @@
                 </div>
                 -->
                 <div class="archives__menu--taxonomy -character">
-                    <input type="checkbox" name="checkbox--character" id="checkbox--character" />
-                    <label for="checkbox--character" class="archives__menu--subtitle icon-button--black">By character <i class="icon-dropdown"></i></label>                    
+                    <input type="checkbox" name="checkbox--character" id="checkbox--character" class="archives__menu--checkbox" />
+                    <label for="checkbox--character" class="archives__menu--subtitle icon-button--black">By character <i class="icon-dropdown"></i></label>
                     <ul class="ul ul--archives">
                         {{ range $name, $taxonomy := .Site.Taxonomies.characters }}
                         <li>
                             <a href="/characters/{{ $name | urlize }}" title="{{ .Count }} comics featuring &ldquo;{{ $name }}&rdquo;" class="character--{{ $name }}">
                                 {{ $name }}
-                            </a>
-                            {{ .Count }}
+                            </a> {{ .Count }}
                         </li>
                         {{ end }}
                     </ul>
                 </div>
-
                 <div class="archives__menu--taxonomy">
-                    
-                            <a href="/tags/" class="tag tag--section" title="View a archives of all defined tags">
-                                <span class="tag__text">Search by storyline</span>
-                                <i class="icon-button--red tag__bg"></i>
-                            </a>
+                    <a href="/tags/" class="tag tag--section" title="View a archives of all defined tags">
+                        <span class="tag__text">Search by storyline</span>
+                        <i class="icon-button--red tag__bg"></i>
+                    </a>
                     <ul class="ul ul--archives hidden">
                         {{ range where $.Site.Pages.ByDate ".Params.storyline" "!=" nil }} {{ $link := .Permalink }} {{ range $name, $taxonomy := .Site.Taxonomies }} {{ if eq "storyline" $name }} {{ range $key, $value := $taxonomy }} {{ $count := .Count }} {{ range first 1 $value.Pages }} {{ if (eq .Permalink $link) }}
                         <li>
@@ -211,7 +206,6 @@
                         {{ end }} {{ end }} {{ end }} {{ end }} {{ end }} {{ end }}
                     </ul>
                 </div>
-
                 <div class="archives__menu--taxonomy">
                     <ul class="ul ul--archives ul--archives_tags">
                         <li class="tags">
@@ -222,7 +216,6 @@
                         </li>
                     </ul>
                 </div>
-
                 <div class="archives__menu--taxonomy">
                     <ul class="ul ul--archives ul--archives_tags">
                         <li class="tags">
