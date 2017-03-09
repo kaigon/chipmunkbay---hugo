@@ -188,6 +188,16 @@ module.exports = function(grunt) {
                 ext: '.svg'
             }
         },
+        svgstore: {
+            options: {
+                prefix: 'icon-', // This will prefix each <g> ID
+            },
+            default: {
+                files: {
+                    'static/_files/img/all.svg': ['_production/svgs/compressed/*.svg'],
+                }
+            }
+        },
         grunticon: {
             svgicons: {
                 files: [{
@@ -196,9 +206,11 @@ module.exports = function(grunt) {
                     src: ["*.svg"],
                     dest: "static/_files/img/"
                 }],
+                /*
                 options: {
                     enhanceSVG: true
                 }
+                */
             }
         },
         shell: {
@@ -336,6 +348,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-svgmin');
     grunt.loadNpmTasks('grunt-grunticon');
+    grunt.loadNpmTasks('grunt-svgstore');
     grunt.loadNpmTasks("grunt-modernizr");
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-connect');
@@ -345,11 +358,13 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-pngquant');
     grunt.loadNpmTasks('grunt-newer');
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-contrib-htmlmin');
 
 
     // Default task(s).
     grunt.registerTask('default', ['sass', 'postcss', 'cssmin', 'concat', 'uglify', 'clean:build', 'jshint']); // order matters here!
-    grunt.registerTask('icons', ['svgmin', 'grunticon', 'clean:svgs','copy:imgs']); // order matters here!
+    grunt.registerTask('icons', ['svgmin', 'svgstore', 'grunticon', 'clean:svgs','copy:imgs']); 
+    
     //grunt.registerTask('icons', ['grunticon']);
     grunt.registerTask('dist', ['modernizr']); // order matters here!
     grunt.registerTask('scss', ['sass', 'shell:dev']);

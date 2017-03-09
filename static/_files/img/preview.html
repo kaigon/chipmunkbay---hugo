@@ -13,7 +13,7 @@
 		<script>
 			/*! grunt-grunticon Stylesheet Loader - v2.1.6 | https://github.com/filamentgroup/grunticon | (c) 2015 Scott Jehl, Filament Group, Inc. | MIT license. */
 
-!function(){function e(e,n,t){"use strict";var o=window.document.createElement("link"),r=n||window.document.getElementsByTagName("script")[0],a=window.document.styleSheets;return o.rel="stylesheet",o.href=e,o.media="only x",r.parentNode.insertBefore(o,r),o.onloadcssdefined=function(e){for(var n,t=0;t<a.length;t++)a[t].href&&a[t].href===o.href&&(n=!0);n?e():setTimeout(function(){o.onloadcssdefined(e)})},o.onloadcssdefined(function(){o.media=t||"all"}),o}function n(e,n){e.onload=function(){e.onload=null,n&&n.call(e)},"isApplicationInstalled"in navigator&&"onloadcssdefined"in e&&e.onloadcssdefined(n)}!function(t){var o=function(r,a){"use strict";if(r&&3===r.length){var i=t.navigator,c=t.document,s=t.Image,d=!(!c.createElementNS||!c.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect||!c.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1")||t.opera&&-1===i.userAgent.indexOf("Chrome")||-1!==i.userAgent.indexOf("Series40")),l=new s;l.onerror=function(){o.method="png",o.href=r[2],e(r[2])},l.onload=function(){var t=1===l.width&&1===l.height,i=r[t&&d?0:t?1:2];t&&d?o.method="svg":t?o.method="datapng":o.method="png",o.href=i,n(e(i),a)},l.src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==",c.documentElement.className+=" grunticon"}};o.loadCSS=e,o.onloadCSS=n,t.grunticon=o}(this),function(e,n){"use strict";var t=n.document,o="grunticon:",r=function(e){if(t.attachEvent?"complete"===t.readyState:"loading"!==t.readyState)e();else{var n=!1;t.addEventListener("readystatechange",function(){n||(n=!0,e())},!1)}},a=function(e){return n.document.querySelector('link[href$="'+e+'"]')},i=function(e){var n,t,r,a,i,c,s={};if(n=e.sheet,!n)return s;t=n.cssRules?n.cssRules:n.rules;for(var d=0;d<t.length;d++)r=t[d].cssText,a=o+t[d].selectorText,i=r.split(");")[0].match(/US\-ASCII\,([^"']+)/),i&&i[1]&&(c=decodeURIComponent(i[1]),s[a]=c);return s},c=function(e){var n,r,a,i;a="data-grunticon-embed";for(var c in e){i=c.slice(o.length);try{n=t.querySelectorAll(i)}catch(s){continue}r=[];for(var d=0;d<n.length;d++)null!==n[d].getAttribute(a)&&r.push(n[d]);if(r.length)for(d=0;d<r.length;d++)r[d].innerHTML=e[c],r[d].style.backgroundImage="none",r[d].removeAttribute(a)}return r},s=function(n){"svg"===e.method&&r(function(){c(i(a(e.href))),"function"==typeof n&&n()})};e.embedIcons=c,e.getCSS=a,e.getIcons=i,e.ready=r,e.svgLoadedCallback=s,e.embedSVG=s}(grunticon,this)}();
+!function(){function e(e,n,t){"use strict";var o=window.document.createElement("link"),a=n||window.document.getElementsByTagName("script")[0],i=window.document.styleSheets;return o.rel="stylesheet",o.href=e,o.media="only x",a.parentNode.insertBefore(o,a),o.onloadcssdefined=function(e){for(var n,t=0;t<i.length;t++)i[t].href&&i[t].href===o.href&&(n=!0);n?e():setTimeout(function(){o.onloadcssdefined(e)})},o.onloadcssdefined(function(){o.media=t||"all"}),o}function n(e,n){e.onload=function(){e.onload=null,n&&n.call(e)},"isApplicationInstalled"in navigator&&"onloadcssdefined"in e&&e.onloadcssdefined(n)}!function(t){var o=function(a,i){"use strict";if(a&&3===a.length){var r=t.navigator,d=t.document,s=t.Image,c=!(!d.createElementNS||!d.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect||!d.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1")||t.opera&&-1===r.userAgent.indexOf("Chrome")||-1!==r.userAgent.indexOf("Series40")),l=new s;l.onerror=function(){o.method="png",o.href=a[2],e(a[2])},l.onload=function(){var t=1===l.width&&1===l.height,r=a[t&&c?0:t?1:2];t&&c?o.method="svg":t?o.method="datapng":o.method="png",o.href=r,n(e(r),i)},l.src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==",d.documentElement.className+=" grunticon"}};o.loadCSS=e,o.onloadCSS=n,t.grunticon=o}(this)}();
 			
 			grunticon(["icons.data.svg.css", "icons.data.png.css", "icons.fallback.css"], grunticon.svgLoadedCallback);
 		</script>
@@ -22,15 +22,7 @@
 	<body>
 
 		<h1>CUSTOM PREVIEW - you can change this in the previewTemplate option</h1>
-			<pre><code>.icon-arrow-next:</code></pre><div class="icon-arrow-next" style="width: 24.6px; height: 58.9px;" ></div><hr/>
 			<pre><code>.icon-arrow:</code></pre><div class="icon-arrow" style="width: 24.6px; height: 58.9px;" ></div><hr/>
-			<pre><code>.icon-button--black:</code></pre><div class="icon-button--black" style="width: 100px; height: 21px;" ></div><hr/>
-			<pre><code>.icon-button--gold:</code></pre><div class="icon-button--gold" style="width: 100px; height: 21px;" ></div><hr/>
-			<pre><code>.icon-button--green:</code></pre><div class="icon-button--green" style="width: 100px; height: 21px;" ></div><hr/>
-			<pre><code>.icon-button--grey:</code></pre><div class="icon-button--grey" style="width: 100px; height: 21px;" ></div><hr/>
-			<pre><code>.icon-button--red:</code></pre><div class="icon-button--red" style="width: 100px; height: 21px;" ></div><hr/>
-			<pre><code>.icon-button--tan:</code></pre><div class="icon-button--tan" style="width: 100px; height: 21px;" ></div><hr/>
-			<pre><code>.icon-button--teal:</code></pre><div class="icon-button--teal" style="width: 100px; height: 21px;" ></div><hr/>
 			<pre><code>.icon-button:</code></pre><div class="icon-button" style="width: 100px; height: 21px;" ></div><hr/>
 			<pre><code>.icon-comic-bg:</code></pre><div class="icon-comic-bg" style="width: 1172px; height: 115.143px;" ></div><hr/>
 			<pre><code>.icon-dropdown:</code></pre><div class="icon-dropdown" style="width: 13.093px; height: 7.803px;" ></div><hr/>
@@ -43,16 +35,6 @@
 			<pre><code>.icon-patreon:</code></pre><div class="icon-patreon" style="width: 30px; height: 30px;" ></div><hr/>
 			<pre><code>.icon-patreon_full:</code></pre><div class="icon-patreon_full" style="width: 222.188px; height: 50.933px;" ></div><hr/>
 			<pre><code>.icon-rss:</code></pre><div class="icon-rss" style="width: 40px; height: 40px;" ></div><hr/>
-			<pre><code>.icon-tag--black:</code></pre><div class="icon-tag--black" style="width: 22.228px; height: 22.227px;" ></div><hr/>
-			<pre><code>.icon-tag--facebook:</code></pre><div class="icon-tag--facebook" style="width: 22.228px; height: 22.227px;" ></div><hr/>
-			<pre><code>.icon-tag--gold:</code></pre><div class="icon-tag--gold" style="width: 22.228px; height: 22.227px;" ></div><hr/>
-			<pre><code>.icon-tag--green:</code></pre><div class="icon-tag--green" style="width: 22.228px; height: 22.227px;" ></div><hr/>
-			<pre><code>.icon-tag--grey:</code></pre><div class="icon-tag--grey" style="width: 22.228px; height: 22.227px;" ></div><hr/>
-			<pre><code>.icon-tag--red:</code></pre><div class="icon-tag--red" style="width: 22.228px; height: 22.227px;" ></div><hr/>
-			<pre><code>.icon-tag--rss:</code></pre><div class="icon-tag--rss" style="width: 22.228px; height: 22.227px;" ></div><hr/>
-			<pre><code>.icon-tag--tan:</code></pre><div class="icon-tag--tan" style="width: 22.228px; height: 22.227px;" ></div><hr/>
-			<pre><code>.icon-tag--teal:</code></pre><div class="icon-tag--teal" style="width: 22.228px; height: 22.227px;" ></div><hr/>
-			<pre><code>.icon-tag--twitter:</code></pre><div class="icon-tag--twitter" style="width: 22.228px; height: 22.227px;" ></div><hr/>
 			<pre><code>.icon-tag:</code></pre><div class="icon-tag" style="width: 22.228px; height: 22.227px;" ></div><hr/>
 			<pre><code>.icon-twitter:</code></pre><div class="icon-twitter" style="width: 40px; height: 32.509px;" ></div><hr/>
 
