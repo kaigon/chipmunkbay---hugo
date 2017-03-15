@@ -7,7 +7,7 @@
 }
 
 .comic--comic {
-    padding: 10px;
+    padding: 30px 10px 10px;
     margin: 0 auto;
     //overflow: hidden;
     //overflow-x: scroll;
@@ -40,7 +40,7 @@
         }
     }
     @include media('>sm') {
-        padding: 20px 10px 0;
+        padding: 30px 10px 0;
         //overflow: hidden;
         background-color: $darkbg;
         background-position: center bottom;

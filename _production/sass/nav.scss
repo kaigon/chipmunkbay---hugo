@@ -5,15 +5,15 @@
     user-select: none;
     position: absolute;
     right: 15px;
-    top:18px;
-    align-items:center;
+    top: 18px;
+    align-items: center;
     display: flex;
     z-index: 1000;
     text-align: right;
     opacity: 0.4;
     transition: all 400ms ease;
     color: $lightbg;
-    font-size:1rem;
+    font-size: 1rem;
     span {
         color: inherit;
         padding-left: 6px;
@@ -24,17 +24,19 @@
         background-position: center;
         background-size: contain;
         display: block;
+        fill: #F1F2F2;
     }
-    .close-button {
+    .icon-close {
         top: inherit;
+        position: absolute;
     }
     &:hover {
         opacity: 1;
     }
     @include media('>sm') {
         .icon-menu {
-            width:30px;
-            height:30px;
+            width: 30px;
+            height: 30px;
         }
     }
 }
@@ -54,14 +56,13 @@
     a {
         color: inherit;
     }
-}
-
-.icon-patreon {
-  width: 0.8em;
-  height: 0.9em;
-  display: inline-block;
-  background-size: contain;
-  vertical-align: middle;
+    .icon-patreon,
+    .icon-email {
+        width: 0.8em;
+        height: 0.9em;
+        display: inline-block;
+        vertical-align: middle;
+    }
 }
 
 #menuToggle {

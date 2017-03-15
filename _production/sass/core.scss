@@ -47,3 +47,10 @@ body > div {
 .hidden {
     display: none;
 }
+
+svg {
+    fill:white;
+    path {
+        fill:inherit;
+    }
+}

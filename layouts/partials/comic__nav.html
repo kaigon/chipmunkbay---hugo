@@ -6,8 +6,11 @@
                     <!-- Previous Post -->
                     {{ range first 1 (after 1 (where .Data.Pages "Type" "chipmunkbay")) }}
                       
-                            <a href="{{ .Permalink }}" class="icon-button_alt prev" title="{{ .Title }}">
-                                <i class="icon-arrow"></i>
+                            <a href="{{ .Permalink }}" class="comic--nav__btn -prev" title="{{ .Title }}">
+                                <!--<i class="icon-arrow"></i>-->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-arrow">
+                                    <use xlink:href="#icon-arrow"></use>
+                                </svg>
                                 <span>&lsaquo; Prev</span>
                             </a>
                         
@@ -17,8 +20,11 @@
                     <!-- previous button -->
                     {{ if .PrevInSection }}
                         
-                            <a href="{{ .PrevInSection.Permalink }}" class="prev icon-button_alt" data-toggle="tooltip" data-placement="top" title="{{ .PrevInSection.Title }}">
-                                <i class="icon-arrow"></i>
+                            <a href="{{ .PrevInSection.Permalink }}" class="comic--nav__btn -prev" data-toggle="tooltip" data-placement="top" title="{{ .PrevInSection.Title }}">
+                                <!--<i class="icon-arrow"></i>-->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-arrow">
+                                    <use xlink:href="#icon-arrow"></use>
+                                </svg>
                                 <span>&laquo; Prev</span>
                             </a>
                         
@@ -26,7 +32,7 @@
                     <!-- show weiner button -->
                     {{ if isset .Params "weiner" }}
                     
-                        <a href="#" data-target=".comic--weiner" class="icon-button_alt weiner-toggle">
+                        <a href="#" data-target=".comic--weiner" class="comic--nav__btn -weiner">
                             <span>bonus panel</span>
                         </a>
                     
@@ -34,8 +40,11 @@
                     <!-- next -->
                     {{ if .NextInSection }}
                        
-                            <a href="{{ .NextInSection.Permalink }}" class="next icon-button_alt" data-toggle="tooltip" data-placement="top" title="{{ .NextInSection.Title }}">
-                                <i class="icon-arrow-next"></i>
+                            <a href="{{ .NextInSection.Permalink }}" class="comic--nav__btn -next" data-toggle="tooltip" data-placement="top" title="{{ .NextInSection.Title }}">
+                                <!--<i class="icon-arrow"></i>-->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-arrow">
+                                    <use xlink:href="#icon-arrow"></use>
+                                </svg>
                                 <span>Next &raquo;</span>
                             </a>
                     

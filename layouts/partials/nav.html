@@ -1,8 +1,14 @@
 <input type="checkbox" id="menuToggle">
 <label class="nav-menu" for="menuToggle" onclick>
-    <i class="icon-menu"></i>
+    <!--<i class="icon-menu"></i>-->
+    <svg xmlns="http://www.w3.org/2000/svg" class="icon-menu">
+        <use xlink:href="#icon-menu"></use>
+    </svg>
     <span>menu</span>
-    <i class="close-button" data-type="close"></i>
+    <svg xmlns="http://www.w3.org/2000/svg" class="icon-close">
+        <use xlink:href="#icon-close"></use>
+    </svg>
+    <!--<i class="close-button" data-type="close"></i>-->
 </label>
 <ul class="nav-content ul">
     <li>
@@ -16,13 +22,20 @@
     <li>
         <a href="{{ .Site.Author.patreon }}" title="Support the comic">
             Support me on Patreon
-            <i class="icon-patreon"></i>
+            <!--<i class="icon-patreon"></i>-->
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon-patreon">
+                <use xlink:href="#icon-patreon"></use>
+            </svg>
         </a>
     </li>
     {{ end }}
     <li>
         <a href="{{ .Site.BaseURL }}contact" title="Contact us">
-            <i class="icon-email_solid"></i> <span>Contact me</span>
+            <!--<i class="icon-email"></i>-->
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon-email">
+                <use xlink:href="#icon-email"></use>
+            </svg>
+            <span>Contact me</span>
         </a>
     </li>
 </ul>

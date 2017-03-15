@@ -129,7 +129,7 @@ module.exports = function(grunt) {
                     sizes: [{
                         name: 'thumb',
                         width: 250
-                    },{
+                    }, {
                         name: '320',
                         width: 320
                     }, {
@@ -188,6 +188,7 @@ module.exports = function(grunt) {
                 ext: '.svg'
             }
         },
+        
         svgstore: {
             options: {
                 prefix: 'icon-', // This will prefix each <g> ID
@@ -197,7 +198,39 @@ module.exports = function(grunt) {
                     'static/_files/img/all.svg': ['_production/svgs/compressed/*.svg'],
                 }
             }
+            /*
+            Need to manually update the following svgs in all.svg to add the 'preserveAspectRatio="none" declaration:
+                - icon-bg__header
+                - icon-button
+                - icon-bg__comic
+                - icon-tag
+
+             */
         },
+        /*
+        svg_sprite: {
+            mysvgs: {
+                // Target-specific file lists and/or options go here.
+                src: ['_production/svgs/compressed/*.svg'],
+                dest: 'static/_files/img/',
+                options: {
+                    // Task-specific options go here.
+                    prefix: 'icon-',
+                },
+            },
+        },
+        */
+
+        /*
+        "dr-svg-sprites": {
+            options: {
+                spriteElementPath: "_production/svgs/compressed",
+                spritePath: "static/_files/img/all.svg",
+                cssPath: "static/_files/img/all.css",
+                prefix: "icon-"
+            }
+        },
+        */
         grunticon: {
             svgicons: {
                 files: [{
@@ -315,6 +348,10 @@ module.exports = function(grunt) {
                 options: {
                     livereload: true,
                 }
+            },
+            sprite: {
+                files: ['static/_files/img/all.svg'],
+                tasks: ['shell:dev']
             }
         },
         clean: {
@@ -359,12 +396,17 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-newer');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
+    grunt.loadNpmTasks('grunt-dr-svg-sprites');
+    grunt.loadNpmTasks('grunt-svg-sprite');
 
 
     // Default task(s).
     grunt.registerTask('default', ['sass', 'postcss', 'cssmin', 'concat', 'uglify', 'clean:build', 'jshint']); // order matters here!
-    grunt.registerTask('icons', ['svgmin', 'svgstore', 'grunticon', 'clean:svgs','copy:imgs']); 
-    
+    grunt.registerTask('icons', ['svgmin', 'svgstore', 'grunticon', 'clean:svgs', 'copy:imgs']);
+    //grunt.registerTask('icons', ['svgmin', "dr-svg-sprites", 'grunticon', 'clean:svgs', 'copy:imgs']);
+    //grunt.registerTask('icons', ['svgmin', 'svg_sprite', 'grunticon', 'clean:svgs', 'copy:imgs']);
+
+
     //grunt.registerTask('icons', ['grunticon']);
     grunt.registerTask('dist', ['modernizr']); // order matters here!
     grunt.registerTask('scss', ['sass', 'shell:dev']);

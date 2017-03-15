@@ -2,6 +2,10 @@
 
 .icon-arrow { background-image: url('png/arrow.png'); background-repeat: no-repeat; }
 
+.icon-bg__comic { background-image: url('png/bg__comic.png'); background-repeat: no-repeat; }
+
+.icon-bg__header { background-image: url('png/bg__header.png'); background-repeat: no-repeat; }
+
 .icon-button--black { background-image: url('png/button--black.png'); background-repeat: no-repeat; }
 
 .icon-button--character { background-image: url('png/button--character.png'); background-repeat: no-repeat; }
