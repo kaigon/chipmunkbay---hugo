@@ -1,7 +1,7 @@
    
         <!-- begin comic -->
         {{ if (isset .Params "comic") }}
-        <section class="comic--comic icon-comic-bg">
+        <section class="comic--comic">
             <figure>
                 <!-- define title -->
                 {{ $t := title .Type }}
@@ -23,7 +23,7 @@
                                 {{ .Site.BaseURL }}_files/comics/weiner/1280/{{ .Params.weiner }} 1280w,
                                 {{ .Site.BaseURL }}_files/comics/weiner/1400/{{ .Params.weiner }} 1400w"
                             alt="bonus panel" 
-                            class="animated comic--weiner"
+                            class="animated comic--comic__weiner"
                         />
                     {{ else }}
                         <img 
@@ -37,7 +37,7 @@
                                 {{ .Site.BaseURL }}_files/comics/weiner/1280/{{ .Date.Format "20060102" }}.png 1280w,
                                 {{ .Site.BaseURL }}_files/comics/weiner/1400/{{ .Date.Format "20060102" }}.png 1400w"
                             alt="bonus panel" 
-                            class="animated comic--weiner"
+                            class="animated comic--comic__weiner"
                         />
                     {{ end }}
                     <!-- end check -->
@@ -75,11 +75,14 @@
                     {{else}}
                         title="{{ .Title }}: {{ .Date.Format "January 2, 2006" }} by {{ .Site.Author.name }}"
                     {{end}}
-                    class="animated comic--comic_img"
+                    class="animated comic--comic__comic"
                 />
                 <!--// main comic -->
 
-            </figure>      
+            </figure> 
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon-bg__comic comic--comic__bg">
+                <use xlink:href="#icon-bg__comic"></use>
+            </svg>     
         </section>
         {{ end }}
         <!-- end comic check -->

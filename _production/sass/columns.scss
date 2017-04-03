@@ -1,0 +1,19 @@
+@import 'colors',
+'include-media';
+.columns {
+    display:flex;
+    .col {
+        flex: 0 0 100%;
+    }
+    &.-two {
+        .col {
+            flex: 0 0 50%;
+        }
+    }
+    &.-three {
+        .col {
+            flex: 0 0 33.333%;
+        }
+    }
+    
+}

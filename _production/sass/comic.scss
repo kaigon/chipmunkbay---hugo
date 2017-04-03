@@ -9,52 +9,60 @@
 .comic--comic {
     padding: 30px 10px 10px;
     margin: 0 auto;
-    //overflow: hidden;
-    //overflow-x: scroll;
     width: 100%;
     text-align: center;
+    position:relative;
+    overflow: hidden;
     figure {
         margin: 0 auto;
         position: relative;
         max-width: 1400px;
+        z-index: 1;
     }
-    img {
-        //width: auto;
-        width:100%;
-        height: auto;
-        //max-width: 960px;
-        max-width: 100%;
-        margin: 0 15px 0 0;
-        display: inline-block;
-    }
-    .comic--weiner {
-        position: absolute;
-        z-index: 10;
-        opacity: 0;
-        width: 100%;
-        top: 0;
-        left: 0;
-        right: 0;
-        &:hover {
-            opacity: 1;
-        }
-    }
+    img {}
     @include media('>sm') {
         padding: 30px 10px 0;
         //overflow: hidden;
         background-color: $darkbg;
         background-position: center bottom;
         background-size: contain;
-        img {
-            //max-width: 100%;
-            //height: auto;
-            //width: auto;
-            max-height: none;
-            margin: 0 auto;
-        }
     }
     @include media('>md') {
         padding-right: 50px;
         padding-left: 50px;
     }
+}
+
+.comic--comic__comic {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    margin: 0 15px 0 0;
+    display: inline-block;
+    @include media('>sm') {
+        max-height: none;
+        margin: 0 auto;
+    }
+}
+
+.comic--comic__weiner {
+    position: absolute;
+    z-index: 10;
+    opacity: 0;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    &:hover {
+        opacity: 1;
+    }
+}
+.comic--comic__bg {
+    position:absolute;
+    width:100%;
+    fill:$lightbg;
+    left:0;
+    bottom:0;
+    bottom: calc(-2vw * 115 / 1172);
+    height: calc(100vw * 115 / 1172);
 }

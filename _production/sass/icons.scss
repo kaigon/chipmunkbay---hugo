@@ -1,0 +1,19 @@
+@import 'colors',
+'include-media';
+.icon {
+    position: relative;
+    z-index:2;
+    &.-social {
+        width: 12px;
+        height: 12px;
+    }
+    &.-twitter {
+     
+    }
+    &.-facebook {
+        width: 6px;
+    }
+    &.-gplus {
+        width: 13px;
+    }
+}
