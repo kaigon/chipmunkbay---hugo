@@ -2,7 +2,7 @@
 'include-media';
 html {
     box-sizing: border-box;
-    background: $dark;
+    background: $darkgray;
     width: 100%;
     overflow-x: hidden;
 }
@@ -17,7 +17,7 @@ body {
     overflow-x: hidden;
     overflow-y: visible;
     transition: overflow-y 0ms ease 2000ms;
-    background: $lightbg;
+    background: $lightgray;
 }
 /*
 body > header,
@@ -46,11 +46,4 @@ body > div {
 
 .hidden {
     display: none;
-}
-
-svg {
-    fill:white;
-    path {
-        fill:inherit;
-    }
 }

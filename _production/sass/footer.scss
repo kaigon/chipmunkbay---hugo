@@ -12,12 +12,13 @@ img.city-bg-footer {
     position: relative;
     overflow: hidden;
     margin-top: -30px;
+    //color: #BCBEC0;
     &:before {
         content: '';
         position: absolute;
         top: 30px;
         left: 0;
-        background-color: $dark;
+        background-color: $darkgray;
         width: 100%;
         height: 100%;
     }
@@ -35,9 +36,6 @@ img.city-bg-footer {
     h3 {
         color: #BEC4D3;
     }
-    p {
-        color: #BCBEC0;
-    }
 }
 
 .footer__header {
@@ -49,7 +47,7 @@ img.city-bg-footer {
         max-width: none;
     }
     @include media('>sm') {
-        padding-top: 40px;
+        padding-top: 60px;
         .icon-logo {
             width: 415px;
             height: 115px;
@@ -63,48 +61,7 @@ img.city-bg-footer {
     display: flex;
     flex-wrap: wrap;
     padding-bottom: 4em;
-    ul {
-        padding: 0;
-    }
-    li {
-        display: inline-block;
-        .btn {
-            padding: 0;
-            margin: 0;
-            &:hover {
-                transform: scale(1.1);
-            }
-        }
-        .btn__text {
-            font-size: 0;
-            display: block;
-            background-size: contain;
-            position: relative;
-            z-index: 2;
-            background-position: center;
-            height: 18px;
-            width: 18px;
-            margin: 10px;
-            @include media('>md') {
-                width: 25px;
-                height: 25px;
-                margin: 12px;
-            }
-        }
-        &:nth-of-type(even) {
-            .btn__bg {
-                transform: rotate(180deg);
-            }
-        }
-    }
-    .col {
-        margin-bottom: 0.5em;
-        border-bottom: 1px solid darken($dark, 5);
-        padding-bottom: 0.5em;
-        &:last-of-type {
-            border-bottom: 0;
-        }
-    }
+    color: lighten($darkgray, 35);
     a {
         position: relative;
         .icon-patreon_full {
@@ -114,6 +71,8 @@ img.city-bg-footer {
             max-width: 120px;
             height: 32px;
             position: relative;
+            fill: $white;
+            color: $patreon;
             &:after {
                 content: '';
                 position: absolute;
@@ -130,75 +89,30 @@ img.city-bg-footer {
             }
         }
     }
-    @include media('>sm') {
-        .col {
+    .col {
+        max-width: 560px;
+        padding: 1.5 0;
+        @include media('>sm') {
             padding: 0 30px;
-            max-width: 560px;
-            border-bottom: 0;
         }
-    }
-    @include media('>sm', '<md') {
-        .col {
-            flex: 0 0 50%;
-            &:first-of-type {
-                flex: 0 0 100%;
-                padding-bottom: 1em;
-                margin-bottom: 1em;
-                position: relative;
-                &:after {
-                    content: '';
-                    border-bottom: 1px solid darken($dark, 5);
-                    position: absolute;
-                    bottom: 0;
-                    width: 100%;
-                }
-            }
-        }
-    }
-    @include media('>md') {
-        .col {
-            flex: 0 0 33.3333%;
-            &:nth-of-type(2) {
-                border-left: 1px solid darken($dark, 5);
-                border-right: 1px solid darken($dark, 5);
-            }
-        }
-        a {
-            .icon-patreon_full {
-                max-width: 220px;
-                height: 50px;
-            }
-        }
-    }
-    &.two-col {
-        @include media('>sm', '<md') {
-            .col {
-                flex: 0 0 50%;
-                max-width: 560px;
-                &:first-of-type {
-                    flex: 0 0 50%;
-                    &:after {
-                        display: none;
-                    }
-                }
-            }
-        }
-        @include media('>md') {
-            .col {
-                flex: 0 0 50%;
-                max-width: 560px;
-                &:nth-of-type(2) {
-                    border-right: 0;
-                }
+        + .col {
+            border-top: 1px solid darken($darkgray, 5);
+            //margin-top: 1em;
+            //padding-top: 1em;
+            @include media('>sm') {
+                border-left: 1px solid darken($darkgray, 5);
+                margin-top: 0;
+                padding-top: 0;
+                border-top: 0;
             }
         }
     }
 }
 
-.footer__footer {
+.footer__bottom {
     position: relative;
     z-index: 2;
-    color: $dark;
+    color: lighten($darkgray, 15);
     .col {
         padding-top: 12px;
         padding-bottom: 12px;
@@ -211,30 +125,15 @@ img.city-bg-footer {
             }
         }
     }
+    .icon-email {
+        width: 37px;
+        height: 24px;
+        display: inline-block;
+        margin-right: 6px;
+        transition: inherit;
+    }
     .btn {
-        border: 0;
-        box-shadow: 0;
-        text-shadow: none;
-        color: white;
-        padding: 0;
-        vertical-align: middle;
-        display: flex;
-        align-items: center;
-        cursor: pointer;
-        transition: all 400ms ease;
-        opacity: 0.8;
-        background-color: transparent;
-        font-size: inherit;
-        .icon-email {
-            width: 37px;
-            height: 24px;
-            display: inline-block;
-            margin-right: 6px;
-            transition: inherit;
-        }
         &:hover {
-            opacity: 1;
-            transform: scale(1.1);
             .icon-email {
                 transform: rotate(12deg);
             }
@@ -242,13 +141,19 @@ img.city-bg-footer {
     }
 }
 
+// bg svgs
 .footer__bg {
     position: absolute;
-    width: 250%;
-    fill: $dark;
+    width: 150%;
+    fill: $darkgray;
     transform: rotateY(180deg);
     top: 0;
-    .footer__footer & {
+    &:first-of-type {
+        width: 200%;
+        right: 0;
+        fill: $white;
+    }
+    .footer__bottom & {
         width: 200%;
         fill: black;
         right: 0;

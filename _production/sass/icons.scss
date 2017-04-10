@@ -1,19 +1,33 @@
 @import 'colors',
 'include-media';
 .icon {
-    position: relative;
-    z-index:2;
-    &.-social {
+    &-logo,
+    &-facebook,
+    &-twitter,
+    &-gplus,
+    &-rss,
+    &-email {
+        fill:$white;
+        z-index:1;
+        position:relative;
+    }
+    &-facebook,    
+    &-gplus,
+    &-email,
+    &-twitter,
+    &-rss {
         width: 12px;
         height: 12px;
+        &.-big {
+            width:25px;
+            height:25px;
+        }
     }
-    &.-twitter {
-     
+    &-patreon_full {
+        fill:$white;
+        color:$patreon;
     }
-    &.-facebook {
-        width: 6px;
-    }
-    &.-gplus {
-        width: 13px;
+    &-patreon {
+        fill:$patreon;
     }
 }

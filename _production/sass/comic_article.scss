@@ -17,11 +17,11 @@
         font-size: 12px;
         letter-spacing: 1.4px;
         font-weight: 700;
-        color: $dark;
+        color: $darkgray;
         opacity: 0.5;
     }
     h1 {
-        color: $dark;
+        color: $darkgray;
     }
     @include media('>sm') {
         text-align: center;
@@ -36,20 +36,18 @@
 }
 
 .comic--article__footer {
-    font-size: 12px;
+    //font-size: 12px;
     text-align: center;
     color: $gray;
     p {
         margin-bottom: 0.5rem;
+        font-size:70%;
     }
     .buttons {
         .btn {
             padding: 8px;
             display: inline-flex;
             align-items: center;
-            &.-facebook {
-                padding: 8px 12px;
-            }
             &:hover {
                 &.-facebook {
                     .btn__bg {

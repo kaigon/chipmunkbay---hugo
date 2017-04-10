@@ -7,12 +7,22 @@
     }
     &.-two {
         .col {
-            flex: 0 0 50%;
+            flex: 0 0 100%;
+            @include media('>sm'){
+                flex: 0 0 50%;    
+            }            
         }
     }
     &.-three {
         .col {
-            flex: 0 0 33.333%;
+            flex: 0 0 100%;
+            @include media('>sm'){
+                flex: 0 0 50%;    
+            }            
+            @include media('>md'){
+                flex: 0 0 33.333%;    
+            }
+            
         }
     }
     

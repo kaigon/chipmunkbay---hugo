@@ -23,7 +23,7 @@
     @include media('>sm') {
         padding: 30px 10px 0;
         //overflow: hidden;
-        background-color: $darkbg;
+        background-color: $lightgray;
         background-position: center bottom;
         background-size: contain;
     }
@@ -60,7 +60,7 @@
 .comic--comic__bg {
     position:absolute;
     width:100%;
-    fill:$lightbg;
+    fill:$offwhite;
     left:0;
     bottom:0;
     bottom: calc(-2vw * 115 / 1172);

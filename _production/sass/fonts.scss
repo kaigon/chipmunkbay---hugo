@@ -17,7 +17,7 @@ body {
     font-size: 1em;
     line-height: 1.438;
     text-transform: none;
-    color: $default;
+    color: $text;
     @include media(">sm") {
         font-size: 1.05em;
         line-height: 1.529;
@@ -58,7 +58,7 @@ h1 {
     //font-family: 'Short Stack', cursive;
     font-weight: inherit;
     font-size: 2rem;
-    color: $title;
+    color: $darkgray;
     display: inline-block;
     margin: 0 0 0.5em;
     line-height: 1;

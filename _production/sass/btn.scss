@@ -1,18 +1,43 @@
 @import 'colors',
 'include-media';
 .btn {
+    border: 0;
+    box-shadow: 0;
+    text-shadow: none;
+    vertical-align: middle;
+    align-items: center;
+    cursor: pointer;
+    background-color: transparent;
     font-size: 12px;
     padding: 5px 10px 6px 12px;
     color: white;
     position: relative;
     margin: 1px -1px;
     display: inline-block;
+    display: inline-flex;
     transition: all 300ms ease;
     &:hover {
-        transform:scale(1.05);
+        transform: scale(1.05);
         &.-social {
-            transform:scale(1.075);
+            transform: scale(1.075);
+            .btn__bg {
+                transform: rotate(6deg);
+            }
+            &:nth-child(even) {
+                .btn__bg {
+                    transform: rotate(174deg);
+                }
+            }
         }
+    }
+    &.-square {
+        padding: 10px;
+    }
+    &.-nopad {
+        padding: 0;
+    }
+    &.-lg {
+        font-size: 1em;
     }
 }
 
@@ -29,12 +54,12 @@
     width: 100%;
     height: 100%;
     fill: $red;
-    transition: fill 200ms ease;
+    transition: all 200ms ease;
     .btn:hover & {
         fill: darken($red, 10);
     }
     .btn:nth-child(even) & {
-        transform: rotateX(180deg);
+        transform: rotate(180deg);
     }
     .-tag & {
         fill: $tan;

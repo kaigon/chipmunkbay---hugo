@@ -10,7 +10,7 @@
             </svg>
         </div>
     </header>
-    <main class="footer__body container columns {{ if and (isset .Site.Author " patreon ") (eq .Site.Author.patreon " ") }} -three {{ else }} -two {{ end }}">
+    <main class="footer__body container columns {{ if and (isset .Site.Author "patreon") (not (eq .Site.Author.patreon "")) }} -three {{ else }} -two {{ end }}">
         <div class="col">
             <h3>a comic by {{ .Site.Author.name }}</h3>
             <p>The humorous adventures of four close friends (and a kid) in the tiny lake-side town of Chipmunk Bay. </p>
@@ -21,32 +21,32 @@
             <p>Need to be notified everytime there's a new comic posted? Here are some options:</p>
             <div class="buttons">
                 
-                <a href="{{ .Site.Author.facebook }}" title="Follow via Facebook" class="btn -facebook -social">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon-facebook icon -social -facebook">
+                <a href="{{ .Site.Author.facebook }}" title="Follow via Facebook" class="btn -facebook -social -square">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon-facebook -big">
                         <use xlink:href="#icon-facebook"></use>
                     </svg>
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon-tag btn__bg">
                         <use xlink:href="#icon-tag"></use>
                     </svg>
                 </a>
-                <a href="{{ .Site.Author.twitter }}" title="Follow via Twitter" class="btn -twitter -social">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon-twitter icon -social -twitter">
+                <a href="{{ .Site.Author.twitter }}" title="Follow via Twitter" class="btn -twitter -social -square">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon-twitter -big">
                         <use xlink:href="#icon-twitter"></use>
                     </svg>
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon-tag btn__bg">
                         <use xlink:href="#icon-tag"></use>
                     </svg>
                 </a>
-                <a class="btn -social -rss" href="{{ .Site.Author.rss }}" title="Follow via RSS">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon-rss icon -social -rss">
+                <a class="btn -social -rss -square" href="{{ .Site.Author.rss }}" title="Follow via RSS">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon-rss -big">
                         <use xlink:href="#icon-rss"></use>
                     </svg>
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon-tag btn__bg">
                         <use xlink:href="#icon-tag"></use>
                     </svg>
                 </a>
-                <a class="btn -social -email" href="{{ .Site.Author.rss_email }}" title="Get notified via email">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon-email icon -social -email">
+                <a class="btn -social -email -square" href="{{ .Site.Author.rss_email }}" title="Get notified via email">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon-email -big">
                         <use xlink:href="#icon-email"></use>
                     </svg>
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon-tag btn__bg">
@@ -59,7 +59,7 @@
         <div class="col">
             <h3>Support the comic!</h3>
             <p>Become a Chipmunk Bay patron and receive lots of happy karma thoughts, straight from my brain waves directly to you!</p>
-            <a href="{{ .Site.Author.patreon }}" title="Visit my patreon account for details">
+            <a href="{{ .Site.Author.patreon }}" title="Visit my patreon account for details" class="btn -nopad">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon-patreon_full">
                     <use xlink:href="#icon-patreon_full"></use>
                 </svg>
@@ -67,7 +67,7 @@
         </div>
         {{ end }}
     </main>
-    <footer class="footer__footer">
+    <footer class="footer__bottom">
         <div class="container">
             <div class="col">
                 <p>
@@ -75,7 +75,7 @@
                 </p>
             </div>
             <div class="col">
-                <button type="button" title="Email {{ .Site.Author.name }}" class="btn">
+                <button type="button" title="Email {{ .Site.Author.name }}" class="btn -nopad -lg">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon-email btn__icon">
                         <use xlink:href="#icon-email"></use>
                     </svg>
@@ -87,6 +87,9 @@
             <use xlink:href="#icon-bg__comic"></use>
         </svg>
     </footer>
+    <svg xmlns="http://www.w3.org/2000/svg" class="icon-bg__comic footer__bg">
+        <use xlink:href="#icon-bg__comic"></use>
+    </svg>
     <svg xmlns="http://www.w3.org/2000/svg" class="icon-bg__comic footer__bg">
         <use xlink:href="#icon-bg__comic"></use>
     </svg>

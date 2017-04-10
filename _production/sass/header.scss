@@ -9,7 +9,7 @@
     position: relative;
     //padding-bottom: 15px;
     .container {
-        background-color: $dark;
+        background-color: $darkgray;
         padding-top: 10px;
         z-index:2;
         position:relative;
@@ -30,7 +30,7 @@
     }
     .icon-bg__header {
         width:100%;
-        fill:$dark;
+        fill:$darkgray;
         position:absolute;
         left:0;
         bottom:-15px;
@@ -46,7 +46,7 @@
     }
 
     @include media('>sm') {
-        background-color: $dark;
+        background-color: $darkgray;
         .container {
             text-align: center;
         }
@@ -54,7 +54,7 @@
     .isnode &,
     .ispage & {
         @include media('>sm') {
-            background-color: $lightbg;
+            background-color: $offwhite;
         }
     }
 }

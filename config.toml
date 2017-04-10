@@ -33,7 +33,7 @@ paginatePath = "page"
   	twitter = "http://twitter.com/chipmunkbay"
     rss = "http://www.chipmunkbay.com/feed/"
     rss_email = "http://feedburner.google.com/fb/a/mailverify?uri=ChipmunkBay&loc=en_US"
-    patreon = ""
+    patreon = "x"
 
 [taxonomies]
   tags = "tags"
