@@ -7,13 +7,22 @@
 }
 
 .comic--nav__btn {
-    padding: 4px 12px;
     display: inline-block;
-    top:20vw;
+    display: inline-flex;
+    align-items: center;
+    top: 20vw;
+    span {
+        padding: 0 .5em;
+    }
     &.-prev {}
-    &.-next {}
-    
+    &.-next {
+        flex-direction: row-reverse;
+        .icon-arrow {
+            transform: rotate(180deg);
+        }
+    }
     @include media('>md') {
+        padding: 4px 12px;
         background: none;
         position: fixed;
         opacity: 0.3;
@@ -44,7 +53,6 @@
             opacity: 1;
             .icon-arrow {
                 transform: scale(1.25);
-                
             }
             &.-next {
                 .icon-arrow {
@@ -54,12 +62,12 @@
         }
     }
     @include media('>1550px') {
-       top:300px;
-       &.-prev {
-            left:calc((100% - 1550px) / 2);
-       }
-       &.-next {
-            right:calc((100% - 1550px) / 2);
-       }
+        top: 300px;
+        &.-prev {
+            left: calc((100% - 1550px) / 2);
+        }
+        &.-next {
+            right: calc((100% - 1550px) / 2);
+        }
     }
 }

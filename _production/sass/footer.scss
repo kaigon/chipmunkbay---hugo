@@ -30,9 +30,6 @@ img.city-bg-footer {
             max-width: 1480px;
         }
     }
-    .icon-logo {
-        margin-bottom: 1em;
-    }
     h3 {
         color: #BEC4D3;
     }
@@ -43,16 +40,26 @@ img.city-bg-footer {
     .icon-logo {
         text-indent: -1000em;
         width: 200px;
-        height: 80px;
+        height: 60px;
         max-width: none;
+        margin-top: 1.5em;
     }
     @include media('>sm') {
         padding-top: 60px;
         .icon-logo {
+            width: 300px;
+            height: 85px;
+            margin-bottom: 1em;
+            margin-top: 0;
+        }
+    }
+    @include media('>md') {
+        //padding-top: 60px;
+        .icon-logo {
             width: 415px;
             height: 115px;
             max-width: none;
-            margin-left: 30px;
+            //margin-left: 30px;
         }
     }
 }
@@ -91,20 +98,24 @@ img.city-bg-footer {
     }
     .col {
         max-width: 560px;
-        padding: 1.5 0;
-        @include media('>sm') {
-            padding: 0 30px;
+        &:nth-child(1),
+        &:nth-child(2) {
+            border-bottom: 1px solid darken($darkgray, 5);
         }
-        + .col {
-            border-top: 1px solid darken($darkgray, 5);
-            //margin-top: 1em;
-            //padding-top: 1em;
-            @include media('>sm') {
+        @include media('>sm') {
+            &:nth-child(2){
                 border-left: 1px solid darken($darkgray, 5);
-                margin-top: 0;
-                padding-top: 0;
-                border-top: 0;
             }
+        }
+        @include media('>md') {
+            &:nth-child(1),
+            &:nth-child(2) {
+                border-bottom: 0;
+            }
+            + .col {
+                border-left: 1px solid darken($darkgray, 5);
+            }
+            
         }
     }
 }
@@ -144,12 +155,12 @@ img.city-bg-footer {
 // bg svgs
 .footer__bg {
     position: absolute;
-    width: 150%;
+    width: 300%;
     fill: $darkgray;
     transform: rotateY(180deg);
     top: 0;
     &:first-of-type {
-        width: 200%;
+        width: 350%;
         right: 0;
         fill: $white;
     }
@@ -158,5 +169,11 @@ img.city-bg-footer {
         fill: black;
         right: 0;
         top: -20px;
+    }
+    @include media('>sm') {
+        width: 150%;
+        &:first-of-type {
+            width: 200%;
+        }
     }
 }
