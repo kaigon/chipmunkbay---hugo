@@ -22,6 +22,7 @@
     }
     h1 {
         color: $darkgray;
+        margin-bottom:.25em;
     }
     @include media('>sm') {
         text-align: center;
@@ -33,6 +34,49 @@
     line-height: 1.4;
     margin-top: 1.6rem;
     margin-bottom: 3.4rem;
+    @include media('<sm') {
+        text-align: left;
+        margin-bottom:.8em;
+        overflow:hidden;
+        &:before {
+            content: 'Tags:';
+            display: block;
+            color: $darkgray;
+        }
+        .tags {
+            float:left;
+            line-height: 1.2;
+            &:last-of-type {
+                .btn {
+                    &:last-of-type {
+                        &:after {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+        .btn {
+            padding: 0;
+            margin: 0;
+            &:after {
+                content: ',';
+                margin-right: 2px;
+            }
+            &.-tag {
+                color: darken($tan,10);
+            }
+            &.-character {
+                color: darken($gray,10);
+            }
+            &.-storyline {
+                color: $green;
+            }
+            .btn__bg {
+                display: none;
+            }
+        }
+    }
 }
 
 .comic--article__footer {
@@ -41,13 +85,13 @@
     color: $gray;
     p {
         margin-bottom: 0.5rem;
-        font-size:70%;
+        font-size: 70%;
     }
     .buttons {
         .btn {
             padding: 8px;
-            display: inline-flex;
-            align-items: center;
+            //display: inline-flex;
+            //align-items: center;
             &:hover {
                 &.-facebook {
                     .btn__bg {
@@ -70,7 +114,17 @@
             fill: $gray;
         }
         + .btn {
-            margin-top: 2em;
+            margin-top: 1em;
+            margin-bottom:2em;
+            @include media('>sm'){
+                margin-top:2em;
+            }
+        }
+    }
+    @include media('<sm') {
+        text-align: left;
+        p {
+            display: none;
         }
     }
 }

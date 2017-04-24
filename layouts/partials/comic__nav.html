@@ -32,8 +32,11 @@
                     <!-- show weiner button -->
                     {{ if isset .Params "weiner" }}
                     
-                        <a href="#" data-target=".comic--weiner" class="comic--nav__btn -weiner">
+                        <a href="#" data-target=".comic--weiner" class="comic--nav__btn -weiner btn">
                             <span>bonus panel</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon-tag btn__bg">
+                                <use xlink:href="#icon-tag"></use>
+                            </svg>
                         </a>
                     
                     {{ end }}

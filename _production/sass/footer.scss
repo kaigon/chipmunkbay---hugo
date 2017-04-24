@@ -69,8 +69,9 @@ img.city-bg-footer {
     flex-wrap: wrap;
     padding-bottom: 4em;
     color: lighten($darkgray, 35);
-    a {
-        position: relative;
+    .btn {
+        //position: relative;
+        padding:12px;
         .icon-patreon_full {
             display: block;
             background-size: contain;
@@ -95,6 +96,10 @@ img.city-bg-footer {
                 }
             }
         }
+    }
+    .icon.-social {
+        width:25px;
+        height:25px;
     }
     .col {
         max-width: 560px;

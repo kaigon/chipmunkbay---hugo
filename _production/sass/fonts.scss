@@ -1,5 +1,8 @@
 @import 'colors',
 'include-media';
+html {
+    font-size:16px;
+}
 body {
     //font-family: 'Architects Daughter', Georgia, serif;
     //font-family: 'Bitter', serif;
@@ -14,7 +17,7 @@ body {
     //font-family: 'Short Stack', cursive;
     font-style: normal;
     font-weight: 400;
-    font-size: 1em;
+    font-size: .9em;
     line-height: 1.438;
     text-transform: none;
     color: $text;

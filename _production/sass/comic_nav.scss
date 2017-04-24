@@ -4,6 +4,12 @@
     font-size: 0.9rem;
     padding: 0 15px 15px;
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @include media('>sm') {
+        font-size: 1em;
+    }
 }
 
 .comic--nav__btn {
@@ -11,6 +17,7 @@
     display: inline-flex;
     align-items: center;
     top: 20vw;
+    color: $red;
     span {
         padding: 0 .5em;
     }
@@ -19,6 +26,23 @@
         flex-direction: row-reverse;
         .icon-arrow {
             transform: rotate(180deg);
+        }
+    }
+    &.-weiner {
+        color: mix($lightgray, $text, 50);
+        top: 0;
+        .icon-tag {
+            fill: mix($offwhite, $lightgray, 50);
+            z-index: -1;
+        }
+    }
+    .icon-arrow {
+        fill: $red;
+    }
+    @include media('>sm') {
+        .icon-arrow {
+            width: .75em;
+            height: 1.35em;
         }
     }
     @include media('>md') {
