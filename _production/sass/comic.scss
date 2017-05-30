@@ -1,5 +1,4 @@
-@import 'colors',
-'include-media';
+@import 'variables';
 .comic {
     padding: 0;
     z-index: 2;
@@ -20,14 +19,14 @@
         z-index: 1;
     }
     img {}
-    @include media('>sm') {
+    @include min(sm) {
         padding: 30px 10px 0;
         //overflow: hidden;
         background-color: $lightgray;
         background-position: center bottom;
         background-size: contain;
     }
-    @include media('>md') {
+    @include min(sm) {
         padding-right: 50px;
         padding-left: 50px;
     }
@@ -39,7 +38,7 @@
     max-width: 100%;
     margin: 0 15px 0 0;
     display: inline-block;
-    @include media('>sm') {
+    @include min(sm) {
         max-height: none;
         margin: 0 auto;
     }

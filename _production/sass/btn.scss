@@ -1,8 +1,7 @@
-@import 'colors',
-'include-media';
+@import 'variables';
 .btn {
     border: 0;
-    box-shadow: 0;
+    box-shadow:none;
     text-shadow: none;
     vertical-align: middle;
     align-items: center;

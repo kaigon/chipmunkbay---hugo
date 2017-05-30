@@ -1,5 +1,4 @@
-@import 'colors',
-'include-media';
+@import 'variables';
 .header {
     overflow: visible;
     z-index: 3;
@@ -10,9 +9,13 @@
     //padding-bottom: 15px;
     .container {
         background-color: $darkgray;
-        padding-top: 10px;
-        z-index:2;
-        position:relative;
+        //padding-top: 10px;
+        z-index: 2;
+        position: relative;
+        min-height: 50px;
+        @include min(sm) {
+            min-height: 60px;
+        }
     }
     h2 {
         margin: 0 auto;
@@ -23,21 +26,28 @@
         max-width: 140px;
         height: 40px;
         display: inline-block;
-        @include media('>sm') {
+        margin-top: 10px;
+        @include min(sm) {
             max-width: 180px;
             height: 50px;
         }
     }
     .icon-bg__header {
-        width:100%;
-        fill:$darkgray;
-        position:absolute;
-        left:0;
-        bottom:-15px;
-        height: calc(100vw * 260 / 1400);
+        width: 100%;
+        fill: $darkgray;
+        position: absolute;
+        left: 0;
+        bottom: -15px;
+        height: calc(200vw * 260 / 1400);
+        @include min(xs) {
+            height: calc(140vw * 260 / 1400);
+        }
+        @include min(sm) {
+            height: calc(100vw * 260 / 1400);
+        }
     }
 
-    @include media('>sm') {
+    @include min(sm) {
         background-color: $darkgray;
         .container {
             text-align: center;
@@ -45,7 +55,7 @@
     }
     .isnode &,
     .ispage & {
-        @include media('>sm') {
+        @include min(sm) {
             background-color: $offwhite;
         }
     }

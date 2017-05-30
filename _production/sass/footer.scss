@@ -1,5 +1,4 @@
-@import 'colors',
-'include-media';
+@import 'variables';
 img.city-bg-footer {
     width: 100%;
     height: auto;
@@ -23,10 +22,10 @@ img.city-bg-footer {
         height: 100%;
     }
     .container {
-        position: relative;
+        //position: relative;
         z-index: 1;
         max-width: 560px;
-        @include media('>sm') {
+        @include min(sm) {
             max-width: 1480px;
         }
     }
@@ -44,7 +43,7 @@ img.city-bg-footer {
         max-width: none;
         margin-top: 1.5em;
     }
-    @include media('>sm') {
+    @include min(sm) {
         padding-top: 60px;
         .icon-logo {
             width: 300px;
@@ -53,7 +52,7 @@ img.city-bg-footer {
             margin-top: 0;
         }
     }
-    @include media('>md') {
+    @include min(md) {
         //padding-top: 60px;
         .icon-logo {
             width: 415px;
@@ -107,12 +106,12 @@ img.city-bg-footer {
         &:nth-child(2) {
             border-bottom: 1px solid darken($darkgray, 5);
         }
-        @include media('>sm') {
+        @include min(sm) {
             &:nth-child(2){
                 border-left: 1px solid darken($darkgray, 5);
             }
         }
-        @include media('>md') {
+        @include min(md) {
             &:nth-child(1),
             &:nth-child(2) {
                 border-bottom: 0;
@@ -132,7 +131,9 @@ img.city-bg-footer {
     .col {
         padding-top: 12px;
         padding-bottom: 12px;
-        @include media('>sm') {
+        position:relative;
+        z-index:2;
+        @include min(sm) {
             display: inline-block;
             padding-right: 30px;
             padding-left: 30px;
@@ -175,7 +176,7 @@ img.city-bg-footer {
         right: 0;
         top: -20px;
     }
-    @include media('>sm') {
+    @include min(sm) {
         width: 150%;
         &:first-of-type {
             width: 200%;

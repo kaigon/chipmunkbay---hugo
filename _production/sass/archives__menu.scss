@@ -1,0 +1,59 @@
+@import 'variables';
+.archives__menu {
+    .icon-dropdown {
+        width: 12px;
+        height: 12px;
+        background-size: contain;
+        display: inline-block;
+        background-position: center center;
+    }
+    li {
+        margin-bottom: 0;
+        color: $gray;
+        font-size: 14px;
+        padding-left: 16px;
+    }
+    a {
+        color: $red;
+    }
+    @include min(sm) {
+        flex: 0 0 40%;
+        padding-right: 1em;
+    }
+    @include min(md) {
+        flex: 0 0 35%;
+        padding-right: 2em;
+    }
+    @include min(lg) {
+        flex: 0 0 30%;
+        padding-right: 3em;
+    }
+}
+
+.archive__menu--title {
+    letter-spacing: 1px;
+}
+
+.archive__menu--content {
+    display: none;
+    padding-top: 2em;
+    @include min(sm) {
+        display: block;
+    }
+}
+
+.archive__menu--subtitle {
+    font-size: 80%;
+    color: #fff;
+    background-size: 100% 100%;
+    padding: 5px 16px 6px;
+    margin-bottom: .5em;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.archive__menu--checkbox {
+    opacity: 0;
+    position: absolute;
+    visibility: hidden;
+}

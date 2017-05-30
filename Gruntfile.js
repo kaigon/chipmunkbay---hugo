@@ -207,30 +207,6 @@ module.exports = function(grunt) {
 
              */
         },
-        /*
-        svg_sprite: {
-            mysvgs: {
-                // Target-specific file lists and/or options go here.
-                src: ['_production/svgs/compressed/*.svg'],
-                dest: 'static/_files/img/',
-                options: {
-                    // Task-specific options go here.
-                    prefix: 'icon-',
-                },
-            },
-        },
-        */
-
-        /*
-        "dr-svg-sprites": {
-            options: {
-                spriteElementPath: "_production/svgs/compressed",
-                spritePath: "static/_files/img/all.svg",
-                cssPath: "static/_files/img/all.css",
-                prefix: "icon-"
-            }
-        },
-        */
         grunticon: {
             svgicons: {
                 files: [{

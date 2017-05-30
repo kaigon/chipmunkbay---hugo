@@ -1,5 +1,4 @@
-@import 'colors',
-'include-media';
+@import 'variables';
 html {
     font-size:16px;
 }
@@ -21,18 +20,18 @@ body {
     line-height: 1.438;
     text-transform: none;
     color: $text;
-    @include media(">sm") {
+    @include min(sm) {
         font-size: 1.05em;
         line-height: 1.529;
     }
-    @include media(">md") {
+    @include min(md) {
         font-size: 1.1em;
         line-height: 1.556;
     }
 }
 
 h2,h3,h4 {
-    font-weight: 600;
+    font-weight: 300;
     margin-top:0;
 }
 
@@ -65,13 +64,13 @@ h1 {
     display: inline-block;
     margin: 0 0 0.5em;
     line-height: 1;
-    @include media('>sm') {
+    @include min(sm) {
         font-size: 2.4rem;
     }
-    @include media('>md') {
+    @include min(md) {
         font-size: 3rem;
     }
-    @include media('>lg') {
+    @include min(lg) {
         font-size: 3.4rem;
     }
 }

@@ -5,9 +5,11 @@
     <header class="container footer__header columns">
         <!--<i class="icon-logo">Chipmunk Bay</i>-->
         <div class="col">
+            <a href="{{ .Site.BaseURL }}">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon-logo">
                 <use xlink:href="#icon-logo"></use>
             </svg>
+            </a>
         </div>
     </header>
     <main class="footer__body container columns {{ if and (isset .Site.Author "patreon") (not (eq .Site.Author.patreon "")) }} -three {{ else }} -two {{ end }}">

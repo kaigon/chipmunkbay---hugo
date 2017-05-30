@@ -1,5 +1,4 @@
-@import 'colors',
-'include-media';
+@import 'variables';
 
 /* comic blog */
 
@@ -12,6 +11,22 @@
 .comic--article__header {
     margin-bottom: 1rem;
     margin-top: 1rem;
+    h1 {
+        position: relative;
+        //background-color: $offwhite;
+        margin-bottom: .2em;
+        //color: $darkgray;
+        //mix-blend-mode: lighten;
+        a {
+            display: inline-block;
+            position: relative;
+            transition: color .4s ease;
+            color: $darkgray;
+            &:hover {
+                color:$red;
+            }
+        }
+    }
     small {
         display: block;
         font-size: 12px;
@@ -20,11 +35,7 @@
         color: $darkgray;
         opacity: 0.5;
     }
-    h1 {
-        color: $darkgray;
-        margin-bottom:.25em;
-    }
-    @include media('>sm') {
+    @include min(sm) {
         text-align: center;
     }
 }
@@ -34,17 +45,17 @@
     line-height: 1.4;
     margin-top: 1.6rem;
     margin-bottom: 3.4rem;
-    @include media('<sm') {
+    @include max(sm) {
         text-align: left;
-        margin-bottom:.8em;
-        overflow:hidden;
+        margin-bottom: .8em;
+        overflow: hidden;
         &:before {
             content: 'Tags:';
             display: block;
             color: $darkgray;
         }
         .tags {
-            float:left;
+            float: left;
             line-height: 1.2;
             &:last-of-type {
                 .btn {
@@ -64,10 +75,10 @@
                 margin-right: 2px;
             }
             &.-tag {
-                color: darken($tan,10);
+                color: darken($tan, 10);
             }
             &.-character {
-                color: darken($gray,10);
+                color: darken($gray, 10);
             }
             &.-storyline {
                 color: $green;
@@ -115,13 +126,13 @@
         }
         + .btn {
             margin-top: 1em;
-            margin-bottom:2em;
-            @include media('>sm'){
-                margin-top:2em;
+            margin-bottom: 2em;
+            @include min(sm) {
+                margin-top: 2em;
             }
         }
     }
-    @include media('<sm') {
+    @include max(sm) {
         text-align: left;
         p {
             display: none;

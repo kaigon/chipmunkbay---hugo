@@ -3,9 +3,11 @@
         <article class="comic--article">
             <div class="container">
             <header class="comic--article__header">
-                <a href="{{ .Permalink }}" title="Permalink to comic &quot;{{ .Title }}&quot;, published {{ .Date.Format "January 2, 2006" }} by {{ .Site.Author.name }}">
-                    <h1>{{ .Title }}</h1>
-                </a>
+                <h1>
+                    <a href="{{ .Permalink }}" title="Permalink to comic &quot;{{ .Title }}&quot;, published {{ .Date.Format "January 2, 2006" }} by {{ .Site.Author.name }}">
+                        {{ .Title }}
+                    </a>
+                </h1>
                 <small>{{ .Date.Format "Jan 2, 2006" }}</small>
             </header>
 

@@ -1,10 +1,10 @@
-@import 'colors',
-'include-media';
+@import 'variables';
 .columns {
     display:flex;
     .col {
         flex: 0 0 100%;
-        @include media('>sm'){
+        position: relative;
+        @include min(sm){
             padding:2em;
         }
     }
@@ -13,7 +13,7 @@
             flex: 0 0 100%;
             padding-top:2em;
             padding-bottom:2em;
-            @include media('>sm'){
+            @include min(sm){
                 flex: 0 0 50%;    
             }            
         }
@@ -23,7 +23,7 @@
             flex: 0 0 100%;
             padding-top:2em;
             padding-bottom:2em;
-            @include media('>sm'){
+            @include min(sm){
                 &:nth-child(1),
                 &:nth-child(2) {
                     padding-top:0;
@@ -34,7 +34,7 @@
                 }
                 
             }            
-            @include media('>md'){
+            @include min(md){
                 flex: 0 0 33.333%;   
                 padding-top:0;
                 padding-bottom:0; 

@@ -197,8 +197,8 @@
                     {{ range $pag.Pagers }}
                     <li {{ if eq . $pag }} class="active" {{ end }}>
                         <a href="{{ $baseurl }}{{ .URL }}">
-                    {{ .PageNumber }}
-                </a>
+                            {{ .PageNumber }}
+                        </a>
                     </li>
                     {{ end }}
                     <li {{ if not $pag.HasNext }} class="disabled" {{ end }}>

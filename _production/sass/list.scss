@@ -1,5 +1,4 @@
-@import 'colors',
-'include-media';
+@import 'variables';
 .list {
     .ul--list {
         padding: 0;
@@ -7,169 +6,179 @@
     .container {
         padding-top: 1em;
     }
-    &--nav {
-        h3 {
-            letter-spacing: 1px;
-            cursor: pointer;
-        }
-        &--main {
-            display: none;
-            padding-top: 2em;
-        }
+}
+
+.list--nav {
+    h3 {
+        letter-spacing: 1px;
+        cursor: pointer;
     }
-    &--results {
-        &__header {
-            margin-bottom: 2rem;
+}
+
+.list--nav--main {
+    display: none;
+    padding-top: 2em;
+}
+
+.list--results {}
+
+.list--results__header {
+    margin-bottom: 2rem;
+}
+
+.list--results--page-title {
+    margin-bottom: 0;
+    span {
+        color: $green;
+    }
+}
+
+.list--results--count {
+    font-size: 70%;
+}
+
+.list--results--item {
+    margin-bottom: 3em;
+}
+
+.list--results--main {
+    //font-size: 1.4em;
+}
+
+.list--results--info {
+    margin-bottom: 0.2em;
+}
+
+.list--results--title {
+    display: inline-block;
+    color: $red;
+}
+
+.list--results--date {
+    display: inline-block;
+    color: $gray;
+    &:before {
+        content: '// ';
+        letter-spacing: -4px;
+        margin-right: 8px;
+        opacity: 0.4;
+    }
+}
+
+.list--results--comic {
+    .comic--comic {
+        padding: 0;
+        background: transparent;
+    }
+}
+
+.list--results--tags {
+    font-size: 12px;
+    p {
+        display: inline-block;
+        margin-bottom: 0.2em;
+    }
+    a {
+        &[href*="tags/"] {
+            color: darken($tan, 5);
         }
-        &--page-title {
-            margin-bottom: 0;
-            span {
-                color: $green;
-            }
-        }
-        &--count {
-            font-size: 70%;
-        }
-        &--item {
-            margin-bottom: 3em;
-        }
-        &--main {
-            //font-size: 1.4em;
-        }
-        &--info {
-            margin-bottom: 0.2em;
-        }
-        &--title {
-            display: inline-block;
-            color: $red;
-        }
-        &--date {
-            display: inline-block;
+        &[href*="characters/"] {
             color: $gray;
-            &:before {
-                content: '// ';
-                letter-spacing: -4px;
-                margin-right: 8px;
-                opacity: 0.4;
+        }
+        &[href*="storyline/"] {
+            color: $teal;
+        }
+        &:after {
+            content: ', ';
+        }
+        &:last-of-type {
+            &:after {
+                display: none;
             }
         }
-        &--comic {
-            .comic--comic {
-                padding: 0;
-                background: transparent;
-            }
-        }
-        &--tags {
-            font-size: 12px;
-            p {
-                display: inline-block;
-                margin-bottom: 0.2em;
-            }
-            a {
-                &[href*="tags/"] {
-                    color: darken($tan, 5);
-                }
-                &[href*="characters/"] {
-                    color: $gray;
-                }
-                &[href*="storyline/"] {
-                    color: $teal;
-                }
-                &:after {
-                    content: ', ';
-                }
-                &:last-of-type {
-                    &:after {
-                        display: none;
-                    }
-                }
-                &:hover {}
-            }
-        }
-        &--share {
-            .tag {
-                padding: 2px 4px;
-                display: flex;
-                &:hover {
-                    transform: scale(1.1);
-                }
-            }
-            .tag__text {
-                text-indent: -1000em;
-                background-size: contain;
-                position: relative;
-                z-index: 2;
-                background-position: center;
-                width: 12px;
-                height: 12px;
-                margin: 8px;
-                font-size: 0;
-                &:nth-of-type(even) {
-                    transform: rotate(180deg);
-                }
-            }
-        }
-        @include media('>sm') {
-            &--info {
-                display: flex;
-                //margin-bottom: 0.5em;
-            }
-            &--title {
-                flex: 0 0 70%;
-            }
-            &--date {
-                flex: 0 0 30%;
-                text-align: right;
-                &:before {
-                    display: none;
-                }
-            }
-            /*
-        &--share {
-            .tag__text {
-                width: 18px;
-                height: 18px;
-            }
-        }
-        */
+        &:hover {}
+    }
+}
+
+.list--results--share {
+    .tag {
+        padding: 2px 4px;
+        display: flex;
+        &:hover {
+            transform: scale(1.1);
         }
     }
-    @include media('>sm') {
+    .tag__text {
+        text-indent: -1000em;
+        background-size: contain;
+        position: relative;
+        z-index: 2;
+        background-position: center;
+        width: 12px;
+        height: 12px;
+        margin: 8px;
+        font-size: 0;
+        &:nth-of-type(even) {
+            transform: rotate(180deg);
+        }
+    }
+}
+
+@include min(sm) {
+    .list {
         .container {
-            display: flex;
+            //display: flex;
             padding-top: 1.5em;
         }
-        .list--nav {
-            flex: 0 0 40%;
-            padding-right: 1em;
-        }
-        .list--results {
-            flex: 0 0 60%;
-            border-left: 1px solid $lightgray;
-            padding-left: 1em;
+    }
+    .list--nav {
+        flex: 0 0 40%;
+        padding-right: 1em;
+    }
+    .list--results {
+        flex: 0 0 60%;
+        border-left: 1px solid $lightgray;
+        padding-left: 1em;
+    }
+    .list--results--info {
+        display: flex;
+        //margin-bottom: 0.5em;
+    }
+    .list--results--title {
+        flex: 0 0 70%;
+    }
+    .list--results--date {
+        flex: 0 0 30%;
+        text-align: right;
+        &:before {
+            display: none;
         }
     }
-    @include media('>md') {
+}
+
+@include min(md) {
+    .list {
         .container {
             padding-top: 2em;
         }
-        .list--nav {
-            flex: 0 0 35%;
-            padding-right: 2em;
-        }
-        .list--results {
-            flex: 0 0 65%;
-            padding-left: 2em;
-        }
     }
-    @include media('>lg') {
-        .list--nav {
-            flex: 0 0 30%;
-            padding-right: 3em;
-        }
-        .list--results {
-            flex: 0 0 70%;
-            padding-left: 3em;
-        }
+    .list--nav {
+        flex: 0 0 35%;
+        padding-right: 2em;
+    }
+    .list--results {
+        flex: 0 0 65%;
+        padding-left: 2em;
+    }
+}
+
+@include min(lg) {
+    .list--nav {
+        flex: 0 0 30%;
+        padding-right: 3em;
+    }
+    .list--results {
+        flex: 0 0 70%;
+        padding-left: 3em;
     }
 }

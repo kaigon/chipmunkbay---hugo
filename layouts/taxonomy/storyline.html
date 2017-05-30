@@ -10,7 +10,7 @@
         <section class="archives__results">
             <!-- define paginator -->
             {{ $pag := .Paginate (where .Data.Pages "Type" "chipmunkbay").Reverse }}
-            <header class="archives__results__header">
+            <header class="archives__results--header">
                 <h3 class="archives__results--page-title">Comics in the <span>"{{ .Title }}"</span> storyline</h3>
                 <p class="archives__results--count">Showing {{add (mul (sub $pag.PageNumber 1) $pag.PageSize) 1 }}-{{ if $pag.HasNext }}{{ mul $pag.PageNumber $pag.PageSize }}{{ else }}{{ $pag.TotalNumberOfElements }}{{ end }} of {{ $pag.TotalNumberOfElements }} total comics.</p>
             </header>
@@ -51,26 +51,34 @@
                                     </span> {{ end }} {{ end }}
                         </aside>
                         <footer class="archives__results--share">
-                            <ul class="ul ul--archives">
-                                <li>
-                                    <a href="http://www.facebook.com/share.php?u={{ .URL | absURL }}" title="Share on Facebook" class="tag">
-                                        <span class="icon-facebook tag__text">facebook</span>
-                                        <i class="icon-tag--facebook tag__bg"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://twitter.com/intent/tweet?url={{ .URL | absURL }}&text={{ .Title }}" title="Share on Twitter" class="tag">
-                                        <span class="icon-twitter tag__text">twitter</span>
-                                        <i class="icon-tag--twitter tag__bg"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://plus.google.com/share?url={{ .URL | absURL }}" title="Share on Google+" class="tag">
-                                        <span class="icon-gplus tag__text">google plus</span>
-                                        <i class="icon-tag--red tag__bg"></i>
-                                    </a>
-                                </li>
-                            </ul>
+
+                            <a href="http://www.facebook.com/share.php?u={{ .URL | absURL }}" title="Share on Facebook" class="btn -facebook -social">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-facebook icon -social -facebook">
+                                    <use xlink:href="#icon-facebook"></use>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-tag btn__bg">
+                                    <use xlink:href="#icon-tag"></use>
+                                </svg>
+                            </a>                        
+                        
+                            <a href="https://twitter.com/intent/tweet?url={{ .URL | absURL }}&text={{ .Title }}" title="Share on Twitter" class="btn -twitter -social">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-twitter icon -social -twitter">
+                                    <use xlink:href="#icon-twitter"></use>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-tag btn__bg">
+                                    <use xlink:href="#icon-tag"></use>
+                                </svg>
+                            </a>                        
+                        
+                            <a href="https://plus.google.com/share?url={{ .URL | absURL }}" title="Share on Google+" class="btn -gplus -social">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-gplus icon -social -gplus">
+                                    <use xlink:href="#icon-gplus"></use>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-tag btn__bg">
+                                    <use xlink:href="#icon-tag"></use>
+                                </svg>
+                            </a>
+
                         </footer>
                     </div>
                 </div>
