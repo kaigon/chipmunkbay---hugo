@@ -16,7 +16,7 @@
 }
 
 .archives__results--header {
-font-size: 1.3em;
+    font-size: 1.3em;
     padding-bottom: 1.75em;
     padding-top: 0.7em;
 }
@@ -48,7 +48,7 @@ font-size: 1.3em;
 }
 
 .archives__results--title {
-     color: $text;
+    color: $text;
     display: inline-block;
     font-size: 1.3em;
 }
@@ -112,69 +112,19 @@ font-size: 1.3em;
 .archives__results--share {
     margin-top: 6px;
     .btn {
-        padding:6px;
+        padding: 6px;
         .btn__bg {
-            fill:$gray;
+            fill: $gray;
         }
     }
 }
 
-.archives__results--footer {
-    li {
-        display: inline-block;
-        position: relative;
-        color: white;
-        &.disabled {
-            opacity: 0.5;
-        }
-    }
-    a {
-        position: relative;
-        color: white;
-        display: inline-block;
-        transition: all .3s ease;
-        &:hover {
-            transform: scale(1.1);
-            i {
-                &:before {
-                    opacity: 1;
-                }
-            }
-        }
-    }
-    span {
-        margin: 4px 16px;
-        display: inline-block;
-        position: relative;
-        z-index: 2;
-        vertical-align: middle;
-        font-size: 1.2em;
-    }
-    i {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        background-size: 100% 100%;
-        &:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-size: 100% 100%;
-            background-image: url('data:image/svg+xml;charset=US-ASCII,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2222.228%22%20height%3D%2222.227%22%20viewBox%3D%22203.945%20203.945%2022.228%2022.227%22%20preserveAspectRatio%3D%22none%22%3E%3Cpath%20fill%3D%22%23DBB85C%22%20d%3D%22M219.627%20203.945c-4.378%201.215-9.297-.151-13.86.724-2.38.859-1.86%204.124-1.539%206.071.463%202.802.121%205.479.021%208.29-.225%206.232%202.932%206.654%208.083%206.77%203.478-.249%209.114%201.408%2012.175-.765%201.909-1.355%201.492-3.974%201.36-5.998-.201-3.068.076-6.164.104-9.234%201.194-4.263-3.158-5.8-6.344-5.858z%22%2F%3E%3C%2Fsvg%3E');
-            opacity: 0;
-            transition: all .3s ease;
-        }
-    }
-}
+.archives__results--footer {}
 
 @include min(sm) {
     .archives__results--info {
         display: flex;
+        align-items: baseline;
         //margin-bottom: 0.5em;
     }
     .archives__results--title {
@@ -187,5 +137,22 @@ font-size: 1.3em;
             display: none;
         }
     }
+    .archives__results--comic {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        .comic--comic {
+            flex: 1 0 100%;
+        }
+    }
+    .archives__results--tags {
+        flex: 1 0 auto;
+        width: calc(100% - 100px);
+    }
+    .archives__results--share {
+        margin-top: 0;
+        flex: 1 0 auto;
+        width: 100px;
+        text-align: right;
+    }
 }
-

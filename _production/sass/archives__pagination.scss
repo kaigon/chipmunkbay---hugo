@@ -1,0 +1,40 @@
+@import 'variables';
+.archives__pagination {}
+
+.archives__pagination--item {
+    display: inline-block;
+    position: relative;
+    color: white;
+    &.-disabled {
+        opacity: 0.5;
+        .btn__bg {
+            fill:$gray;
+        }
+    }
+    &.-active {
+        .btn__bg {
+            fill:$teal;
+        }
+
+    }
+    a {
+        position: relative;
+        color: white;
+        display: inline-block;
+        &:hover {
+            .btn__bg {
+                transform: scale(1.1) rotate(9deg);    
+            }
+        }
+    }
+    
+}
+
+.archives__pagination--text {
+    margin: 4px 16px;
+    display: inline-block;
+    position: relative;
+    z-index: 2;
+    vertical-align: middle;
+    font-size: 1.2em;
+}
