@@ -60,46 +60,46 @@
     .btn:nth-child(even) & {
         transform: rotate(180deg);
     }
-    .-tag & {
+    .btn.-tag & {
         fill: $tan;
     }
-    .-tag:hover & {
+    .btn.-tag:hover & {
         fill: darken($tan, 10);
     }
-    .-storyline & {
+    .btn.-storyline & {
         fill: $teal;
     }
-    .-storyline:hover & {
+    .btn.-storyline:hover & {
         fill: darken($teal, 10);
     }
-    .-character & {
+    .btn.-character & {
         fill: $gray;
     }
-    .-character:hover & {
+    .btn.-character:hover & {
         fill: darken($gray, 10);
     }
-    .-facebook & {
+    .btn.-facebook & {
         fill: $facebook;
     }
-    .-facebook:hover & {
+    .btn.-facebook:hover & {
         fill: darken($facebook, 10);
     }
-    .-twitter & {
+    .btn.-twitter & {
         fill: $twitter;
     }
-    .-twitter:hover & {
+    .btn.-twitter:hover & {
         fill: darken($twitter, 10);
     }
-    .-rss & {
+    .btn.-rss & {
         fill: $rss;
     }
-    .-rss:hover & {
+    .btn.-rss:hover & {
         fill: darken($rss, 10);
     }
-    .-gplus & {
+    .btn.-gplus & {
         fill: $red;
     }
-    .-gplus:hover & {
+    .btn.-gplus:hover & {
         fill: darken($red, 10);
     }
 }

@@ -1,26 +1,54 @@
 @import 'variables';
-.archives__pagination {}
+.archives__pagination {
+    margin:4em 0 1em;
+    @include min(sm){
+        margin:3em 0 4em;
+    }
+}
 
 .archives__pagination--item {
     display: inline-block;
     position: relative;
     color: white;
+    margin:0 -1px;
+    min-width:24px;
+    text-align: center;
+    &:nth-child(-n+2),
+    &:nth-last-child(-n+2){
+        .archives__pagination--text {
+            top: -1.5px;
+            @include min(xs){
+                top:-3px;
+            }
+        }
+        a {
+            .btn__bg {
+                fill:$teal;
+            }
+        }
+    }
+    .btn__bg {
+        fill:$gray;
+    }
     &.-disabled {
         opacity: 0.5;
+        color:$gray;
         .btn__bg {
-            fill:$gray;
+            fill:transparent;
+            stroke:$gray;
+            stroke-width: .75;
         }
     }
     &.-active {
         .btn__bg {
-            fill:$teal;
+            fill:$red;
         }
 
     }
     a {
         position: relative;
         color: white;
-        display: inline-block;
+        display: block;
         &:hover {
             .btn__bg {
                 transform: scale(1.1) rotate(9deg);    
@@ -31,10 +59,15 @@
 }
 
 .archives__pagination--text {
-    margin: 4px 16px;
     display: inline-block;
     position: relative;
     z-index: 2;
     vertical-align: middle;
-    font-size: 1.2em;
+    font-size: 1em;
+    margin:2px 8px;
+    text-align:center;
+    @include min(xs){
+        margin: 4px 16px;
+        font-size:1.2em;
+    }
 }

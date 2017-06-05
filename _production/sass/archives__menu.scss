@@ -1,59 +1,192 @@
 @import 'variables';
 .archives__menu {
-    .icon-dropdown {
-        width: 12px;
-        height: 12px;
-        background-size: contain;
-        display: inline-block;
-        background-position: center center;
-    }
-    li {
-        margin-bottom: 0;
-        color: $gray;
-        font-size: 14px;
-        padding-left: 16px;
-    }
-    a {
-        color: $red;
-    }
     @include min(sm) {
-        flex: 0 0 40%;
+        flex: 1 1 auto;
         padding-right: 1em;
     }
     @include min(md) {
-        flex: 0 0 35%;
         padding-right: 2em;
     }
     @include min(lg) {
-        flex: 0 0 30%;
         padding-right: 3em;
     }
 }
 
-.archive__menu--title {
-    letter-spacing: 1px;
-}
-
-.archive__menu--content {
-    display: none;
-    padding-top: 2em;
-    @include min(sm) {
-        display: block;
-    }
-}
-
-.archive__menu--subtitle {
-    font-size: 80%;
-    color: #fff;
-    background-size: 100% 100%;
-    padding: 5px 16px 6px;
-    margin-bottom: .5em;
-    display: inline-block;
-    cursor: pointer;
-}
-
-.archive__menu--checkbox {
+.archives__menu--checkbox {
     opacity: 0;
     position: absolute;
     visibility: hidden;
+}
+
+.archives__menu--content {
+    display: none;
+    .archives__menu--checkbox:checked ~ & {
+        display: block;
+    }
+    @include min(sm) {
+        display: block;
+        //padding-top: 2em;
+    }
+}
+
+.archives__menu--taxonomy {
+    padding-bottom: 1em;
+    padding-top: 1em;
+    @include min(sm){
+        padding:0;
+    }
+    &.-character,
+    &.-storyline,
+    &.-tag {
+        .icon-dropdown {
+            display: none;
+        }
+        a {
+            color: $darkgray;
+            margin-right: 2px;
+        }
+        .btn__bg {
+            fill: $darkgray;
+            display: none;
+        }
+        @include min(sm){
+            .icon-dropdown {
+                display: inline-block;
+            }
+            a {
+                color:$red;
+            }
+            .btn__bg {
+                display: block;
+            }
+        }
+    }
+    &.-all {
+        display: table;
+        width: auto;
+        position: relative;
+        padding: 0;
+        margin: 1em 0;
+        a {
+            color: $white;
+        }
+    }
+    &.-series {
+        a {
+            display: inline-block;
+            width: auto;
+            position: relative;
+            padding: 5px 16px 6px;
+            margin: 0 0 0.35em;
+            color: $white;
+        }
+        .btn__bg {
+            fill: $green;
+        }
+    }
+}
+
+.archives__menu--label {
+    display: table;
+    position: relative;
+    color: $darkgray;
+    padding: 0;
+    margin-bottom: .25em;
+    &[for="checkbox--archives"] {
+        cursor:pointer;
+        padding: 5px 16px 6px;
+        margin-bottom: .5em;
+        color: #fff;
+        @include min(sm){
+            padding:0;
+            //margin-bottom:0;
+            color:$darkgray;
+            cursor:default;
+            .icon-dropdown,
+            .btn__bg {
+                display: none;
+            }
+
+        }
+    }
+    .-character &,
+    .-tag &,
+    .-storyline & {
+        @include min(sm){
+            color:#fff;
+            padding: 5px 16px 6px;
+            cursor: pointer;
+            //margin-bottom:.5em;
+        }
+    }
+    .btn__bg {
+        fill: $darkgray;
+    }
+    .icon-dropdown {
+        fill: $white;
+        margin-left: .25em;
+        width: 13px;
+        height: 8px;
+        .archives__menu--checkbox:checked ~ & {
+            transform: rotate(-180deg);
+        }
+    }
+    
+}
+
+.archives__menu--title {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    .archives__menu--content & {
+        font-size: .8em;
+    }
+}
+
+.archives__menu--links {
+    @include min(sm){
+        display:none;
+        .archives__menu--checkbox:checked ~ & {
+            display:block;
+            padding: .25em 0 1em;
+        }
+    }
+}
+
+.archives__menu--link {
+    margin-bottom: 0;
+    font-size: 12px;
+    display: inline-block;
+    border-radius: 5px;
+    padding: 3px 7px 4px;
+    margin: 2px 0 1px;
+    background-color: $white;
+    color: $red;
+    border: 1px solid $lightgray;
+    box-shadow: 1px 1px 0 0 $lightgray;
+    transition: background-color 300ms ease;
+    &:hover {
+        background-color: mix($white, $gold, 60);
+    }
+    @include min(sm) {
+        background-color: transparent;
+        padding: 0;
+        margin: 0 0 .15rem 16px;
+        border-radius:0;
+        color: $gray;
+        font-size: 16px;
+        display: table;
+        box-shadow: inset 0 0 0 0 $lightgray;
+        border:0;
+        transition: box-shadow 300ms ease;
+        &:hover {
+            background-color:transparent;
+            box-shadow: inset 0 -2px 0 0 saturate(lighten($gold,10),5);
+            a {
+                color:$green;
+            }
+        }
+    }
 }

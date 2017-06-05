@@ -25,6 +25,7 @@ img.city-bg-footer {
         //position: relative;
         z-index: 1;
         max-width: 560px;
+
         @include min(sm) {
             max-width: 1480px;
         }
@@ -71,6 +72,9 @@ img.city-bg-footer {
     .btn {
         //position: relative;
         padding:12px;
+        @include minmax(sm,md){
+            padding:8px;
+        }
         .icon-patreon_full {
             display: block;
             background-size: contain;
@@ -99,6 +103,10 @@ img.city-bg-footer {
     .icon.-social {
         width:25px;
         height:25px;
+        @include minmax(sm,md){
+            width:15px;
+            height:15px;
+        }
     }
     .col {
         max-width: 560px;
@@ -142,6 +150,11 @@ img.city-bg-footer {
             }
         }
     }
+    .serif {
+            position:relative;
+            font-family: cursive;
+            top:2px;
+        }
     .icon-email {
         width: 37px;
         height: 24px;

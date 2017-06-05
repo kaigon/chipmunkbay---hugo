@@ -20,8 +20,8 @@
                 <div class="archives__results--item">
                     <div class="archives__results--info">
                         <a href="{{ .Permalink }}" title="{{ .Title }}" class="archives__results--title">
-                                {{.Title}}
-                            </a>
+                            {{.Title}}
+                        </a>
                         <span class="archives__results--date">{{ .Date.Format "Jan 2, 2006" }}</span>
                     </div>
                     <div class="archives__results--comic">
@@ -33,22 +33,22 @@
                             <!--<label>tags</label>-->
                             {{ range .Params.tags }}
                             <span>
-                                        <a href="{{ "/tags/" }}{{ . | urlize }}" title="Comics tagged as &ldquo;{{ . }}&rdquo;">{{ . }}</a> 
-                                    </span> {{ end }} {{ end }}
+                                <a href="{{ "/tags/" }}{{ . | urlize }}" title="Comics tagged as &ldquo;{{ . }}&rdquo;">{{ . }}</a> 
+                            </span> {{ end }} {{ end }}
                             <!-- characters -->
                             {{ if and (isset .Params "characters") (and (not (eq .Params.characters "")) (not (eq .Params.characters nil))) }}
                             <!--<label>characters</label>-->
                             {{ range .Params.characters }}
                             <span>
-                                        <a href="{{ "/characters/" }}{{ . | urlize }}" title="Comics featuring &ldquo;{{ . }}&rdquo;">{{ . }}</a>
-                                    </span> {{ end }} {{ end }}
+                                <a href="{{ "/characters/" }}{{ . | urlize }}" title="Comics featuring &ldquo;{{ . }}&rdquo;">{{ . }}</a>
+                            </span> {{ end }} {{ end }}
                             <!-- storyline -->
                             {{ if and (isset .Params "storyline") (and (not (eq .Params.storyline "")) (not (eq .Params.storyline nil))) }}
                             <!--<label>storyline</label>-->
                             {{ range .Params.storyline }}
                             <span>
-                                        <a href="{{ "/storyline/" }}{{ . | urlize }}" title="Comics in the &ldquo;{{ . }}&rdquo; storyline">{{ . }}</a>
-                                    </span> {{ end }} {{ end }}
+                                <a href="{{ "/storyline/" }}{{ . | urlize }}" title="Comics in the &ldquo;{{ . }}&rdquo; storyline">{{ . }}</a>
+                            </span> {{ end }} {{ end }}
                         </aside>
                         <footer class="archives__results--share">
                             <a href="http://www.facebook.com/share.php?u={{ .URL | absURL }}" title="Share on Facebook" class="btn -facebook -social">
@@ -97,7 +97,7 @@
                     </li>
                     {{ else }}
                     <li class="archives__pagination--item">
-                        <a aria-label="First" class="btn" title="First page of results" href="{{ $baseurl }}{{ $pag.First.URL }}">
+                        <a aria-label="First" title="First page of results" href="{{ $baseurl }}{{ $pag.First.URL }}">
                             <span class="archives__pagination--text" aria-hidden="true">&laquo;</span>
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon-tag btn__bg">
                                 <use xlink:href="#icon-tag"></use>
@@ -115,7 +115,7 @@
                     </li>
                     {{ else }}
                     <li class="archives__pagination--item">
-                        <a aria-label="Previous" title="Previous page of results" href="{{ $baseurl }}">
+                        <a aria-label="Previous" title="Previous page of results" href="{{ $baseurl }}{{ $pag.Prev.URL }}">
                             <span class="archives__pagination--text" aria-hidden="true">&lsaquo;</span>
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon-tag btn__bg">
                                 <use xlink:href="#icon-tag"></use>
@@ -144,7 +144,7 @@
                     </li>
                     {{ else }}
                     <li class="archives__pagination--item">
-                        <a aria-label="Next" href="{{ $baseurl }}" title="Next page of results">
+                        <a aria-label="Next" href="{{ $baseurl }}{{ $pag.Next.URL }}" title="Next page of results">
                             <span class="archives__pagination--text" aria-hidden="true">&rsaquo;</span>
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon-tag btn__bg">
                                 <use xlink:href="#icon-tag"></use>
@@ -179,31 +179,34 @@
         </section>
         <nav class="archives__menu">
             <input type="checkbox" name="checkbox--archives" id="checkbox--archives" class="archives__menu--checkbox" />
-            <h3 class="archives__menu--title">
-                <label for="checkbox--archives" class="archives__menu--subtitle icon-button--black">Archives Filter<i class="icon-dropdown"></i></label>
-            </h3>
+            <label for="checkbox--archives" class="archives__menu--label">    
+                <h3 class="archives__menu--title">
+                    Archives Filter
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon-dropdown">
+                        <use xlink:href="#icon-dropdown"></use>
+                    </svg>
+                </h3>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon-button btn__bg">
+                    <use xlink:href="#icon-button"></use>
+                </svg>
+            </label>
             <main class="archives__menu--content">
-                <!-- begin filters -->
-                <!--
-                <div class="archives__menu--taxonomy -storyline">
-                    <label class="archives__menu--subtitle icon-tag--black">By storyline:</label>
-                    <ul class="ul ul--archives">
-                        {{ range where $.Site.Pages.ByDate ".Params.storyline" "!=" nil }} {{ $link := .Permalink }} {{ range $name, $taxonomy := .Site.Taxonomies }} {{ if eq "storyline" $name }} {{ range $key, $value := $taxonomy }} {{ $count := .Count }} {{ range first 1 $value.Pages }} {{ if (eq .Permalink $link) }}
-                        <li>
-                            <a href="/storyline/{{ $key | urlize }}" title="{{ $count }} comics within the &ldquo;{{ humanize (string $key) }}&rdquo; storyline">
-                                {{ humanize (string $key) }}
-                            </a>
-                        </li>
-                        {{ end }} {{ end }} {{ end }} {{ end }} {{ end }} {{ end }}
-                    </ul>
-                </div>
-                -->
                 <div class="archives__menu--taxonomy -character">
-                    <input type="checkbox" name="checkbox--character" id="checkbox--character" class="archives__menu--checkbox" />
-                    <label for="checkbox--character" class="archives__menu--subtitle icon-button--black">By character <i class="icon-dropdown"></i></label>
-                    <ul class="ul ul--archives">
+                    <input type="checkbox" name="checkbox--character" id="checkbox--character" checked="true" class="archives__menu--checkbox" />
+                    <label for="checkbox--character" class="archives__menu--label">
+                        <h4 class="archives__menu--title">
+                            By character 
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon-dropdown">
+                                <use xlink:href="#icon-dropdown"></use>
+                            </svg>    
+                        </h4>                        
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon-button btn__bg">
+                            <use xlink:href="#icon-button"></use>
+                        </svg>
+                    </label>
+                    <ul class="ul ul--archives archives__menu--links">
                         {{ range $name, $taxonomy := .Site.Taxonomies.characters }}
-                        <li>
+                        <li class="archives__menu--link">
                             <a href="/characters/{{ $name | urlize }}" title="{{ .Count }} comics featuring &ldquo;{{ $name }}&rdquo;" class="character--{{ $name }}">
                                 {{ $name }}
                             </a> {{ .Count }}
@@ -211,53 +214,74 @@
                         {{ end }}
                     </ul>
                 </div>
-                <div class="archives__menu--taxonomy">
-                    <a href="/tags/" class="tag tag--section" title="View a archives of all defined tags">
-                        <span class="tag__text">Search by storyline</span>
-                        <i class="icon-button--red tag__bg"></i>
-                    </a>
-                    <ul class="ul ul--archives hidden">
+                <div class="archives__menu--taxonomy -storyline">
+                    <input type="checkbox" name="checkbox--storyline" id="checkbox--storyline" class="archives__menu--checkbox" />
+                    <label for="checkbox--storyline" class="archives__menu--label">
+                        <h4 class="archives__menu--title">
+                            By storyline 
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon-dropdown">
+                                <use xlink:href="#icon-dropdown"></use>
+                            </svg>    
+                        </h4>                        
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon-button btn__bg">
+                            <use xlink:href="#icon-button"></use>
+                        </svg>
+                    </label>
+                    <ul class="ul ul--archives archives__menu--links">
                         {{ range where $.Site.Pages.ByDate ".Params.storyline" "!=" nil }} {{ $link := .Permalink }} {{ range $name, $taxonomy := .Site.Taxonomies }} {{ if eq "storyline" $name }} {{ range $key, $value := $taxonomy }} {{ $count := .Count }} {{ range first 1 $value.Pages }} {{ if (eq .Permalink $link) }}
-                        <li>
+                        <li class="archives__menu--link">
                             <a href="/storyline/{{ $key | urlize }}" title="{{ $count }} comics within the &ldquo;{{ humanize (string $key) }}&rdquo; storyline">
                                 {{ humanize (string $key) }}
-                            </a>
+                            </a> {{ $count }}
                         </li>
                         {{ end }} {{ end }} {{ end }} {{ end }} {{ end }} {{ end }}
                     </ul>
                 </div>
-                <div class="archives__menu--taxonomy">
-                    <ul class="ul ul--archives ul--archives_tags">
-                        <li class="tags">
-                            <a href="/tags/" class="tag tag--section" title="View a archives of all defined tags">
-                                <span class="tag__text">Search by tag</span>
-                                <i class="icon-button--red tag__bg"></i>
-                            </a>
+                <div class="archives__menu--taxonomy -tag">
+                    <input type="checkbox" name="checkbox--tag" id="checkbox--tag" class="archives__menu--checkbox" />
+                    <label for="checkbox--tag" class="archives__menu--label">
+                        <h4 class="archives__menu--title">
+                            By tag 
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon-dropdown">
+                                <use xlink:href="#icon-dropdown"></use>
+                            </svg>    
+                        </h4>                        
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon-button btn__bg">
+                            <use xlink:href="#icon-button"></use>
+                        </svg>
+                    </label>
+                    <ul class="ul ul--archives archives__menu--links">
+                        {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+                        <li class="archives__menu--link">
+                            <a href="/tags/{{ $name | urlize }}" title="{{ .Count }} comics featuring &ldquo;{{ $name }}&rdquo;">
+                                {{ $name }}
+                            </a> {{ .Count }}
                         </li>
+                        {{ end }}
                     </ul>
                 </div>
-                <div class="archives__menu--taxonomy">
-                    <ul class="ul ul--archives ul--archives_tags">
-                        <li class="tags">
-                            <a href="/chipmunkbay" class="tag tag--section" title="Browse the archives">
-                                <span class="tag__text">Browse all</span>
-                                <i class="icon-button--red tag__bg"></i>
-                            </a>
-                        </li>
-                    </ul>
+                <div class="archives__menu--taxonomy -all">
+                    <a href="/chipmunkbay" title="Browse the full archives" class="btn -lg -red">
+                        <h4 class="archives__menu--title btn__text">
+                            Browse the full archives
+                        </h4> 
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon-button btn__bg">
+                            <use xlink:href="#icon-button"></use>
+                        </svg>
+                    </a>
                 </div>
-                <div class="archives__menu--taxonomy">
-                    <label class="archives__menu--subtitle">Switch series:</label>
-                    <ul class="ul ul--archives ul--archives_tags">
-                        {{ range $section, $taxonomy := .Site.Sections }} {{ $m := index $.Site.Data.metadata (title $section) }} {{ if isset $m "name" }}
-                        <li class="tags">
-                            <a href="/{{ $section | urlize }}" class="tag tag--character" title="Browse the archives">
-                                <span class="tag__text">{{ $m.name }}</span>
-                                <i class="icon-button--green tag__bg"></i>
-                            </a>
-                        </li>
-                        {{ end }} {{ end }}
-                    </ul>
+                <div class="archives__menu--taxonomy -series">
+                    <label class="archives__menu--label">Switch series:</label>
+                    {{ range $section, $taxonomy := .Site.Sections }} {{ $m := index $.Site.Data.metadata (title $section) }} {{ if isset $m "name" }}
+                    <a href="/{{ $section | urlize }}" title="Browse the {{ $m.name }} archives" class="btn -lg -green">
+                        <h4 class="archives__menu--title btn__text">
+                            {{ $m.name }}
+                        </h4> 
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon-button btn__bg">
+                            <use xlink:href="#icon-button"></use>
+                        </svg>
+                    </a>
+                    {{ end }} {{ end }}
                 </div>
             </main>
         </nav>

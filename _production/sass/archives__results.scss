@@ -1,24 +1,27 @@
 @import 'variables';
 .archives__results {
     @include min(sm) {
-        flex: 0 0 60%;
+        flex: 0 1 auto;
         border-left: 1px solid $lightgray;
         padding-left: 1em;
     }
     @include min(md) {
-        flex: 0 0 65%;
+        //flex: 0 0 65%;
         padding-left: 2em;
     }
     @include min(lg) {
-        flex: 0 0 70%;
+        //flex: 0 0 70%;
         padding-left: 3em;
     }
 }
 
 .archives__results--header {
     font-size: 1.3em;
-    padding-bottom: 1.75em;
+    padding-bottom: 1.25em;
     padding-top: 0.7em;
+    @include min(sm){
+        padding-top:0;
+    }
 }
 
 .archives__results--page-title {
@@ -125,13 +128,16 @@
     .archives__results--info {
         display: flex;
         align-items: baseline;
+        justify-content: space-between;
         //margin-bottom: 0.5em;
     }
     .archives__results--title {
-        flex: 0 0 70%;
+        //flex: 0 0 70%;
+        flex: 0 1 auto;
     }
     .archives__results--date {
-        flex: 0 0 30%;
+        flex: 0 1 auto;
+        //flex: 0 0 30%;
         text-align: right;
         &:before {
             display: none;
@@ -140,19 +146,24 @@
     .archives__results--comic {
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-between;
+        align-items:center;
         .comic--comic {
             flex: 1 0 100%;
         }
     }
     .archives__results--tags {
-        flex: 1 0 auto;
-        width: calc(100% - 100px);
+        flex: 0 1 auto;
+        order: 3;
+        p {
+            margin-bottom:0;
+        }
     }
     .archives__results--share {
         margin-top: 0;
-        flex: 1 0 auto;
-        width: 100px;
-        text-align: right;
+        flex: 0 1 auto;
+        margin-right:.75em;
+        .btn {
+            margin-top:0;
+        }
     }
 }
