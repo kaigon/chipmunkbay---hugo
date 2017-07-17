@@ -1,0 +1,63 @@
+				<div class="archives__results--item">
+                    <div class="archives__results--info">
+                        <a href="{{ .Permalink }}" title="{{ .Title }}" class="archives__results--title">
+                            {{.Title}}
+                        </a>
+                        <span class="archives__results--date">{{ .Date.Format "Jan 2, 2006" }}</span>
+                    </div>
+                    <div class="archives__results--comic">
+                        {{ partial "comic__comic.html" . }}
+                        {{ if eq .Section "chipmunkbay" }}
+                            <aside class="archives__results--tags">
+                                <p>Tags:</p>
+                                <!-- tags -->
+                                {{ if and (isset .Params "tags") (and (not (eq .Params.tags "")) (not (eq .Params.tags nil))) }}
+                                <!--<label>tags</label>-->
+                                {{ range .Params.tags }}
+                                <span>
+                                    <a href="{{ "/tags/" }}{{ . | urlize }}" title="Comics tagged as &ldquo;{{ . }}&rdquo;">{{ . }}</a> 
+                                </span> {{ end }} {{ end }}
+                                <!-- characters -->
+                                {{ if and (isset .Params "characters") (and (not (eq .Params.characters "")) (not (eq .Params.characters nil))) }}
+                                <!--<label>characters</label>-->
+                                {{ range .Params.characters }}
+                                <span>
+                                    <a href="{{ "/characters/" }}{{ . | urlize }}" title="Comics featuring &ldquo;{{ . }}&rdquo;">{{ . }}</a>
+                                </span> {{ end }} {{ end }}
+                                <!-- storyline -->
+                                {{ if and (isset .Params "storyline") (and (not (eq .Params.storyline "")) (not (eq .Params.storyline nil))) }}
+                                <!--<label>storyline</label>-->
+                                {{ range .Params.storyline }}
+                                <span>
+                                    <a href="{{ "/storyline/" }}{{ . | urlize }}" title="Comics in the &ldquo;{{ . }}&rdquo; storyline">{{ . }}</a>
+                                </span> {{ end }} {{ end }}
+                            </aside>
+                        {{ end }}
+                        <footer class="archives__results--share">
+                            <a href="http://www.facebook.com/share.php?u={{ .URL | absURL }}" title="Share on Facebook" class="btn -facebook -social">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-facebook icon -social -facebook">
+                                    <use xlink:href="#icon-facebook"></use>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-tag btn__bg">
+                                    <use xlink:href="#icon-tag"></use>
+                                </svg>
+                            </a>
+                            <a href="https://twitter.com/intent/tweet?url={{ .URL | absURL }}&text={{ .Title }}" title="Share on Twitter" class="btn -twitter -social">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-twitter icon -social -twitter">
+                                    <use xlink:href="#icon-twitter"></use>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-tag btn__bg">
+                                    <use xlink:href="#icon-tag"></use>
+                                </svg>
+                            </a>
+                            <a href="https://plus.google.com/share?url={{ .URL | absURL }}" title="Share on Google+" class="btn -gplus -social">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-gplus icon -social -gplus">
+                                    <use xlink:href="#icon-gplus"></use>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-tag btn__bg">
+                                    <use xlink:href="#icon-tag"></use>
+                                </svg>
+                            </a>
+                        </footer>
+                    </div>
+                </div>

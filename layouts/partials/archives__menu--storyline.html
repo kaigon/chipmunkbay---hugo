@@ -1,0 +1,23 @@
+<div class="archives__menu--taxonomy -storyline">
+            <input type="checkbox" {{ if isset .Data "storyline" }}checked="true"{{end}} name="checkbox--storyline" id="checkbox--storyline" class="archives__menu--checkbox" />
+            <label for="checkbox--storyline" class="archives__menu--label">
+                <h4 class="archives__menu--title">
+                    By storyline 
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon-dropdown">
+                        <use xlink:href="#icon-dropdown"></use>
+                    </svg>    
+                </h4>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon-button btn__bg">
+                    <use xlink:href="#icon-button"></use>
+                </svg>
+            </label>
+            <ul class="ul ul--archives archives__menu--links">
+                {{ range where $.Site.Pages.ByDate ".Params.storyline" "!=" nil }} {{ $link := .Permalink }} {{ range $name, $taxonomy := .Site.Taxonomies }} {{ if eq "storyline" $name }} {{ range $key, $value := $taxonomy }} {{ $count := .Count }} {{ range first 1 $value.Pages }} {{ if (eq .Permalink $link) }}
+                <li class="archives__menu--link">
+                    <a href="/storyline/{{ $key | urlize }}" title="{{ $count }} comics within the &ldquo;{{ humanize (string $key) }}&rdquo; storyline">
+                        {{ humanize (string $key) }}
+                    </a> {{ $count }}
+                </li>
+                {{ end }} {{ end }} {{ end }} {{ end }} {{ end }} {{ end }}
+            </ul>
+        </div>

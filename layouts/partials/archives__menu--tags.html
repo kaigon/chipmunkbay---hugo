@@ -1,0 +1,23 @@
+<div class="archives__menu--taxonomy -tag">
+    <input type="checkbox" {{ if isset .Data "tags" }}checked="true" {{end}} name="checkbox--tag" id="checkbox--tag" class="archives__menu--checkbox" />
+    <label for="checkbox--tag" class="archives__menu--label">
+        <h4 class="archives__menu--title">
+            By tag 
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon-dropdown">
+                 <use xlink:href="#icon-dropdown"></use>
+            </svg>    
+        </h4>
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon-button btn__bg">
+            <use xlink:href="#icon-button"></use>
+        </svg>
+    </label>
+    <ul class="ul ul--archives archives__menu--links">
+        {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+        <li class="archives__menu--link">
+            <a href="/tags/{{ $name | urlize }}" title="{{ .Count }} comics featuring &ldquo;{{ $name }}&rdquo;">
+                {{ $name }}
+            </a> {{ .Count }}
+        </li>
+        {{ end }}
+    </ul>
+</div>

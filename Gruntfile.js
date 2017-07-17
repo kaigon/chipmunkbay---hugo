@@ -227,7 +227,7 @@ module.exports = function(grunt) {
                 command: '.\\hugo server'
             },
             dev: {
-                command: '.\\hugo --baseUrl=http://localhost:8080/master_chipmunkbay/dev --destination=dev' //--source=site --destination=../dev
+                command: '.\\hugo --baseUrl=http://localhost:8888/master_chipmunkbay/dev --destination=dev' //--source=site --destination=../dev
             },
             build: {
                 command: '.\\hugo -d public/'
@@ -242,7 +242,7 @@ module.exports = function(grunt) {
 
         open: {
             devserver: {
-                path: 'http://localhost:8080/master_chipmunkbay/dev'
+                path: 'http://localhost:8888/master_chipmunkbay/dev'
             },
             live: {
                 path: 'http://kaigon.github.io/'
@@ -402,7 +402,7 @@ module.exports = function(grunt) {
     done = @async()
     args = ['--source=site', "--destination=../build/#{target}"]
     if target == 'dev'
-        args.push '--baseUrl=http://127.0.0.1:8080'
+        args.push '--baseUrl=http://127.0.0.1:8888'
         args.push '--buildDrafts=true'
         args.push '--buildFuture=true'
     hugo = require('child_process').spawn 'hugo', args, stdio: 'inherit'

@@ -1,222 +1,214 @@
 {{ partial "head.html" . }}
-<main class="list">
+
+<!-- define baseurl -->
+{{ $baseurl := .Site.BaseURL }} 
+{{ $singular := ( .Title | singularize) }}
+<!-- define metadata stuff -->
+{{ $metadata := index $.Site.Data.metadata $singular }}
+<!-- define characters stuff -->
+{{ $char_title := ( replace .Title " " "-" ) }} 
+{{ $character := index $.Site.Data.characters $char_title }}
+
+<main class="archives {{ if and (isset $metadata "name") (and (not (eq $metadata.name "Chipmunk Bay") ) ) }} -notcb {{ end }}">
+
     <div class="container">
-        <nav class="list__nav">
-            <h3 class="tag">
-                <span class="tag__text">Archive filters</span>
-                <i class="icon-button--red tag__bg"></i>
-            </h3>
-            <main class="list__nav--main">
-                <!-- define baseurl -->
-                {{ $baseurl := .Site.BaseURL }}
-                {{ $singular := ( .Title | singularize) }}
-                <!-- define metadata stuff -->
-                {{ $metadata := index $.Site.Data.metadata $singular }}
-                <!-- define characters stuff -->
-                {{ $char_title := ( replace .Title " " "-" ) }} 
-                {{ $character := index $.Site.Data.characters $char_title }}
-                <!-- begin filters -->
-                
-                <!--
-                <div>
-                    <label>Search:</label>
-                    <form action="/search_results" method="get" role="form">
-                        <div class="form-group">
-                            <div class="input-group">
-                                <input type="text" name="terms" title="You can also use &quot;quotes&quot; and &amp; to narrow down results." id="terms" class="form-control" placeholder="Search by Keyword or Date">
-                                <span class="input-group-btn">
-                                    <button name="" type="sumbit" class="btn btn-primary">
-                                        <i class="fa fa-search"></i> Search
-                                    </button>      
-                                </span>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                -->
-                {{ if and (isset $metadata "name") (eq $metadata.name "Chipmunk Bay") }}
-                <div>
-                    <label>By storyline:</label>
-                    <ul class="ul ul--list ul--list_tags">
-                        {{ range where $.Site.Pages.ByDate ".Params.storyline" "!=" nil }}
-                            {{ $link := .Permalink }}
-                            {{ range $name, $taxonomy := .Site.Taxonomies }}
-                                {{ if eq "storyline" $name }}
-                                    {{ range $key, $value := $taxonomy }}
-                                        {{ $count := .Count }}
-                                        {{ range first 1 $value.Pages }}
-                                            {{ if (eq .Permalink $link) }}
-                                                <li class="tags">
-                                                    <a href="/storyline/{{ $key | urlize }}" class="tag tag--storyline" title="{{ $count }} comics within the &ldquo;{{ humanize (string $key) }}&rdquo; storyline">
-                                                        <span class="tag__text">{{ humanize (string $key) }}</span><i class="tag__bg icon-button--teal"></i>
-                                                    </a>
-                                                </li>
-                                            {{ end }}
-                                        {{ end }}
-                                    {{ end }}
-                                {{ end }}
-                            {{ end }}
-                        {{ end }}
-                    </ul>
-                </div>
-
-                <div>
-                    <label>By character:</label>
-                    <ul class="ul ul--list ul--list_tags">
-                        {{ range $name, $taxonomy := .Site.Taxonomies.characters }}
-                        <li class="tags">
-                            <a href="/characters/{{ $name | urlize }}" class="tag tag--character" title="{{ .Count }} comics featuring &ldquo;{{ $name }}&rdquo;">
-                                <span class="tag__text">{{ $name }}</span><i class="icon-button--grey tag__bg"></i>
-                            </a>
-                        </li>
-                        {{ end }}
-                    </ul>
-                </div>
-                <!--
-                <div>
-                    <label>By tag:</label>
-                    <ul class="ul ul--list ul--list_tags">
-                        {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
-                        <li class="tags--tags tags">
-                            <a href="/tags/{{ $name | urlize }}" class="tag tag--tags" title="{{ .Count }} comics featuring &ldquo;{{ $name }}&rdquo;">
-                                <span class="tag__text">{{ $name }}</span><i class="icon-button--tan tag__bg"></i>
-                            </a>
-                        </li>
-                        {{ end }}
-                    </ul>
-                </div>
-                -->
-                <div>
-                    <ul class="ul ul--list ul--list_tags">
-                        <li class="tags">
-                            <a href="/tags/" class="tag tag--section" title="View a list of all defined tags">
-                                <span class="tag__text">Search by tag</span>
-                                <i class="icon-button--red tag__bg"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div>
-                    <ul class="ul ul--list ul--list_tags">
-                        <li class="tags">
-                            <a href="/chipmunkbay" class="tag tag--section" title="Browse the archives">
-                                <span class="tag__text">Browse all</span>
-                                <i class="icon-button--red tag__bg"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+        <section class="archives__results" data-type="{{$metadata.Type}}">
+            <!-- define paginator -->
+            {{ if isset $metadata "name" }}
+                {{ if eq $metadata.name "Guest Comic" }}
+                    {{ $pag := .Paginate (where .Data.Pages "Type" "guest").Reverse }}
+                    {{ $.Scratch.Add "pag" $pag }}
+                    <!--Guest comic is true!-->
+                {{ else if eq $metadata.name "Mouse House" }}
+                    {{ $pag := .Paginate (where .Data.Pages "Type" "mousehouse").Reverse }}
+                    {{ $.Scratch.Add "pag" $pag }}
+                    <!--Mouse House is true!-->
+                {{ else if eq $metadata.name "Ninja Monkey" }}
+                    {{ $pag := .Paginate (where .Data.Pages "Type" "ninjamonkey").Reverse }}
+                    {{ $.Scratch.Add "pag" $pag }}
+                    <!--Ninja Monkey is true!-->
+                {{ else if eq $metadata.name "Team N3" }}
+                    {{ $pag := .Paginate (where .Data.Pages "Type" "teamn3").Reverse }}
+                    {{ $.Scratch.Add "pag" $pag }}
+                    <!--Team n3 is true!-->
+                {{ else if eq $metadata.name "Chipmunk Bay" }}
+                    {{ $pag := .Paginate (where .Data.Pages "Type" "chipmunkbay").Reverse }}
+                    {{ $.Scratch.Add "pag" $pag }}
+                    <!--Chipmunk Bay is true!-->
+                {{ else }}
+                    {{ $pag := .Paginator }}
+                    {{ $.Scratch.Add "pag" $pag }}
+                    <!--REgular paginator is true!-->
                 {{ end }}
-                <div>
-                    <label>Switch to another comic series:</label>
-                    <ul class="ul ul--list ul--list_tags">
-                        {{ range $section, $taxonomy := .Site.Sections }}
-                            {{ $m := index $.Site.Data.metadata (title $section) }}
-                            {{ if isset $m "name" }}
-                            <li class="tags">
-                                <a href="/{{ $section | urlize }}" class="tag tag--character" title="Browse the archives">
-                                    <span class="tag__text">{{ $m.name }}</span>
-                                    <i class="icon-button--green tag__bg"></i>
-                                </a>
-                            </li>
-                            {{ end }}
-                        {{ end }}
-                    </ul>
-                </div>
-                
-            </main>
-        </nav>
-        <section class="list__results">
-            <header class="list__results--header">
-                <!-- archives for comic section -->
-                <!-- ex: Chipmunk Bay, or Team N3 -->
-                {{ if isset $metadata "name" }}
-                    <h3>{{ $metadata.name }} archives</h3>
-                <!-- all comics featuring a set tag -->
-                <!-- ex: all comics tagged as 'starcraft' -->
-                {{ else if isset .Data "tags" }}
-                    <h3>Comics tagged as "{{ .Title }}"</h3>
-                <!-- all comics featuring a specific character -->
-                <!-- ex: all comics featuring 'Karen' -->
-                {{ else if isset .Data "characters" }} 
-                    <!-- if thumbnail exists -->
-                    {{ if isset $character "thumb" }}
-                    <figure>
-                        <img src="{{ $baseurl }}_files/img/thumb/{{ $character.thumb }}" alt="profile picture for {{ $character.fullname }}">
-                    </figure>
-                    {{ end }}
-                    <div>
-                        <label class="label">Comics featuring</label>
-                        <h3>{{ .Title }}</h3> 
+            {{ else if (not (isset $metadata "name") ) }}
+                {{ $pag := .Paginate (where .Data.Pages "Type" "chipmunkbay").Reverse }}
+                {{ $.Scratch.Add "pag" $pag }}
+                <!--Taxonomy is true!-->
+            {{ else }}
+                {{ $pag := .Paginator }}
+                {{ $.Scratch.Add "pag" $pag }}
+                <!--REgular paginator is true!-->
+            {{ end }}
+
+            {{ $pag := $.Scratch.Get "pag" }}
+            <header class="archives__results--header">
+                <h3 class="archives__results--page-title">
+                    {{ if isset .Data "storyline" }}
+                        Comics in the <span>"{{ .Title }}"</span> storyline
+                    {{ else if isset .Data "characters" }}
+                        <!--{{ if isset $character "thumb" }}
+                            <figure>
+                                <img src="{{ $baseurl }}_files/img/thumb/{{ $character.thumb }}" alt="profile picture for {{ $character.fullname }}">
+                            </figure>
+                        {{ end }}-->
+                        Comics featuring <span>"{{ .Title }}"</span> 
                         {{ if isset $character "level" }}
-                        <span>{{ $character.level }} cast member</span>
+                            <label>
+                                {{ $character.level }} cast member 
+                            </label>
                         {{ end }}
-                    </div>
-                <!-- all comics in a set storyline -->
-                <!-- ex: all comics in the 'Shawn has a date' storyline -->
-                {{ else if isset .Data "storyline" }}
-                    <!--<label class="label">Storyline</label>-->
-                    <h3 class="list__results--h3">Comics in the <span>"{{ .Title }}"</span> storyline</h3> 
+                    {{ else if isset .Data "tags" }}
+                        Comics tagged as <span>"{{ .Title }}"</span> 
+                    {{ else if isset $metadata "name" }}
+                        {{ $metadata.name }} archives
+                    {{ else }}
+                        Comic archives
+                    {{ end }}                
                     
-                {{ end }}
-
+                </h3>
+                <p class="archives__results--count">Showing {{add (mul (sub $pag.PageNumber 1) $pag.PageSize) 1 }}-{{ if $pag.HasNext }}{{ mul $pag.PageNumber $pag.PageSize }}{{ else }}{{ $pag.TotalNumberOfElements }}{{ end }} of {{ $pag.TotalNumberOfElements }} total comics.</p>
             </header>
-            <!--<p>$$$ total comics. Showing $$-$$.</p>-->
-            <main class="list__results--main">
-                <ul class="ul">
-                    <!-- define paginator -->
-                    {{ $pag := .Paginator 25 }}
-                    <!-- return actual results -->
-                    {{ range $index, $pag.Pages.ByDate }}
-                    <li>
-                        <a href="{{ .Permalink }}" title="{{ .Title }}">
-                            {{.Title}}
-                        </a>
-                        <span>{{ .Date.Format "Jan 2, 2006" }}</span>
-                    </li>
-                    {{ end }}
-                    <!-- end results for this page -->
-                </ul>
+            <main class="archives__results--main">
+                <!-- return actual results -->
+                {{ range $index, $pag.Pages.ByDate }}
+                    {{ partial "archives__results.html" . }}
+                {{ end }}
+                <!-- end results for this page -->
             </main>
             <!-- if there are pages, render pagination -->
-            <footer class="list_results--footer">
-                {{ if or ($pag.HasPrev) ($pag.HasNext) }}
-                <ul class="ul ul-inline pagination">
-                    <!-- if there are more than 1 pages of results -->
-                    {{ if gt $pag.TotalPages 1 }}
-                    <li {{ if not $pag.HasPrev }} class="disabled" {{ end }}>
-                        <a aria-label="First" href="{{ $baseurl }}{{ $pag.First.URL }}">
-                            <span aria-hidden="true">&laquo;&laquo;</span>
-                        </a>
-                    </li>
-                    <li {{ if not $pag.HasPrev }} class="disabled" {{ end }}>
-                        <a aria-label="Previous" href="{{ if $pag.HasPrev }}{{ $baseurl }}{{ $pag.Prev.URL }}{{ else }}#{{ end }}">
-                            <span aria-hidden="true">&laquo;</span>
-                        </a>
-                    </li>
-                    {{ range $pag.Pagers }}
-                    <li {{ if eq . $pag }} class="active" {{ end }}>
-                        <a href="{{ $baseurl }}{{ .URL }}">
-                            {{ .PageNumber }}
-                        </a>
-                    </li>
+            <footer class="archives__results--footer">
+                
+                {{ $window := $.Site.Params.paginateWindow | default 1 }}
+                {{ if gt $pag.TotalPages 1 }}
+                    {{ $total := $pag.TotalPages }}
+                    {{ $size := add 5 (add $window $window) }}
+                    {{ $cur := $pag.PageNumber }}
+                    {{ if gt $total $size }}
+                        {{ if lt $cur (sub $size (add $window 1)) }}
+                            {{ $.Scratch.Set "show" (seq 1 (sub $size 2)) }}
+                        {{ else if lt (sub $total $cur) (sub $size (add $window 2)) }}
+                            {{ $.Scratch.Set "show" (seq (add (sub $total $size) 3) $total) }}
+                        {{ else }}
+                            {{ $.Scratch.Set "show" (seq (sub $cur $window) (add $cur $window)) }}
+                        {{ end }}
+                        {{ $.Scratch.Add "show" 1 }}
+                        {{ $.Scratch.Add "show" $total }}
+                    {{ else }}
+                        {{ $.Scratch.Set "show" (seq 1 $total) }}
                     {{ end }}
-                    <li {{ if not $pag.HasNext }} class="disabled" {{ end }}>
-                        <a aria-label="Next" href="{{ if $pag.HasNext }}{{ $baseurl }}{{ $pag.Next.URL }}{{ else }}#{{ end }}">
-                            <span aria-hidden="true">&raquo;</span>
-                        </a>
-                    </li>
-                    <li {{ if not $pag.HasNext }} class="disabled" {{ end }}>
-                        <a aria-label="Last" href="{{ $baseurl }}{{ $pag.Last.URL }}">
-                            <span aria-hidden="true">&raquo;&raquo;</span>
-                        </a>
-                    </li>
-                    {{ end }}
-                </ul>
+                    <ul class="ul ul-inline pagination archives__pagination">
+                        <!-- if there are more than 1 pages of results -->
+                    
+                        <!-- first -->
+                        {{ if not $pag.HasPrev }}
+                        <li class="-disabled archives__pagination--item">
+                            <span class="archives__pagination--text" aria-hidden="true">&laquo;</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon-tag btn__bg">
+                                <use xlink:href="#icon-tag"></use>
+                            </svg>
+                        </li>
+                        {{ else }}
+                        <li class="archives__pagination--item">
+                            <a aria-label="First" title="First page of results" href="{{ $baseurl }}{{ $pag.First.URL }}">
+                                <span class="archives__pagination--text" aria-hidden="true">&laquo;</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-tag btn__bg">
+                                    <use xlink:href="#icon-tag"></use>
+                                </svg>
+                            </a>
+                        </li>
+                        {{ end }}
+                        <!-- prev -->
+                        {{ if not $pag.HasPrev }}
+                        <li class="-disabled archives__pagination--item">
+                            <span class="archives__pagination--text" aria-hidden="true">&lsaquo;</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon-tag btn__bg">
+                                <use xlink:href="#icon-tag"></use>
+                            </svg>
+                        </li>
+                        {{ else }}
+                        <li class="archives__pagination--item">
+                            <a aria-label="Previous" title="Previous page of results" href="{{ $baseurl }}{{ $pag.Prev.URL }}">
+                                <span class="archives__pagination--text" aria-hidden="true">&lsaquo;</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-tag btn__bg">
+                                    <use xlink:href="#icon-tag"></use>
+                                </svg>
+                            </a>
+                        </li>
+                        {{ end }}
+                        <!-- page numbers -->
+                        {{ range $pag.Pagers }}
+                            {{ $cur := .PageNumber }}
+                            {{ if in ($.Scratch.Get "show") $cur }}
+                                <li {{ if eq . $pag }} class="-active archives__pagination--item" {{ else }} class="archives__pagination--item" {{ end }}>
+                                    <a href="{{ $baseurl }}{{ .URL }}" title="Page {{ .PageNumber }}">
+                                        <span class="archives__pagination--text">{{ .PageNumber }}</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon-tag btn__bg">
+                                            <use xlink:href="#icon-tag"></use>
+                                        </svg>
+                                    </a>
+                                </li>
+                            {{ else if in (slice 2 (sub $total 1)) $cur }}
+                                <li class="archives__pagination--item">
+                                    <span class="archives__pagination--text" aria-hidden="true">&hellip;</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon-tag btn__bg">
+                                        <use xlink:href="#icon-tag"></use>
+                                    </svg>
+                                </li>
+                            {{ end }}
+                        {{ end }}                    
+                        
+                        <!-- next -->
+                        {{ if not $pag.HasNext }}
+                        <li class="-disabled archives__pagination--item">
+                            <span class="archives__pagination--text" aria-hidden="true">&rsaquo;</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon-tag btn__bg">
+                                <use xlink:href="#icon-tag"></use>
+                            </svg>
+                        </li>
+                        {{ else }}
+                        <li class="archives__pagination--item">
+                            <a aria-label="Next" href="{{ $baseurl }}{{ $pag.Next.URL }}" title="Next page of results">
+                                <span class="archives__pagination--text" aria-hidden="true">&rsaquo;</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-tag btn__bg">
+                                    <use xlink:href="#icon-tag"></use>
+                                </svg>
+                            </a>
+                        </li>
+                        {{ end }}
+                        <!-- last -->
+                        {{ if not $pag.HasNext }}
+                        <li class="-disabled archives__pagination--item">
+                            <span class="archives__pagination--text" aria-hidden="true">&raquo;</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon-tag btn__bg">
+                                <use xlink:href="#icon-tag"></use>
+                            </svg>
+                        </li>
+                        {{ else }}
+                        <li class="archives__pagination--item">
+                            <a aria-label="Last" data-baseurl="{{ $baseurl }}" data-lasturl="{{ $pag.Last.URL }}" href="{{ $baseurl }}{{ $pag.Last.URL }}" title="Last page of results">
+                                <span class="archives__pagination--text" aria-hidden="true">&raquo;</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-tag btn__bg">
+                                    <use xlink:href="#icon-tag"></use>
+                                </svg>
+                            </a>
+                        </li>
+                        {{ end }}
+                    </ul>
                 {{ end }}
             </footer>
             <!-- end pagination -->
         </section>
+        {{ partial "archives__menu.html" . }}
     </div>
 </main>
 </div>

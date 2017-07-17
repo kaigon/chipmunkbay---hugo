@@ -1,0 +1,68 @@
+<!-- define baseurl -->
+{{ $baseurl := .Site.BaseURL }} 
+{{ $singular := ( .Title | singularize) }}
+<!-- define metadata stuff -->
+{{ $metadata := index $.Site.Data.metadata $singular }}
+<nav class="archives__menu">
+    {{ if or (not (isset $metadata "name") ) (and (isset $metadata "name") (eq $metadata.name "Chipmunk Bay") ) }}
+    <input type="checkbox" name="checkbox--archives" id="checkbox--archives" class="archives__menu--checkbox" />
+    <label for="checkbox--archives" class="archives__menu--label">
+        <h3 class="archives__menu--title">
+            Archives Filter
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon-dropdown">
+                <use xlink:href="#icon-dropdown"></use>
+            </svg>
+        </h3>
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon-button btn__bg">
+            <use xlink:href="#icon-button"></use>
+        </svg>
+    </label>
+    {{ end }}
+    <main class="archives__menu--content">
+        {{ if or (not (isset $metadata "name") ) (and (isset $metadata "name") (eq $metadata.name "Chipmunk Bay") ) }}
+            {{ if isset .Data "storyline" }}
+                {{ partial "archives__menu--storyline.html" . }}
+                {{ partial "archives__menu--characters.html" . }}
+                {{ partial "archives__menu--tags.html" . }}
+            {{ else if isset .Data "characters" }}
+                {{ partial "archives__menu--characters.html" . }}
+                {{ partial "archives__menu--storyline.html" . }}
+                {{ partial "archives__menu--tags.html" . }}
+            {{ else if isset .Data "tags" }}
+                {{ partial "archives__menu--tags.html" . }}
+                {{ partial "archives__menu--characters.html" . }}
+                {{ partial "archives__menu--storyline.html" . }}
+            {{ else }}
+                {{ partial "archives__menu--storyline.html" . }}
+                {{ partial "archives__menu--characters.html" . }}
+                {{ partial "archives__menu--tags.html" . }}
+            {{ end }}
+            <div class="archives__menu--taxonomy -all">
+                <a href="/chipmunkbay" title="Browse the full archives" class="btn -lg -red">
+                    <h4 class="archives__menu--title btn__text">
+                        Browse the full archives
+                    </h4>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon-button btn__bg">
+                        <use xlink:href="#icon-button"></use>
+                    </svg>
+                </a>
+            </div>
+        {{ end }}
+        <div class="archives__menu--taxonomy -series">
+            <label class="archives__menu--label">Switch series:</label>
+            {{ range $section, $taxonomy := .Site.Sections }} 
+                {{ $m := index $.Site.Data.metadata (title $section) }} 
+                {{ if isset $m "name" }}
+                    <a href="/{{ $section | urlize }}" title="Browse the {{ $m.name }} archives" class="btn -lg -green">
+                        <h4 class="archives__menu--title btn__text">
+                            {{ $m.name }}
+                        </h4>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon-button btn__bg">
+                            <use xlink:href="#icon-button"></use>
+                        </svg>
+                    </a>
+                {{ end }} 
+            {{ end }}
+        </div>
+    </main>
+</nav>
