@@ -1,7 +1,8 @@
 @import 'variables';
 .archives__menu {
     @include min(sm) {
-        flex: 1 1 auto;
+        //flex: 1 1 auto;
+        flex: 1 0 25%;
         padding-right: 1em;
     }
     @include min(md) {
@@ -20,20 +21,19 @@
 
 .archives__menu--content {
     display: none;
-    .archives__menu--checkbox:checked ~ & {
+    .archives__menu--checkbox:checked~& {
         display: block;
     }
     @include min(sm) {
-        display: block;
-        //padding-top: 2em;
+        display: block; //padding-top: 2em;
     }
 }
 
 .archives__menu--taxonomy {
     padding-bottom: 1em;
     padding-top: 1em;
-    @include min(sm){
-        padding:0;
+    @include min(sm) {
+        padding: 0;
     }
     &.-character,
     &.-storyline,
@@ -49,12 +49,12 @@
             fill: $darkgray;
             display: none;
         }
-        @include min(sm){
+        @include min(sm) {
             .icon-dropdown {
                 display: inline-block;
             }
             a {
-                color:$red;
+                color: $red;
             }
             .btn__bg {
                 display: block;
@@ -72,6 +72,9 @@
         }
     }
     &.-series {
+        margin-top: 1.5em;
+        border-top: 1px solid $lightgray;
+        padding-top: 1.5em;
         a {
             display: inline-block;
             width: auto;
@@ -93,30 +96,27 @@
     padding: 0;
     margin-bottom: .25em;
     &[for="checkbox--archives"] {
-        cursor:pointer;
+        cursor: pointer;
         padding: 5px 16px 6px;
         margin-bottom: .5em;
         color: #fff;
-        @include min(sm){
-            padding:0;
-            //margin-bottom:0;
-            color:$darkgray;
-            cursor:default;
+        @include min(sm) {
+            padding: 0; //margin-bottom:0;
+            color: $darkgray;
+            cursor: default;
             .icon-dropdown,
             .btn__bg {
                 display: none;
             }
-
         }
     }
     .-character &,
     .-tag &,
     .-storyline & {
-        @include min(sm){
-            color:#fff;
+        @include min(sm) {
+            color: #fff;
             padding: 5px 16px 6px;
-            cursor: pointer;
-            //margin-bottom:.5em;
+            cursor: pointer; //margin-bottom:.5em;
         }
     }
     .btn__bg {
@@ -127,11 +127,10 @@
         margin-left: .25em;
         width: 13px;
         height: 8px;
-        .archives__menu--checkbox:checked ~ & {
+        .archives__menu--checkbox:checked~& {
             transform: rotate(-180deg);
         }
     }
-    
 }
 
 .archives__menu--title {
@@ -147,10 +146,13 @@
 }
 
 .archives__menu--links {
-    @include min(sm){
-        display:none;
-        .archives__menu--checkbox:checked ~ & {
-            display:block;
+    .archives__menu--taxonomy.-tag & {
+        overflow: auto;
+    }
+    @include min(sm) {
+        display: none;
+        .archives__menu--checkbox:checked~& {
+            display: block;
             padding: .25em 0 1em;
         }
     }
@@ -168,26 +170,36 @@
     border: 1px solid $lightgray;
     box-shadow: 1px 1px 0 0 $lightgray;
     transition: background-color 300ms ease;
+
     &:hover {
         background-color: mix($white, $gold, 60);
     }
-    @include min(sm) {
-        background-color: transparent;
-        padding: 0;
-        margin: 0 0 .15rem 16px;
-        border-radius:0;
-        color: $gray;
-        font-size: 14px;
-        display: table;
-        box-shadow: inset 0 0 0 0 $lightgray;
-        border:0;
-        transition: box-shadow 300ms ease;
-        white-space: nowrap;
-        &:hover {
-            background-color:transparent;
-            box-shadow: inset 0 -2px 0 0 saturate(lighten($gold,10),5);
+    .archives__menu--taxonomy:not(.-tag) & {
+        @include min(sm) {
+            background-color: transparent;
+            padding: 0;
+            margin: 0 0 .15rem 16px;
+            border-radius: 0;
+            color: $gray;
+            font-size: 14px;
+            display: table;
+            box-shadow: inset 0 0 0 0 $lightgray;
+            border: 0;
+            transition: box-shadow 300ms ease;
+            white-space: nowrap;
+            &:hover {
+                background-color: transparent;
+                box-shadow: inset 0 -2px 0 0 saturate(lighten($gold, 10), 5);
+                a {
+                    color: $green;
+                }
+            }
+        }
+    }
+    .archives__menu--taxonomy.-tag & {
+        @include min(sm) {
             a {
-                color:$green;
+                color: $darkgray;
             }
         }
     }

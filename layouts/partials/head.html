@@ -163,7 +163,7 @@
             //grunticon(["", "{{ .Site.BaseURL }}_files/img/icons.data.png.css", "{{ .Site.BaseURL }}_files/img/icons.fallback.css"], grunticon.svgLoadedCallback);
         } else {
             var ajax = new XMLHttpRequest();
-            ajax.open("GET", "{{ .Site.BaseURL }}_files/img/all.svg", true);
+            ajax.open("GET", "{{ .Site.BaseURL }}_files/img/all.svg?v3", true);
             ajax.responseType = "document";
             ajax.onload = function(e) {
                 //$('body').append('<div class="hidden"></div>');
@@ -197,24 +197,8 @@
 <body>       
 {{ end }}
 <!--[if lt IE 7]>
-            <p class="browsehappy">
-                You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.
-            </p>
-        <![endif]-->
-<header class="header">
-    <div class="container">
-        <h2>
-            <a href="{{ .Site.BaseURL }}">
-                <strong>{{.Site.Title}}</strong>
-                <!--<i class="icon-logo animated"></i>-->
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon-logo">
-                    <use xlink:href="#icon-logo"></use>
-                </svg>
-            </a>
-        </h2>
-        {{ partial "nav.html" . }}
-    </div>
-    <svg xmlns="http://www.w3.org/2000/svg" class="icon-bg__header">
-        <use xlink:href="#icon-bg__header"></use>
-    </svg>
-</header>
+    <p class="browsehappy">
+        You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.
+    </p>
+<![endif]-->
+{{ partial "nav.html" . }}        

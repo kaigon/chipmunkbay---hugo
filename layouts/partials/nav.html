@@ -1,41 +1,46 @@
-<input type="checkbox" id="menuToggle">
-<label class="nav-menu" for="menuToggle" onclick>
-    <!--<i class="icon-menu"></i>-->
-    <svg xmlns="http://www.w3.org/2000/svg" class="icon-menu">
-        <use xlink:href="#icon-menu"></use>
+<header class="header">
+    <a href="{{ .Site.BaseURL }}" class="header__logo">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon-logo" alt="Chipmunk Bay" title="Chipmunk Bay">
+            <use xlink:href="#icon-logo"></use>
+        </svg>
+    </a>
+    <svg xmlns="http://www.w3.org/2000/svg" class="icon-bg__header header__bg">
+        <use xlink:href="#icon-bg__header"></use>
     </svg>
-    <span>menu</span>
-    <svg xmlns="http://www.w3.org/2000/svg" class="icon-close">
-        <use xlink:href="#icon-close"></use>
-    </svg>
-    <!--<i class="close-button" data-type="close"></i>-->
-</label>
-<ul class="nav-content ul">
-    <li>
-        <a href="{{ .Site.BaseURL }}new" title="New Readers">New readers</a>
-    </li>
-    <li>
-        <a href="{{ .Site.BaseURL }}extras" title="Extras">Extras</a>
-    </li>
-    <!-- if patreon is set in config.toml, AND it's not empty -->
-    {{ if and (isset .Site.Author "patreon") (not (eq .Site.Author.patreon "")) }}
-    <li>
-        <a href="{{ .Site.Author.patreon }}" title="Support the comic">
-            Support me on Patreon
-            <!--<i class="icon-patreon"></i>-->
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon-patreon">
+    <input type="checkbox" id="menuToggle" class="header__menu--toggle">
+    <label class="nav-menu header__menu--icon" for="menuToggle" onclick>
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon-menu">
+            <use xlink:href="#icon-menu"></use>
+        </svg>
+        <span>menu</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon-close">
+            <use xlink:href="#icon-close"></use>
+        </svg>
+    </label>
+    <nav class="header__nav">
+        <a href="{{ .Site.BaseURL }}new" title="New Readers" class="header__nav--item">
+            <span class="header__nav--text">New readers</span>
+        </a>
+        <a href="{{ .Site.BaseURL }}extras" title="Extras" class="header__nav--item">
+            <span class="header__nav--text">Extras</span>
+        </a>
+        <!-- if patreon is set in config.toml, AND it's not empty -->
+        {{ if and (isset .Site.Author "patreon") (not (eq .Site.Author.patreon "")) }}
+        <a href="{{ .Site.Author.patreon }}" title="Support the comic" class="header__nav--item">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon-patreon header__nav--icon">
                 <use xlink:href="#icon-patreon"></use>
             </svg>
-        </a>
-    </li>
-    {{ end }}
-    <li>
-        <a href="{{ .Site.BaseURL }}contact" title="Contact us">
-            <!--<i class="icon-email"></i>-->
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon-email">
+            <span class="header__nav--text">Support the comic</span>
+        </a> 
+        {{ end }}
+        <a href="{{ .Site.BaseURL }}contact" title="Contact us" class="header__nav--item">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon-email header__nav--icon">
                 <use xlink:href="#icon-email"></use>
             </svg>
-            <span>Contact me</span>
+            <span class="header__nav--text">Contact me</span>
         </a>
-    </li>
-</ul>
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon-bg__header header__nav--bg">
+            <use xlink:href="#icon-bg__header"></use>
+        </svg>
+    </nav>
+</header>

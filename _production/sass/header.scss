@@ -1,4 +1,14 @@
 @import 'variables';
+
+
+
+
+/***
+    *
+    * Header and logo
+    *
+***/
+
 .header {
     overflow: visible;
     z-index: 3;
@@ -6,57 +16,214 @@
     display: block;
     margin: 0;
     position: relative;
-    //padding-bottom: 15px;
-    .container {
-        background-color: $darkgray;
-        //padding-top: 10px;
-        z-index: 2;
-        position: relative;
-        min-height: 50px;
-        @include min(sm) {
-            min-height: 60px;
-        }
-    }
-    h2 {
-        margin: 0 auto;
-        font-size: 0;
-    }
-    .icon-logo {
-        width: 100%;
-        max-width: 140px;
-        height: 40px;
-        display: inline-block;
-        margin-top: 10px;
-        @include min(sm) {
-            max-width: 180px;
-            height: 50px;
-        }
-    }
-    .icon-bg__header {
-        width: 100%;
-        fill: $darkgray;
-        position: absolute;
-        left: 0;
-        bottom: -15px;
-        height: calc(200vw * 260 / 1400);
-        @include min(xs) {
-            height: calc(140vw * 260 / 1400);
-        }
-        @include min(sm) {
-            height: calc(100vw * 260 / 1400);
-        }
-    }
-
+    padding: 10px 15px 6px;
     @include min(sm) {
-        background-color: $darkgray;
-        .container {
-            text-align: center;
-        }
+        background-color: $lightgray;
     }
     .isnode &,
     .ispage & {
         @include min(sm) {
             background-color: $offwhite;
         }
+    }
+}
+
+.header__logo {
+    display: inline-block;
+    position: relative;
+    z-index: 11;
+    .icon-logo {
+        width: 140px;
+        height: 40px;
+        display: inline-block;
+        @include min(sm) {
+            width: 180px;
+            height: 50px;
+        }
+    }
+}
+
+.header__bg {
+    width: 100%;
+    fill: $darkgray;
+    position: absolute;
+    z-index: 10;
+    left: 0;
+    bottom: 0;
+    height: calc(200vw * 260 / 1400);
+    @include min(xs) {
+        height: calc(140vw * 260 / 1400);
+    }
+    @include min(sm) {
+        height: calc(100vw * 260 / 1400);
+    }
+}
+
+
+
+
+
+
+/***
+    *
+    * Menu icon
+    *
+***/
+
+.header__menu--toggle {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+}
+
+.header__menu--icon {
+    cursor: pointer;
+    user-select: none;
+    position: absolute;
+    right: 15px;
+    top: 18px;
+    align-items: center;
+    display: flex;
+    z-index: 1000;
+    text-align: right;
+    opacity: 0.4;
+    transition: all 400ms ease;
+    color: $offwhite; //font-size: .7rem;
+    span {
+        color: $offwhite;
+        padding-left: 6px;
+    }
+
+    .icon-menu {
+        width: 20px;
+        height: 20px;
+        background-position: center;
+        background-size: contain;
+        display: block;
+        fill: #F1F2F2;
+    }
+
+    .icon-close {
+        top: inherit;
+        position: absolute;
+    }
+
+    &:hover {
+        opacity: 1;
+    }
+
+    @include min(sm) {
+        font-size: 1rem;
+        .icon-menu {
+            width: 30px;
+            height: 30px;
+        }
+    }
+}
+
+
+
+
+/***
+    *
+    * Begin actual navigation items
+    *
+***/
+
+.header__nav {
+    position: relative;
+    transition: all 400ms ease;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    left: 0;
+    height: 60px;
+    .header__menu--toggle:checked~& {
+        bottom: -50px;
+    }
+}
+
+.header__nav--item {
+    display: inline-block;
+    color: $offwhite;
+    margin: 0 calc(.5em + 1.5vw);
+    display: inline-flex;
+    align-items: center;
+    &[title*="Support"],
+    &[title*="Contact"] {
+        @include max(xs){
+            display:none;
+        }
+    }
+    &:hover {
+        color: $white;
+    }
+}
+
+.header__nav--text {
+    position: relative;
+    display: inline-block;
+    z-index: 2;
+}
+
+.header__nav--icon {
+    display: none;
+    @include min(sm) {
+        $icon-color: saturate(lighten($red, 20), 10);
+        width: 20px;
+        height: 20px;
+        display: inline-block;
+        fill: $icon-color;
+        margin-right: 6px;
+        position: relative;
+        z-index: 3;
+        &.icon-patreon {
+            fill: $icon-color;
+        }
+        &.icon-email {
+            width: 20px;
+            height: 20px;
+            fill: $icon-color;
+        }
+    }
+}
+
+.header__nav--bg {
+    width: 100%;
+    fill: darken($red, 5);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: calc(200vw * 260 / 1400);
+    transform: rotateY(180deg);
+    .header__menu--toggle:checked~.header__nav & {
+        filter: drop-shadow(0px 2px 0 darken($red, 16));
+    }
+    @include min(xs) {
+        height: calc(140vw * 260 / 1400);
+    }
+
+    @include min(sm) {
+        height: calc(100vw * 260 / 1400);
+    }
+}
+
+
+
+
+/***
+    *
+    * What happens when the icon is clicked
+    *
+***/
+
+#menuToggle {
+
+    &:checked {
+        ~.header__nav {}
     }
 }
