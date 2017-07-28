@@ -32,6 +32,9 @@
     display: inline-block;
     position: relative;
     z-index: 11;
+    @include min($xl){
+        margin-left: calc((100% - 1400px) / 2);
+    }
     .icon-logo {
         width: 140px;
         height: 40px;
@@ -89,6 +92,9 @@
     opacity: 0.4;
     transition: all 400ms ease;
     color: $offwhite; //font-size: .7rem;
+    @include min($xl){
+        right: calc((100% - 1400px) / 2);
+    }
     span {
         color: $offwhite;
         padding-left: 6px;
