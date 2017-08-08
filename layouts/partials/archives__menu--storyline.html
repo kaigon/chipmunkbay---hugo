@@ -15,13 +15,9 @@
     <ul class="ul ul--archives archives__menu--links">
         Disabled during testing in the interest of speed. Re-enable before going live.
         <!--
-        {{ range where $.Site.Pages.ByDate ".Params.storyline" "!=" nil }} {{ $link := .Permalink }} {{ range $name, $taxonomy := .Site.Taxonomies }} {{ if eq "storyline" $name }} {{ range $key, $value := $taxonomy }} {{ $count := .Count }} {{ range first 1 $value.Pages }} {{ if (eq .Permalink $link) }}
-        <li class="archives__menu--link">
-            <a href="/storyline/{{ $key | urlize }}" title="{{ $count }} comics within the &ldquo;{{ humanize (string $key) }}&rdquo; storyline">
-                        {{ humanize (string $key) }}
-                    </a> {{ $count }}
-        </li>
-        {{ end }} {{ end }} {{ end }} {{ end }} {{ end }} {{ end }}
+        Code was apparently still running despite being commented out. 
+        Moved code to a gist.
+        https://gist.githubusercontent.com/kaigon/31318965585cf9f2e6860525d27f4d7d/raw/25a27292aeff60575374cb193f3f61b0948d2f84/Hugo%2520Storyline%2520archives
         -->
     </ul>
 </div>

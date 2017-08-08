@@ -1,1 +1,98 @@
-moo
+<div class="characters -primary">
+	<h2>Primary cast members</h2>
+	{{ range $.Site.Data.characters }}
+		{{ if eq .level "primary" }}
+			<div class="character">
+			{{ partial "character__bio.html" . }}
+			{{ $urlName := .name | urlize }}
+			{{ $charName := .name }}
+			<!-- ok, now build the 'Featured in x comics' button -->
+			{{ range $name, $taxonomy := $.Site.Taxonomies.characters }}
+
+				{{ $checkname := $name | urlize }}
+				{{ if eq $checkname $urlName }}	
+		            <a href="/characters/{{ $urlName }}" title="{{ .Count }} comics featuring &ldquo;{{ $charName }}&rdquo;" class="btn">
+		               <span class="btn__text">Featured in {{ .Count }} comics</span>
+		               <svg xmlns="http://www.w3.org/2000/svg" class="icon-button btn__bg">
+	                        <use xlink:href="#icon-button"></use>
+	                    </svg>
+		            </a> 
+	        	{{ end }}
+	        {{ end }}
+	        <!-- and now build the 'Featured in these storylines' list -->
+	        {{ $returns := $.Site.Pages.ByDate }}
+	        {{ $stories := (where $returns ".Params.storyline" "!=" nil) }}
+	        <h5>Makes an appearance in the following storylines:</h5>
+	        {{ range $stories }}
+	        	{{ if and (isset .Params "characters") (in .Params.characters (lower $charName)) }}
+					
+	        		<div class="character__stories">
+	        		{{ $link := .Permalink }}
+	        		{{ range $name, $taxonomy := $.Site.Taxonomies.storyline }} 
+	        			{{ range first 1 $taxonomy.Pages }}
+	        				{{ if (eq .Permalink $link) }}
+							    <a href="/storyline/{{ $name | urlize }}" title="Comic storyline &ldquo;{{ humanize (string $name) }}&rdquo;" class="tag">
+							        {{ humanize (string $name) }}
+							    </a>
+							{{ end }}
+						{{ end }}
+					{{ end }}
+					</div>
+	        		
+	        	{{ end }}
+	        	
+			{{ end }}
+			</div>
+		{{ end }}
+	{{ end }}
+</div>
+
+<div class="characters -secondary">
+	<h2>Supporting cast members</h2>
+	{{ range $.Site.Data.characters }}
+		{{ if eq .level "supporting" }}
+			<div class="character">
+			{{ partial "character__bio.html" . }}
+			{{ $urlName := .name | urlize }}
+			{{ $charName := .name }}
+			{{ range $name, $taxonomy := $.Site.Taxonomies.characters }}
+
+				{{ $checkname := $name | urlize }}
+				{{ if eq $checkname $urlName }}	
+		            <a href="/characters/{{ $urlName }}" title="{{ .Count }} comics featuring &ldquo;{{ $charName }}&rdquo;" class="btn">
+		               <span class="btn__text">Featured in {{ .Count }} comics</span>
+		               <svg xmlns="http://www.w3.org/2000/svg" class="icon-button btn__bg">
+	                        <use xlink:href="#icon-button"></use>
+	                    </svg>
+		            </a> 
+	        	{{ end }}
+	        {{ end }}
+	        <!-- and now build the 'Featured in these storylines' list -->
+	        {{ $returns := $.Site.Pages.ByDate }}
+	        {{ $stories := (where $returns ".Params.storyline" "!=" nil) }}
+	        <h5>Makes an appearance in the following storylines:</h5>
+	        {{ range $stories }}
+	        	{{ if and (isset .Params "characters") (in .Params.characters (lower $charName)) }}
+					
+	        		<div class="character__stories">
+	        		{{ $link := .Permalink }}
+	        		{{ range $name, $taxonomy := $.Site.Taxonomies.storyline }} 
+	        			{{ range first 1 $taxonomy.Pages }}
+	        				{{ if (eq .Permalink $link) }}
+							    <a href="/storyline/{{ $name | urlize }}" title="Comic storyline &ldquo;{{ humanize (string $name) }}&rdquo;" class="tag">
+							        {{ humanize (string $name) }}
+							    </a>
+							{{ end }}
+						{{ end }}
+					{{ end }}
+					</div>
+	        		
+	        	{{ end }}
+	        	
+			{{ end }}
+			</div>			
+		{{ end }}
+	{{ end }}
+</div>
+
+
