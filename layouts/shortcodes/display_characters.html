@@ -68,28 +68,21 @@
 	        	{{ end }}
 	        {{ end }}
 	        <!-- and now build the 'Featured in these storylines' list -->
-	        {{ $returns := $.Site.Pages.ByDate }}
-	        {{ $stories := (where $returns ".Params.storyline" "!=" nil) }}
+	        
 	        <h5>Makes an appearance in the following storylines:</h5>
-	        {{ range $stories }}
-	        	{{ if and (isset .Params "characters") (in .Params.characters (lower $charName)) }}
-					
-	        		<div class="character__stories">
-	        		{{ $link := .Permalink }}
-	        		{{ range $name, $taxonomy := $.Site.Taxonomies.storyline }} 
-	        			{{ range first 1 $taxonomy.Pages }}
-	        				{{ if (eq .Permalink $link) }}
-							    <a href="/storyline/{{ $name | urlize }}" title="Comic storyline &ldquo;{{ humanize (string $name) }}&rdquo;" class="tag">
-							        {{ humanize (string $name) }}
-							    </a>
-							{{ end }}
-						{{ end }}
-					{{ end }}
-					</div>
-	        		
-	        	{{ end }}
-	        	
-			{{ end }}
+			{{ $posts := $.Site.Pages.ByDate }}
+			{{ $stories := $.Site.Taxonomies.storyline }}
+
+	        {{ range $story, $tax := $stories }}
+
+	        	{{ $story }}
+	        	{{  . }}
+
+
+		        
+		        
+				
+	        {{ end }}
 			</div>			
 		{{ end }}
 	{{ end }}

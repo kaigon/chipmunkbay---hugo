@@ -2,7 +2,12 @@
 <main class="page">
     <div class="container">
 
-      {{ .Content }}
+    	{{ if eq .Title "New Reader?" }}
+    		{{ .Content }}
+			{{ partial "page__new.html" }}
+    	{{ else }}
+      		{{ .Content }}
+      	{{ end }}
     </div>
   </div>
 </main>
